@@ -1,0 +1,50 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // User can only read/write their own document
+    match /users/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Pine cones: own cones full access; public cones read-only for others
+    match /pine_cones/{coneId} {
+      allow read: if request.auth != null &&
+        (resource.data.userId == request.auth.uid ||
+         resource.data.isPublic == true);
+      allow create: if request.auth != null &&
+        request.resource.data.userId == request.auth.uid;
+      allow update, delete: if request.auth != null &&
+        resource.data.userId == request.auth.uid;
+
+      // Voice notes sub-collection
+      match /voice_notes/{voiceNoteId} {
+        allow read: if request.auth != null &&
+          get(/databases/$(database)/documents/pine_cones/$(coneId)).data.userId == request.auth.uid;
+        allow create: if request.auth != null &&
+          get(/databases/$(database)/documents/pine_cones/$(coneId)).data.userId == request.auth.uid;
+        allow delete: if request.auth != null &&
+          get(/databases/$(database)/documents/pine_cones/$(coneId)).data.userId == request.auth.uid;
+      }
+    }
+
+    // Species: read-only for all authenticated users
+    match /species/{speciesId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    // Achievements: read-only definitions
+    match /achievements/{achievementId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    // User achievements
+    match /user_achievements/{userId}/achievements/{achievementId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}

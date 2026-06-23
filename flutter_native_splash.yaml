@@ -1,0 +1,13 @@
+flutter_native_splash:
+  color: "#F7F4EF"
+  image: "assets/images/logo_squared.png"
+  color_dark: "#111827"
+  image_dark: "assets/images/logo_squared.png"
+  android_12:
+    color: "#F7F4EF"
+    image: "assets/images/logo_squared.png"
+    color_dark: "#111827"
+    image_dark: "assets/images/logo_squared.png"
+  ios: true
+  android: true
+  web: false

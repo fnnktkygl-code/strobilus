@@ -1,0 +1,3341 @@
+[
+  {
+    "id": "pinus_sylvestris",
+    "pokedexNumber": 1,
+    "scientificName": "Pinus sylvestris",
+    "commonNames": {
+      "en": "Scots Pine",
+      "fr": "Pin sylvestre"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Pinus",
+    "section": "Pinus",
+    "subsection": "Pinus",
+    "nativeCountryCodes": [
+      "PRT",
+      "ESP",
+      "FRA",
+      "ITA",
+      "CHE",
+      "AUT",
+      "DEU",
+      "NOR",
+      "SWE",
+      "FIN",
+      "GBR",
+      "IRL",
+      "POL",
+      "CZE",
+      "SVK",
+      "HUN",
+      "SVN",
+      "HRV",
+      "BIH",
+      "SRB",
+      "MNE",
+      "ALB",
+      "MKD",
+      "GRC",
+      "BGR",
+      "ROU",
+      "MDA",
+      "UKR",
+      "BLR",
+      "EST",
+      "LVA",
+      "LTU",
+      "RUS",
+      "KAZ",
+      "MNG",
+      "CHN",
+      "TUR",
+      "GEO",
+      "ARM",
+      "AZE"
+    ],
+    "continents": [
+      "Europe",
+      "Asia"
+    ],
+    "description": "One of the most widely distributed pines in the world, spanning from Scotland to Siberia. The Scots Pine is recognized by its distinctive orange-red bark on the upper trunk, blue-green needles in pairs, and small symmetrical cones.",
+    "descriptionFr": "L'un des pins les plus largement distribués au monde, s'étendant de l'Écosse à la Sibérie. Le pin sylvestre se reconnaît à son écorce orange-rouge distinctive sur la partie supérieure du tronc, ses aiguilles bleu-vert par paires et ses petits cônes symétriques.",
+    "sizeRange": "3–7 cm",
+    "sizeRangeFr": "3–7 cm",
+    "colorDescription": "Grey-brown, maturing to a warm tan",
+    "colorDescriptionFr": "Gris-brun, devenant brun chaud à maturité",
+    "shapeDescription": "Ovoid-conical, symmetrical with rhomboidal apophyses",
+    "shapeDescriptionFr": "Ovoïde-conique, symétrique avec des apophyses rhomboïdales",
+    "habitat": "Boreal forests, heathlands, sandy soils",
+    "habitatFr": "Forêts boréales, landes, sols sableux",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [
+      "Scots Pine can live for over 700 years.",
+      "It is the national tree of Scotland.",
+      "Its range extends across 14,000 km from Scotland to eastern Siberia."
+    ],
+    "interestingFactsFr": [
+      "Le pin sylvestre peut vivre plus de 700 ans.",
+      "C'est l'arbre national de l'Écosse.",
+      "Son aire de répartition s'étend sur 14 000 km, de l'Écosse à la Sibérie orientale."
+    ],
+    "wikipediaSlug": "Pinus_sylvestris",
+    "coneLengthMinCm": 3.0,
+    "coneLengthMaxCm": 7.0,
+    "coneShape": "ovoid",
+    "umboPosition": "dorsal",
+    "hasMucro": false,
+    "apophysisShape": "rhomboidal",
+    "isSerotinous": false,
+    "needlesPerFascicle": 2,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 37.0,
+        "latMax": 70.0,
+        "lonMin": -10.0,
+        "lonMax": 140.0
+      }
+    ],
+    "isIntroducedOrnamental": true,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 1,
+    "introducedCountryCodes": [
+      "USA",
+      "CAN",
+      "NZL"
+    ]
+  },
+  {
+    "id": "pinus_pinea",
+    "pokedexNumber": 2,
+    "scientificName": "Pinus pinea",
+    "commonNames": {
+      "en": "Italian Stone Pine",
+      "fr": "Pin parasol"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Pinus",
+    "section": "Pinus",
+    "subsection": "Pinaster",
+    "nativeCountryCodes": [
+      "PRT",
+      "ESP",
+      "FRA",
+      "ITA",
+      "HRV",
+      "ALB",
+      "GRC",
+      "CYP",
+      "TUR",
+      "LBN",
+      "SYR"
+    ],
+    "continents": [
+      "Europe",
+      "Africa"
+    ],
+    "description": "The iconic umbrella-shaped Mediterranean pine producing large, globular cones that take 3 years to mature. Its edible pine nuts have been a prized food source since Roman antiquity.",
+    "descriptionFr": "L'emblématique pin méditerranéen en forme de parasol, produisant de gros cônes globuleux qui mettent 3 ans à mûrir. Ses pignons comestibles sont une source alimentaire prisée depuis l'Antiquité romaine.",
+    "sizeRange": "8–15 cm",
+    "sizeRangeFr": "8–15 cm",
+    "colorDescription": "Rich glossy brown with broad, rounded apophyses",
+    "colorDescriptionFr": "Brun brillant avec de larges apophyses arrondies",
+    "shapeDescription": "Globular to ovoid, heavy, very broad apophyses",
+    "shapeDescriptionFr": "Globuleux à ovoïde, lourd, apophyses très larges",
+    "habitat": "Mediterranean coastal regions, sandy soils",
+    "habitatFr": "Régions côtières méditerranéennes, sols sableux",
+    "baseRarity": "uncommon",
+    "imageUrls": [],
+    "interestingFacts": [
+      "Pine nuts from this species are the basis of Italian pesto.",
+      "Cones take a full 3 years to mature — the longest of any Mediterranean pine.",
+      "A single cone can contain 50–120 edible seeds."
+    ],
+    "interestingFactsFr": [
+      "Les pignons de cette espèce sont la base du pesto italien.",
+      "Les cônes mettent 3 ans complets à mûrir — le plus long de tous les pins méditerranéens.",
+      "Un seul cône peut contenir 50 à 120 graines comestibles."
+    ],
+    "wikipediaSlug": "Pinus_pinea",
+    "coneLengthMinCm": 8.0,
+    "coneLengthMaxCm": 15.0,
+    "coneWeightMaxKg": 0.4,
+    "coneShape": "globular",
+    "umboPosition": "dorsal",
+    "hasMucro": false,
+    "apophysisShape": "rounded",
+    "isSerotinous": false,
+    "needlesPerFascicle": 2,
+    "seedType": "edible_nut",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 30.0,
+        "latMax": 45.0,
+        "lonMin": -10.0,
+        "lonMax": 40.0
+      }
+    ],
+    "isIntroducedOrnamental": true,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 2,
+    "introducedCountryCodes": [
+      "MAR",
+      "DZA",
+      "TUN",
+      "LBY",
+      "ISR",
+      "ZAF",
+      "AUS",
+      "NZL",
+      "USA"
+    ]
+  },
+  {
+    "id": "pinus_nigra",
+    "pokedexNumber": 3,
+    "scientificName": "Pinus nigra",
+    "commonNames": {
+      "en": "Austrian Pine",
+      "fr": "Pin noir"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Pinus",
+    "section": "Pinus",
+    "subsection": "Pinus",
+    "nativeCountryCodes": [
+      "PRT",
+      "ESP",
+      "FRA",
+      "ITA",
+      "AUT",
+      "CHE",
+      "DEU",
+      "SVN",
+      "HRV",
+      "BIH",
+      "MNE",
+      "ALB",
+      "MKD",
+      "GRC",
+      "BGR",
+      "ROU",
+      "TUR",
+      "CYP",
+      "UKR",
+      "RUS",
+      "GEO",
+      "DZA",
+      "MAR"
+    ],
+    "continents": [
+      "Europe",
+      "Asia",
+      "Africa"
+    ],
+    "description": "A robust, dark-barked pine native to southern Europe and Asia Minor. One of the most widely planted ornamental pines in North America, making geographic priors unreliable in urban settings.",
+    "descriptionFr": "Un pin robuste à écorce sombre, originaire d'Europe du Sud et d'Asie Mineure. L'un des pins ornementaux les plus plantés en Amérique du Nord, rendant les priors géographiques peu fiables en milieu urbain.",
+    "sizeRange": "5–8 cm",
+    "sizeRangeFr": "5–8 cm",
+    "colorDescription": "Yellow-brown glossy, with greyish-black umbo",
+    "colorDescriptionFr": "Jaune-brun brillant, avec un umbo gris-noir",
+    "shapeDescription": "Ovoid-conical, thick rigid scales with short spine",
+    "shapeDescriptionFr": "Ovoïde-conique, écailles rigides épaisses avec courte épine",
+    "habitat": "Mountain slopes, calcareous soils, urban parks",
+    "habitatFr": "Pentes de montagne, sols calcaires, parcs urbains",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [
+      "Austrian Pine is one of the most planted street trees worldwide.",
+      "It tolerates urban pollution better than almost any other pine.",
+      "The AI must account for its presence far outside its native range."
+    ],
+    "interestingFactsFr": [
+      "Le pin noir est l'un des arbres d'alignement les plus plantés au monde.",
+      "Il tolère la pollution urbaine mieux que presque tout autre pin.",
+      "L'IA doit tenir compte de sa présence bien au-delà de son aire native."
+    ],
+    "wikipediaSlug": "Pinus_nigra",
+    "coneLengthMinCm": 5.0,
+    "coneLengthMaxCm": 8.0,
+    "coneShape": "ovoid",
+    "umboPosition": "dorsal",
+    "hasMucro": true,
+    "apophysisShape": "rhomboidal",
+    "isSerotinous": false,
+    "needlesPerFascicle": 2,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 33.0,
+        "latMax": 48.0,
+        "lonMin": -5.0,
+        "lonMax": 45.0
+      }
+    ],
+    "isIntroducedOrnamental": true,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 1,
+    "introducedCountryCodes": [
+      "USA",
+      "CAN",
+      "NZL",
+      "GBR",
+      "AUS"
+    ]
+  },
+  {
+    "id": "pinus_halepensis",
+    "pokedexNumber": 4,
+    "scientificName": "Pinus halepensis",
+    "commonNames": {
+      "en": "Aleppo Pine",
+      "fr": "Pin d'Alep"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Pinus",
+    "section": "Pinus",
+    "subsection": "Pinaster",
+    "nativeCountryCodes": [
+      "MAR",
+      "DZA",
+      "TUN",
+      "LBY",
+      "ESP",
+      "FRA",
+      "ITA",
+      "HRV",
+      "MNE",
+      "ALB",
+      "GRC",
+      "TUR",
+      "SYR",
+      "LBN",
+      "ISR",
+      "JOR"
+    ],
+    "continents": [
+      "Europe",
+      "Asia",
+      "Africa"
+    ],
+    "description": "The quintessential Mediterranean pine, thriving on arid, rocky limestone soils. Its pedunculate cones (on a visible stalk) are a key diagnostic feature. Highly fire-adapted with rapid post-fire regeneration.",
+    "descriptionFr": "Le pin méditerranéen par excellence, prospérant sur des sols calcaires arides et rocheux. Ses cônes pédonculés (sur une tige visible) sont un caractère diagnostique clé. Très adapté au feu avec une régénération rapide après incendie.",
+    "sizeRange": "5–12 cm",
+    "sizeRangeFr": "5–12 cm",
+    "colorDescription": "Red-brown, symmetrical, on a distinctive stalk",
+    "colorDescriptionFr": "Rouge-brun, symétrique, sur une tige distinctive",
+    "shapeDescription": "Ovoid-conical, pedunculate (stalked), symmetrical",
+    "shapeDescriptionFr": "Ovoïde-conique, pédonculé (sur tige), symétrique",
+    "habitat": "Dry Mediterranean hillsides, garrigue, limestone",
+    "habitatFr": "Collines méditerranéennes sèches, garrigue, calcaire",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [
+      "It can regenerate entire forests after wildfire in just 15 years.",
+      "The cone stalk (peduncle) distinguishes it from most other pines.",
+      "It dominates the landscapes of Provence and the Greek islands."
+    ],
+    "interestingFactsFr": [
+      "Il peut régénérer des forêts entières après un incendie en seulement 15 ans.",
+      "La tige du cône (pédoncule) le distingue de la plupart des autres pins.",
+      "Il domine les paysages de Provence et des îles grecques."
+    ],
+    "wikipediaSlug": "Pinus_halepensis",
+    "coneLengthMinCm": 5.0,
+    "coneLengthMaxCm": 12.0,
+    "coneShape": "ovoid",
+    "umboPosition": "dorsal",
+    "hasMucro": false,
+    "apophysisShape": "flat",
+    "isSerotinous": false,
+    "needlesPerFascicle": 2,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 30.0,
+        "latMax": 45.0,
+        "lonMin": -10.0,
+        "lonMax": 40.0
+      }
+    ],
+    "isIntroducedOrnamental": true,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 1,
+    "introducedCountryCodes": [
+      "AUS",
+      "ZAF",
+      "NZL",
+      "USA",
+      "ARG"
+    ]
+  },
+  {
+    "id": "pinus_pinaster",
+    "pokedexNumber": 5,
+    "scientificName": "Pinus pinaster",
+    "commonNames": {
+      "en": "Maritime Pine",
+      "fr": "Pin maritime"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Pinus",
+    "section": "Pinus",
+    "subsection": "Pinaster",
+    "nativeCountryCodes": [
+      "PRT",
+      "ESP",
+      "FRA",
+      "ITA",
+      "HRV",
+      "MAR",
+      "DZA",
+      "TUN"
+    ],
+    "continents": [
+      "Europe",
+      "Africa"
+    ],
+    "description": "A tall, resinous Mediterranean pine dominating the Atlantic coast of France (Landes forest — the largest artificial forest in Europe). Its large, glossy, pyramidal-scaled cones are asymmetric at the base.",
+    "descriptionFr": "Un grand pin résineux méditerranéen dominant la côte atlantique française (forêt des Landes — la plus grande forêt artificielle d'Europe). Ses grands cônes brillants à écailles pyramidales sont asymétriques à la base.",
+    "sizeRange": "10–20 cm",
+    "sizeRangeFr": "10–20 cm",
+    "colorDescription": "Reddish-brown, very glossy and varnished",
+    "colorDescriptionFr": "Brun-rougeâtre, très brillant et verni",
+    "shapeDescription": "Conical-ovoid, asymmetric at base, pyramidal apophyses",
+    "shapeDescriptionFr": "Conique-ovoïde, asymétrique à la base, apophyses pyramidales",
+    "habitat": "Sandy coastal soils, dunes, Mediterranean maquis",
+    "habitatFr": "Sols sableux côtiers, dunes, maquis méditerranéen",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [
+      "The Landes forest in southwestern France covers over 1 million hectares of Maritime Pine.",
+      "Its resin was historically tapped for turpentine production.",
+      "Cones are among the largest and most glossy in European pines."
+    ],
+    "interestingFactsFr": [
+      "La forêt des Landes dans le sud-ouest de la France couvre plus d'un million d'hectares de pin maritime.",
+      "Sa résine était historiquement récoltée pour la production de térébenthine.",
+      "Les cônes sont parmi les plus grands et les plus brillants des pins européens."
+    ],
+    "wikipediaSlug": "Pinus_pinaster",
+    "coneLengthMinCm": 10.0,
+    "coneLengthMaxCm": 20.0,
+    "coneShape": "conical",
+    "umboPosition": "dorsal",
+    "hasMucro": true,
+    "apophysisShape": "pyramidal",
+    "isSerotinous": false,
+    "needlesPerFascicle": 2,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 28.0,
+        "latMax": 48.0,
+        "lonMin": -10.0,
+        "lonMax": 35.0
+      }
+    ],
+    "isIntroducedOrnamental": true,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 1,
+    "introducedCountryCodes": [
+      "ZAF",
+      "AUS",
+      "NZL",
+      "CHL",
+      "GBR",
+      "USA",
+      "URY"
+    ]
+  },
+  {
+    "id": "pinus_cembra",
+    "pokedexNumber": 6,
+    "scientificName": "Pinus cembra",
+    "commonNames": {
+      "en": "Swiss Stone Pine",
+      "fr": "Pin cembro"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Strobus",
+    "section": "Quinquefoliae",
+    "subsection": "Cembrae",
+    "nativeCountryCodes": [
+      "AUT",
+      "FRA",
+      "DEU",
+      "ITA",
+      "POL",
+      "ROU",
+      "SVK",
+      "CHE",
+      "UKR"
+    ],
+    "continents": [
+      "Europe"
+    ],
+    "description": "A slow-growing alpine pine with soft, pendulous needles in groups of 5. Its indehiscent cones never open on the tree — they fall intact and are broken apart by nutcrackers (Nucifraga) who cache the wingless seeds.",
+    "descriptionFr": "Un pin alpin à croissance lente avec des aiguilles souples et pendantes par groupes de 5. Ses cônes indéhiscents ne s'ouvrent jamais sur l'arbre — ils tombent intacts et sont décortiqués par les cassenoix (Nucifraga) qui cachent les graines aptères.",
+    "sizeRange": "5–8 cm",
+    "sizeRangeFr": "5–8 cm",
+    "colorDescription": "Purplish-brown when young, drying to warm brown",
+    "colorDescriptionFr": "Brun-violacé jeune, séchant en brun chaud",
+    "shapeDescription": "Ovoid, indehiscent (never opens), thick blunt scales",
+    "shapeDescriptionFr": "Ovoïde, indéhiscent (ne s'ouvre jamais), écailles épaisses et obtuses",
+    "habitat": "Alpine and subalpine zones, 1500–2500m altitude",
+    "habitatFr": "Zones alpines et subalpines, altitude 1500–2500 m",
+    "baseRarity": "uncommon",
+    "imageUrls": [],
+    "interestingFacts": [
+      "Its cones never open — seeds are extracted only by nutcracker birds.",
+      "Wood from this pine is prized for carved furniture in the Alps.",
+      "It can survive temperatures below -40°C."
+    ],
+    "interestingFactsFr": [
+      "Ses cônes ne s'ouvrent jamais — les graines ne sont extraites que par les cassenoix.",
+      "Le bois de ce pin est prisé pour les meubles sculptés dans les Alpes.",
+      "Il peut survivre à des températures inférieures à -40°C."
+    ],
+    "wikipediaSlug": "Pinus_cembra",
+    "coneLengthMinCm": 5.0,
+    "coneLengthMaxCm": 8.0,
+    "coneShape": "ovoid",
+    "umboPosition": "terminal",
+    "hasMucro": false,
+    "apophysisShape": "rounded",
+    "isSerotinous": false,
+    "needlesPerFascicle": 5,
+    "seedType": "bird_dispersed",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 44.0,
+        "latMax": 49.0,
+        "lonMin": 5.0,
+        "lonMax": 25.0
+      }
+    ],
+    "isIntroducedOrnamental": false,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 3,
+    "introducedCountryCodes": [
+      "CAN",
+      "USA",
+      "GBR"
+    ]
+  },
+  {
+    "id": "pinus_mugo",
+    "pokedexNumber": 7,
+    "scientificName": "Pinus mugo",
+    "commonNames": {
+      "en": "Mountain Pine",
+      "fr": "Pin mugo"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Pinus",
+    "section": "Pinus",
+    "subsection": "Pinus",
+    "nativeCountryCodes": [
+      "FRA",
+      "ESP",
+      "CHE",
+      "ITA",
+      "DEU",
+      "AUT",
+      "POL",
+      "SVK",
+      "CZE",
+      "ROU",
+      "UKR",
+      "SVN",
+      "HRV",
+      "BIH",
+      "SRB",
+      "MNE",
+      "ALB",
+      "BGR",
+      "GRC"
+    ],
+    "continents": [
+      "Europe"
+    ],
+    "description": "A shrubby, multi-stemmed pine of European mountain ranges. Its small, dark cones have a distinctive black ring around the umbo — a key identification feature for the AI.",
+    "descriptionFr": "Un pin arbustif à tiges multiples des chaînes de montagnes européennes. Ses petits cônes sombres ont un anneau noir distinctif autour de l'umbo — un caractère d'identification clé pour l'IA.",
+    "sizeRange": "2–5 cm",
+    "sizeRangeFr": "2–5 cm",
+    "colorDescription": "Dark brown with black-ringed umbo",
+    "colorDescriptionFr": "Brun foncé avec umbo cerné de noir",
+    "shapeDescription": "Small ovoid, symmetrical, dark",
+    "shapeDescriptionFr": "Petit ovoïde, symétrique, sombre",
+    "habitat": "Subalpine scrubland, exposed mountain ridges",
+    "habitatFr": "Broussailles subalpines, crêtes de montagne exposées",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [
+      "The black ring around its umbo is nearly unique among pines.",
+      "It is commonly sold as an ornamental dwarf pine.",
+      "Essential oil from its needles is used in traditional Alpine medicine."
+    ],
+    "interestingFactsFr": [
+      "L'anneau noir autour de son umbo est presque unique parmi les pins.",
+      "Il est communément vendu comme pin nain ornemental.",
+      "L'huile essentielle de ses aiguilles est utilisée en médecine traditionnelle alpine."
+    ],
+    "wikipediaSlug": "Pinus_mugo",
+    "coneLengthMinCm": 2.0,
+    "coneLengthMaxCm": 5.0,
+    "coneShape": "ovoid",
+    "umboPosition": "dorsal",
+    "hasMucro": false,
+    "apophysisShape": "flat",
+    "isSerotinous": false,
+    "needlesPerFascicle": 2,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 42.0,
+        "latMax": 50.0,
+        "lonMin": 5.0,
+        "lonMax": 27.0
+      }
+    ],
+    "isIntroducedOrnamental": true,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 2,
+    "introducedCountryCodes": [
+      "CAN",
+      "USA",
+      "NZL",
+      "GBR",
+      "SWE",
+      "FIN"
+    ]
+  },
+  {
+    "id": "pinus_strobus",
+    "pokedexNumber": 8,
+    "scientificName": "Pinus strobus",
+    "commonNames": {
+      "en": "Eastern White Pine",
+      "fr": "Pin blanc de l'Est"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Strobus",
+    "section": "Quinquefoliae",
+    "subsection": "Strobi",
+    "nativeCountryCodes": [
+      "CAN",
+      "USA"
+    ],
+    "continents": [
+      "North America"
+    ],
+    "description": "The tallest pine of eastern North America, once dominating the old-growth forests. Its long, slender, pendant cones with thin, smooth, resinous scales and no spines are diagnostic of the white pine group.",
+    "descriptionFr": "Le plus grand pin de l'est de l'Amérique du Nord, dominant autrefois les forêts primaires. Ses longs cônes étroits et pendants aux écailles minces, lisses et résineuses, sans épines, sont diagnostiques du groupe des pins blancs.",
+    "sizeRange": "8–16 cm",
+    "sizeRangeFr": "8–16 cm",
+    "colorDescription": "Pale brown, resinous white tips on scales",
+    "colorDescriptionFr": "Brun pâle, extrémités résineuses blanches sur les écailles",
+    "shapeDescription": "Cylindrical, narrow, pendant, curved, smooth spineless scales",
+    "shapeDescriptionFr": "Cylindrique, étroit, pendant, courbé, écailles lisses sans épines",
+    "habitat": "Mixed hardwood-conifer forests, well-drained soils",
+    "habitatFr": "Forêts mixtes feuillus-conifères, sols bien drainés",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [
+      "In colonial times, the tallest Eastern White Pines were reserved for Royal Navy ship masts.",
+      "It can grow over 60 meters tall, making it eastern North America's tallest native conifer.",
+      "Its soft, flexible cone scales make it easy to distinguish from hard pines."
+    ],
+    "interestingFactsFr": [
+      "À l'époque coloniale, les plus grands pins blancs étaient réservés pour les mâts de la Royal Navy.",
+      "Il peut dépasser 60 mètres de haut, ce qui en fait le plus grand conifère natif de l'est de l'Amérique du Nord.",
+      "Ses écailles souples et flexibles le distinguent facilement des pins durs."
+    ],
+    "wikipediaSlug": "Pinus_strobus",
+    "coneLengthMinCm": 8.0,
+    "coneLengthMaxCm": 16.0,
+    "coneShape": "cylindrical",
+    "umboPosition": "terminal",
+    "hasMucro": false,
+    "apophysisShape": "flat",
+    "isSerotinous": false,
+    "needlesPerFascicle": 5,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 33.0,
+        "latMax": 52.0,
+        "lonMin": -95.0,
+        "lonMax": -60.0
+      }
+    ],
+    "isIntroducedOrnamental": true,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 1,
+    "introducedCountryCodes": [
+      "AUT",
+      "BEL",
+      "BGR",
+      "FRA",
+      "DEU",
+      "GBR",
+      "HUN",
+      "IRL",
+      "ITA",
+      "POL",
+      "ROU",
+      "ESP",
+      "SWE",
+      "CHE",
+      "TUR",
+      "KOR",
+      "NZL"
+    ]
+  },
+  {
+    "id": "pinus_lambertiana",
+    "pokedexNumber": 9,
+    "scientificName": "Pinus lambertiana",
+    "commonNames": {
+      "en": "Sugar Pine",
+      "fr": "Pin à sucre"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Strobus",
+    "section": "Quinquefoliae",
+    "subsection": "Strobi",
+    "nativeCountryCodes": [
+      "USA",
+      "MEX"
+    ],
+    "continents": [
+      "North America"
+    ],
+    "description": "Producer of the longest pine cones in the world — up to 60 cm. These magnificent cylindrical cones hang from the ends of high branches like ornaments. A white pine with thin, smooth, spineless scales.",
+    "descriptionFr": "Producteur des plus longs cônes de pin au monde — jusqu'à 60 cm. Ces magnifiques cônes cylindriques pendent des extrémités des branches hautes comme des ornements. Un pin blanc aux écailles minces, lisses et sans épines.",
+    "sizeRange": "25–60 cm",
+    "sizeRangeFr": "25–60 cm",
+    "colorDescription": "Warm brown, resinous, pale scale tips",
+    "colorDescriptionFr": "Brun chaud, résineux, extrémités d'écailles pâles",
+    "shapeDescription": "Cylindrical, extremely elongated, pendant, spineless",
+    "shapeDescriptionFr": "Cylindrique, extrêmement allongé, pendant, sans épines",
+    "habitat": "Mixed montane conifer forests, Sierra Nevada",
+    "habitatFr": "Forêts de conifères de montagne, Sierra Nevada",
+    "baseRarity": "rare",
+    "imageUrls": [],
+    "interestingFacts": [
+      "Its cones hold the world record for length — over 60 cm has been measured.",
+      "Sugar Pine produces a sweet, edible resin that Native Americans used as chewing gum.",
+      "It is the tallest species in the white pine group, reaching 80 meters."
+    ],
+    "interestingFactsFr": [
+      "Ses cônes détiennent le record du monde de longueur — plus de 60 cm ont été mesurés.",
+      "Le pin à sucre produit une résine sucrée comestible que les Amérindiens utilisaient comme chewing-gum.",
+      "C'est l'espèce la plus haute du groupe des pins blancs, atteignant 80 mètres."
+    ],
+    "wikipediaSlug": "Pinus_lambertiana",
+    "coneLengthMinCm": 25.0,
+    "coneLengthMaxCm": 60.0,
+    "coneShape": "cylindrical",
+    "umboPosition": "terminal",
+    "hasMucro": false,
+    "apophysisShape": "flat",
+    "isSerotinous": false,
+    "needlesPerFascicle": 5,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 30.0,
+        "latMax": 45.0,
+        "lonMin": -125.0,
+        "lonMax": -115.0
+      }
+    ],
+    "isIntroducedOrnamental": false,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 4,
+    "introducedCountryCodes": [
+      "GBR"
+    ]
+  },
+  {
+    "id": "pinus_canariensis",
+    "pokedexNumber": 10,
+    "scientificName": "Pinus canariensis",
+    "commonNames": {
+      "en": "Canary Island Pine",
+      "fr": "Pin des Canaries"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Pinus",
+    "section": "Pinus",
+    "subsection": "Pinaster",
+    "nativeCountryCodes": [
+      "ESP"
+    ],
+    "continents": [
+      "Africa"
+    ],
+    "description": "A fire-adapted pine endemic to the Canary Islands, capable of resprouting from its trunk after fire — a rare ability among conifers. Its large, glossy cones and distinctive long, drooping needles in groups of 3 make it unmistakable.",
+    "descriptionFr": "Un pin adapté au feu, endémique des Îles Canaries, capable de resurgir de son tronc après un incendie — une capacité rare parmi les conifères. Ses grands cônes brillants et ses longues aiguilles pendantes par 3 le rendent incontournable.",
+    "sizeRange": "10–20 cm",
+    "sizeRangeFr": "10–20 cm",
+    "colorDescription": "Glossy brown, sometimes reddish",
+    "colorDescriptionFr": "Brun brillant, parfois rougeâtre",
+    "shapeDescription": "Ovoid-conical, large, heavy, symmetrical",
+    "shapeDescriptionFr": "Ovoïde-conique, grand, lourd, symétrique",
+    "habitat": "Volcanic mountain slopes, Canary Islands",
+    "habitatFr": "Pentes volcaniques de montagne, Îles Canaries",
+    "baseRarity": "uncommon",
+    "imageUrls": [],
+    "interestingFacts": [
+      "One of the few conifers that can resprout from its trunk after fire.",
+      "Its needles can reach 30 cm in length — some of the longest among pines.",
+      "It thrives on volcanic soils at altitudes of 1000–2500m."
+    ],
+    "interestingFactsFr": [
+      "L'un des rares conifères pouvant rebourgeonner depuis son tronc après un feu.",
+      "Ses aiguilles peuvent atteindre 30 cm — parmi les plus longues des pins.",
+      "Il prospère sur des sols volcaniques à des altitudes de 1000–2500 m."
+    ],
+    "wikipediaSlug": "Pinus_canariensis",
+    "coneLengthMinCm": 10.0,
+    "coneLengthMaxCm": 20.0,
+    "coneShape": "ovoid",
+    "umboPosition": "dorsal",
+    "hasMucro": true,
+    "apophysisShape": "pyramidal",
+    "isSerotinous": false,
+    "needlesPerFascicle": 3,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 27.5,
+        "latMax": 29.5,
+        "lonMin": -18.5,
+        "lonMax": -13.3
+      }
+    ],
+    "isIntroducedOrnamental": true,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 3,
+    "introducedCountryCodes": [
+      "ZAF",
+      "AUS",
+      "ITA",
+      "USA"
+    ]
+  },
+  {
+    "id": "pinus_coulteri",
+    "pokedexNumber": 11,
+    "scientificName": "Pinus coulteri",
+    "commonNames": {
+      "en": "Coulter Pine (Widowmaker)",
+      "fr": "Pin de Coulter"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Pinus",
+    "section": "Trifoliae",
+    "subsection": "Sabinianae",
+    "nativeCountryCodes": [
+      "USA",
+      "MEX"
+    ],
+    "continents": [
+      "North America"
+    ],
+    "description": "Producer of the heaviest pine cones in the world — up to 3.6 kg. Nicknamed the 'Widowmaker', its massive cones are armed with enormous hooked claws capable of piercing skin. A highly distinctive and unmistakable species for AI identification.",
+    "descriptionFr": "Producteur des cônes de pin les plus lourds au monde — jusqu'à 3,6 kg. Surnommé le 'Faiseur de veuves', ses cônes massifs sont armés d'énormes griffes recourbées capables de percer la peau. Une espèce très distinctive et immanquable pour l'identification par IA.",
+    "sizeRange": "20–40 cm",
+    "sizeRangeFr": "20–40 cm",
+    "colorDescription": "Pale brown to straw-colored, massive claws",
+    "colorDescriptionFr": "Brun pâle à couleur paille, griffes massives",
+    "shapeDescription": "Massive, ovoid, armed with enormous hooked claw-like spines",
+    "shapeDescriptionFr": "Massif, ovoïde, armé d'énormes épines en forme de griffes recourbées",
+    "habitat": "Dry chaparral, Southern California mountains",
+    "habitatFr": "Chaparral sec, montagnes du sud de la Californie",
+    "baseRarity": "rare",
+    "imageUrls": [],
+    "interestingFacts": [
+      "Its cones can weigh up to 3.6 kg — heavy enough to cause serious injury.",
+      "The hooked 'claws' on each scale are the most extreme armament in the genus.",
+      "Despite its ferocious cones, the seeds are edible and were eaten by Native Americans."
+    ],
+    "interestingFactsFr": [
+      "Ses cônes peuvent peser jusqu'à 3,6 kg — assez lourds pour causer des blessures graves.",
+      "Les 'griffes' recourbées sur chaque écaille sont l'armement le plus extrême du genre.",
+      "Malgré ses cônes féroces, les graines sont comestibles et étaient consommées par les Amérindiens."
+    ],
+    "wikipediaSlug": "Pinus_coulteri",
+    "coneLengthMinCm": 20.0,
+    "coneLengthMaxCm": 40.0,
+    "coneWeightMaxKg": 3.6,
+    "coneShape": "ovoid",
+    "umboPosition": "dorsal",
+    "hasMucro": true,
+    "apophysisShape": "hooked",
+    "isSerotinous": false,
+    "needlesPerFascicle": 3,
+    "seedType": "edible_nut",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 30.0,
+        "latMax": 37.0,
+        "lonMin": -122.0,
+        "lonMax": -116.0
+      }
+    ],
+    "isIntroducedOrnamental": false,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 4,
+    "introducedCountryCodes": [
+      "NZL",
+      "GBR",
+      "AUS"
+    ]
+  },
+  {
+    "id": "pinus_ponderosa",
+    "pokedexNumber": 12,
+    "scientificName": "Pinus ponderosa",
+    "commonNames": {
+      "en": "Ponderosa Pine",
+      "fr": "Pin ponderosa"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Pinus",
+    "section": "Trifoliae",
+    "subsection": "Ponderosae",
+    "nativeCountryCodes": [
+      "CAN",
+      "USA",
+      "MEX"
+    ],
+    "continents": [
+      "North America"
+    ],
+    "description": "One of the most widespread pines of western North America. Its bark smells of vanilla or butterscotch when warmed by the sun. Cones leave a characteristic rosette of basal scales on the branch when they fall.",
+    "descriptionFr": "L'un des pins les plus répandus de l'ouest de l'Amérique du Nord. Son écorce dégage une odeur de vanille ou de caramel au soleil. Les cônes laissent une rosette caractéristique d'écailles basales sur la branche en tombant.",
+    "sizeRange": "8–15 cm",
+    "sizeRangeFr": "8–15 cm",
+    "colorDescription": "Reddish-brown with outward-curving spine on umbo",
+    "colorDescriptionFr": "Brun-rougeâtre avec épine recourbée vers l'extérieur sur l'umbo",
+    "shapeDescription": "Conical to ovoid, symmetrical, outward-pointing prickle",
+    "shapeDescriptionFr": "Conique à ovoïde, symétrique, aiguillon pointant vers l'extérieur",
+    "habitat": "Dry montane forests, canyon slopes",
+    "habitatFr": "Forêts de montagne sèches, pentes de canyons",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [
+      "Its bark smells of vanilla or butterscotch in warm weather.",
+      "When the cone falls, it leaves a rosette of basal scales on the branch — a diagnostic trait.",
+      "Some individuals exceed 600 years of age."
+    ],
+    "interestingFactsFr": [
+      "Son écorce dégage une odeur de vanille ou de caramel par temps chaud.",
+      "Quand le cône tombe, il laisse une rosette d'écailles basales sur la branche — un trait diagnostique.",
+      "Certains individus dépassent 600 ans d'âge."
+    ],
+    "wikipediaSlug": "Pinus_ponderosa",
+    "coneLengthMinCm": 8.0,
+    "coneLengthMaxCm": 15.0,
+    "coneShape": "conical",
+    "umboPosition": "dorsal",
+    "hasMucro": true,
+    "apophysisShape": "rhomboidal",
+    "isSerotinous": false,
+    "needlesPerFascicle": 3,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 28.0,
+        "latMax": 52.0,
+        "lonMin": -125.0,
+        "lonMax": -100.0
+      }
+    ],
+    "isIntroducedOrnamental": false,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 2,
+    "introducedCountryCodes": [
+      "NZL",
+      "ARG",
+      "CHL",
+      "DEU",
+      "FRA",
+      "AUS"
+    ]
+  },
+  {
+    "id": "pinus_contorta",
+    "pokedexNumber": 13,
+    "scientificName": "Pinus contorta",
+    "commonNames": {
+      "en": "Lodgepole Pine",
+      "fr": "Pin tordu"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Pinus",
+    "section": "Trifoliae",
+    "subsection": "Contortae",
+    "nativeCountryCodes": [
+      "CAN",
+      "USA",
+      "MEX"
+    ],
+    "continents": [
+      "North America"
+    ],
+    "description": "A quintessential fire-adapted species with strongly serotinous cones sealed shut by thermoplastic resin. Its small, asymmetric, recurved cones can remain sealed on the tree for decades, only opening when exposed to the extreme heat of forest fires.",
+    "descriptionFr": "Une espèce quintessentielle adaptée au feu avec des cônes fortement sérotineux scellés par une résine thermoplastique. Ses petits cônes asymétriques et recourbés peuvent rester scellés sur l'arbre pendant des décennies, ne s'ouvrant qu'à la chaleur extrême des feux de forêt.",
+    "sizeRange": "3–7 cm",
+    "sizeRangeFr": "3–7 cm",
+    "colorDescription": "Greyish-brown when weathered, lighter when fresh",
+    "colorDescriptionFr": "Gris-brun patiné, plus clair quand frais",
+    "shapeDescription": "Small, asymmetric, recurved toward branch, knobbly basal scales",
+    "shapeDescriptionFr": "Petit, asymétrique, recourbé vers la branche, écailles basales noueuses",
+    "habitat": "Boreal and montane forests, fire-prone landscapes",
+    "habitatFr": "Forêts boréales et de montagne, paysages sujets aux incendies",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [
+      "Its serotinous cones require temperatures above 45°C to melt the resin seal.",
+      "After the 1988 Yellowstone fires, millions of Lodgepole Pine seedlings regenerated from serotinous cones.",
+      "Cones can stay sealed and viable on the tree for 15–20 years."
+    ],
+    "interestingFactsFr": [
+      "Ses cônes sérotineux nécessitent des températures supérieures à 45°C pour fondre le sceau de résine.",
+      "Après les feux de Yellowstone en 1988, des millions de semis de pin tordu ont régénéré à partir de cônes sérotineux.",
+      "Les cônes peuvent rester scellés et viables sur l'arbre pendant 15 à 20 ans."
+    ],
+    "wikipediaSlug": "Pinus_contorta",
+    "coneLengthMinCm": 3.0,
+    "coneLengthMaxCm": 7.0,
+    "coneShape": "asymmetric",
+    "umboPosition": "dorsal",
+    "hasMucro": true,
+    "apophysisShape": "flat",
+    "isSerotinous": true,
+    "needlesPerFascicle": 2,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 30.0,
+        "latMax": 64.0,
+        "lonMin": -140.0,
+        "lonMax": -105.0
+      }
+    ],
+    "isIntroducedOrnamental": false,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 2,
+    "introducedCountryCodes": [
+      "NZL",
+      "SWE",
+      "GBR",
+      "IRL",
+      "CHL",
+      "ARG"
+    ]
+  },
+  {
+    "id": "pinus_banksiana",
+    "pokedexNumber": 14,
+    "scientificName": "Pinus banksiana",
+    "commonNames": {
+      "en": "Jack Pine",
+      "fr": "Pin gris"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Pinus",
+    "section": "Trifoliae",
+    "subsection": "Contortae",
+    "nativeCountryCodes": [
+      "CAN",
+      "USA"
+    ],
+    "continents": [
+      "North America"
+    ],
+    "description": "The most northerly pine in eastern North America, dominating the Canadian boreal forest. Its small, curved, twist-shaped cones are strongly serotinous, spineless, and often persist on the tree for years.",
+    "descriptionFr": "Le pin le plus septentrional de l'est de l'Amérique du Nord, dominant la forêt boréale canadienne. Ses petits cônes courbés et tordus sont fortement sérotineux, sans épines, et persistent souvent sur l'arbre pendant des années.",
+    "sizeRange": "3–5 cm",
+    "sizeRangeFr": "3–5 cm",
+    "colorDescription": "Grey to pale brown, often weathered",
+    "colorDescriptionFr": "Gris à brun pâle, souvent patiné",
+    "shapeDescription": "Small, curved-twisted, asymmetric, spineless, serotinous",
+    "shapeDescriptionFr": "Petit, courbé-tordu, asymétrique, sans épines, sérotineux",
+    "habitat": "Boreal forest, sandy plains, jack pine barrens",
+    "habitatFr": "Forêt boréale, plaines sableuses, landes à pin gris",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [
+      "The Kirtland's Warbler, one of North America's rarest birds, nests exclusively in Jack Pine forests.",
+      "Its twisted cones give the species its characteristic 'contorted' appearance.",
+      "It is the first tree to recolonize burned areas in the boreal forest."
+    ],
+    "interestingFactsFr": [
+      "La Paruline de Kirtland, l'un des oiseaux les plus rares d'Amérique du Nord, niche exclusivement dans les forêts de pin gris.",
+      "Ses cônes tordus donnent à l'espèce son apparence 'contournée' caractéristique.",
+      "C'est le premier arbre à recoloniser les zones brûlées dans la forêt boréale."
+    ],
+    "wikipediaSlug": "Pinus_banksiana",
+    "coneLengthMinCm": 3.0,
+    "coneLengthMaxCm": 5.0,
+    "coneShape": "asymmetric",
+    "umboPosition": "dorsal",
+    "hasMucro": false,
+    "apophysisShape": "flat",
+    "isSerotinous": true,
+    "needlesPerFascicle": 2,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 42.0,
+        "latMax": 65.0,
+        "lonMin": -115.0,
+        "lonMax": -55.0
+      }
+    ],
+    "isIntroducedOrnamental": false,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 2,
+    "introducedCountryCodes": [
+      "CHN",
+      "BLR",
+      "CZE",
+      "EST",
+      "DEU",
+      "LTU",
+      "NOR",
+      "POL",
+      "NZL"
+    ]
+  },
+  {
+    "id": "pinus_radiata",
+    "pokedexNumber": 15,
+    "scientificName": "Pinus radiata",
+    "commonNames": {
+      "en": "Monterey Pine",
+      "fr": "Pin de Monterey"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Pinus",
+    "section": "Trifoliae",
+    "subsection": "Australes",
+    "nativeCountryCodes": [
+      "USA",
+      "MEX"
+    ],
+    "continents": [
+      "North America"
+    ],
+    "description": "Extremely rare in its native coastal California habitat (only 3 natural populations remain), yet the most widely planted commercial pine in the Southern Hemisphere. Its strongly asymmetric, reflexed cones with massively swollen outer scales are highly diagnostic.",
+    "descriptionFr": "Extrêmement rare dans son habitat côtier natif de Californie (seulement 3 populations naturelles subsistent), mais le pin commercial le plus planté dans l'hémisphère sud. Ses cônes fortement asymétriques et réfléchis, avec des écailles extérieures massivement renflées, sont très diagnostiques.",
+    "sizeRange": "7–15 cm",
+    "sizeRangeFr": "7–15 cm",
+    "colorDescription": "Warm brown, swollen outer scales",
+    "colorDescriptionFr": "Brun chaud, écailles extérieures renflées",
+    "shapeDescription": "Asymmetric, reflexed downward, massively swollen on one side",
+    "shapeDescriptionFr": "Asymétrique, réfléchi vers le bas, massivement renflé d'un côté",
+    "habitat": "Coastal California fog belt (native), plantations worldwide",
+    "habitatFr": "Zone de brouillard côtier de Californie (natif), plantations mondiales",
+    "baseRarity": "veryRare",
+    "imageUrls": [],
+    "interestingFacts": [
+      "Only ~10,000 native trees remain in 3 populations along the California coast.",
+      "Paradoxically, it is the most planted pine in the world — covering millions of hectares in New Zealand, Chile, and Australia.",
+      "Its cones are serotinous and can remain closed for decades."
+    ],
+    "interestingFactsFr": [
+      "Seulement ~10 000 arbres natifs subsistent dans 3 populations le long de la côte californienne.",
+      "Paradoxalement, c'est le pin le plus planté au monde — couvrant des millions d'hectares en Nouvelle-Zélande, au Chili et en Australie.",
+      "Ses cônes sont sérotineux et peuvent rester fermés pendant des décennies."
+    ],
+    "wikipediaSlug": "Pinus_radiata",
+    "coneLengthMinCm": 7.0,
+    "coneLengthMaxCm": 15.0,
+    "coneShape": "asymmetric",
+    "umboPosition": "dorsal",
+    "hasMucro": false,
+    "apophysisShape": "rounded",
+    "isSerotinous": true,
+    "needlesPerFascicle": 3,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 35.0,
+        "latMax": 37.5,
+        "lonMin": -122.5,
+        "lonMax": -120.5
+      }
+    ],
+    "isIntroducedOrnamental": true,
+    "conservationStatus": "EN",
+    "discoveryDifficulty": 5,
+    "introducedCountryCodes": [
+      "NZL",
+      "CHL",
+      "AUS",
+      "ZAF",
+      "ESP",
+      "PRT",
+      "ITA",
+      "FRA",
+      "GBR",
+      "URY",
+      "ARG"
+    ]
+  },
+  {
+    "id": "pinus_taeda",
+    "pokedexNumber": 16,
+    "scientificName": "Pinus taeda",
+    "commonNames": {
+      "en": "Loblolly Pine",
+      "fr": "Pin à encens"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Pinus",
+    "section": "Trifoliae",
+    "subsection": "Australes",
+    "nativeCountryCodes": [
+      "USA"
+    ],
+    "continents": [
+      "North America"
+    ],
+    "description": "The most commercially important pine in the southeastern United States. Its conical cones have thin scales armed with very sharp, prickly spines that readily pierce gloves — a strong tactile diagnostic.",
+    "descriptionFr": "Le pin commercialement le plus important du sud-est des États-Unis. Ses cônes coniques ont des écailles minces armées d'épines très acérées et piquantes qui percent facilement les gants — un diagnostic tactile fort.",
+    "sizeRange": "6–15 cm",
+    "sizeRangeFr": "6–15 cm",
+    "colorDescription": "Reddish-brown, thin prickly scales",
+    "colorDescriptionFr": "Brun-rougeâtre, écailles minces et piquantes",
+    "shapeDescription": "Conical to cylindrical, thin sharp-spined scales",
+    "shapeDescriptionFr": "Conique à cylindrique, écailles minces à épines acérées",
+    "habitat": "Coastal plain forests, bottomlands, old fields",
+    "habitatFr": "Forêts de plaine côtière, bas-fonds, anciens champs",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [
+      "Loblolly Pine accounts for over 50% of standing pine timber in the southeastern US.",
+      "It grows incredibly fast — up to 1.5 meters per year in optimal conditions.",
+      "Its genome was the first conifer to be fully sequenced (22 billion base pairs)."
+    ],
+    "interestingFactsFr": [
+      "Le pin à encens représente plus de 50% du bois de pin sur pied dans le sud-est des États-Unis.",
+      "Il pousse incroyablement vite — jusqu'à 1,5 mètre par an dans des conditions optimales.",
+      "Son génome a été le premier conifère à être entièrement séquencé (22 milliards de paires de bases)."
+    ],
+    "wikipediaSlug": "Pinus_taeda",
+    "coneLengthMinCm": 6.0,
+    "coneLengthMaxCm": 15.0,
+    "coneShape": "conical",
+    "umboPosition": "dorsal",
+    "hasMucro": true,
+    "apophysisShape": "flat",
+    "isSerotinous": false,
+    "needlesPerFascicle": 3,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 28.0,
+        "latMax": 40.0,
+        "lonMin": -98.0,
+        "lonMax": -75.0
+      }
+    ],
+    "isIntroducedOrnamental": true,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 1,
+    "introducedCountryCodes": [
+      "ZAF",
+      "BRA",
+      "ARG",
+      "CHN",
+      "NZL"
+    ]
+  },
+  {
+    "id": "pinus_palustris",
+    "pokedexNumber": 17,
+    "scientificName": "Pinus palustris",
+    "commonNames": {
+      "en": "Longleaf Pine",
+      "fr": "Pin des marais"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Pinus",
+    "section": "Trifoliae",
+    "subsection": "Australes",
+    "nativeCountryCodes": [
+      "USA"
+    ],
+    "continents": [
+      "North America"
+    ],
+    "description": "An iconic fire-dependent species of the southeastern US coastal plain. Its large, cylindrical cones have a rough, rugged texture and leave basal scales on the branch when they fall. Seedlings go through a unique 'grass stage' lasting several years.",
+    "descriptionFr": "Une espèce iconique dépendante du feu de la plaine côtière du sud-est des États-Unis. Ses grands cônes cylindriques ont une texture rugueuse et laissent des écailles basales sur la branche en tombant. Les semis passent par un stade 'herbe' unique durant plusieurs années.",
+    "sizeRange": "15–25 cm",
+    "sizeRangeFr": "15–25 cm",
+    "colorDescription": "Dark brown, rough and rugged texture",
+    "colorDescriptionFr": "Brun foncé, texture rugueuse",
+    "shapeDescription": "Large cylindrical, rough, basal scales remain on branch",
+    "shapeDescriptionFr": "Grand cylindrique, rugueux, les écailles basales restent sur la branche",
+    "habitat": "Southeastern US coastal plain, fire-maintained savannas",
+    "habitatFr": "Plaine côtière du sud-est des États-Unis, savanes entretenues par le feu",
+    "baseRarity": "uncommon",
+    "imageUrls": [],
+    "interestingFacts": [
+      "Longleaf Pine ecosystems once covered 37 million hectares — now less than 3% remains.",
+      "Its 'grass stage' seedlings resemble a tuft of grass for 2–7 years before bolting upward.",
+      "The Red-cockaded Woodpecker depends exclusively on mature Longleaf Pine for nesting."
+    ],
+    "interestingFactsFr": [
+      "Les écosystèmes à pin des marais couvraient autrefois 37 millions d'hectares — moins de 3% subsistent.",
+      "Ses semis au 'stade herbe' ressemblent à une touffe d'herbe pendant 2 à 7 ans avant de s'élancer.",
+      "Le Pic à face blanche dépend exclusivement des pins des marais matures pour nicher."
+    ],
+    "wikipediaSlug": "Pinus_palustris",
+    "coneLengthMinCm": 15.0,
+    "coneLengthMaxCm": 25.0,
+    "coneShape": "cylindrical",
+    "umboPosition": "dorsal",
+    "hasMucro": true,
+    "apophysisShape": "flat",
+    "isSerotinous": false,
+    "needlesPerFascicle": 3,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 28.0,
+        "latMax": 37.0,
+        "lonMin": -95.0,
+        "lonMax": -78.0
+      }
+    ],
+    "isIntroducedOrnamental": false,
+    "conservationStatus": "VU",
+    "discoveryDifficulty": 3,
+    "introducedCountryCodes": []
+  },
+  {
+    "id": "pinus_albicaulis",
+    "pokedexNumber": 18,
+    "scientificName": "Pinus albicaulis",
+    "commonNames": {
+      "en": "Whitebark Pine",
+      "fr": "Pin à écorce blanche"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Strobus",
+    "section": "Quinquefoliae",
+    "subsection": "Cembrae",
+    "nativeCountryCodes": [
+      "CAN",
+      "USA"
+    ],
+    "continents": [
+      "North America"
+    ],
+    "description": "A keystone species of western North American subalpine ecosystems. Like its European cousin P. cembra, its cones never open naturally — they depend entirely on Clark's Nutcracker for seed dispersal. Currently threatened by white pine blister rust.",
+    "descriptionFr": "Une espèce clé de voûte des écosystèmes subalpins de l'ouest de l'Amérique du Nord. Comme son cousin européen P. cembra, ses cônes ne s'ouvrent jamais naturellement — ils dépendent entièrement du Cassenoix de Clark pour la dissémination des graines. Actuellement menacé par la rouille vésiculeuse du pin blanc.",
+    "sizeRange": "4–8 cm",
+    "sizeRangeFr": "4–8 cm",
+    "colorDescription": "Purplish-brown, thick scales",
+    "colorDescriptionFr": "Brun-violacé, écailles épaisses",
+    "shapeDescription": "Ovoid, indehiscent, thick blunt scales, bird-dispersed",
+    "shapeDescriptionFr": "Ovoïde, indéhiscent, écailles épaisses et obtuses, dispersé par les oiseaux",
+    "habitat": "Subalpine timberline, exposed ridges",
+    "habitatFr": "Limite forestière subalpine, crêtes exposées",
+    "baseRarity": "rare",
+    "imageUrls": [],
+    "interestingFacts": [
+      "Clark's Nutcracker can cache 90,000+ seeds per year — its memory rivals a GPS.",
+      "It was listed as Threatened under the US Endangered Species Act in 2022.",
+      "Grizzly bears dig up nutcracker seed caches as a critical autumn food source."
+    ],
+    "interestingFactsFr": [
+      "Le Cassenoix de Clark peut cacher plus de 90 000 graines par an — sa mémoire rivalise avec un GPS.",
+      "Il a été classé comme menacé sous le Endangered Species Act américain en 2022.",
+      "Les grizzlis déterrent les caches de graines du cassenoix comme source alimentaire critique en automne."
+    ],
+    "wikipediaSlug": "Pinus_albicaulis",
+    "coneLengthMinCm": 4.0,
+    "coneLengthMaxCm": 8.0,
+    "coneShape": "ovoid",
+    "umboPosition": "terminal",
+    "hasMucro": false,
+    "apophysisShape": "rounded",
+    "isSerotinous": false,
+    "needlesPerFascicle": 5,
+    "seedType": "bird_dispersed",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 37.0,
+        "latMax": 55.0,
+        "lonMin": -130.0,
+        "lonMax": -105.0
+      }
+    ],
+    "isIntroducedOrnamental": false,
+    "conservationStatus": "EN",
+    "discoveryDifficulty": 5,
+    "introducedCountryCodes": []
+  },
+  {
+    "id": "pinus_aristata",
+    "pokedexNumber": 19,
+    "scientificName": "Pinus aristata",
+    "commonNames": {
+      "en": "Rocky Mountain Bristlecone Pine",
+      "fr": "Pin aristé des Rocheuses"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Strobus",
+    "section": "Parrya",
+    "subsection": "Balfourianae",
+    "nativeCountryCodes": [
+      "USA"
+    ],
+    "continents": [
+      "North America"
+    ],
+    "description": "A high-altitude specialist with needles that persist for up to 30 years. Its small cones bear a distinctive long, fragile bristle (arista) on each scale umbo — the feature that gives the species its name.",
+    "descriptionFr": "Un spécialiste de haute altitude dont les aiguilles persistent jusqu'à 30 ans. Ses petits cônes portent une longue épine fragile distinctive (ariste) sur l'umbo de chaque écaille — le caractère qui donne son nom à l'espèce.",
+    "sizeRange": "6–11 cm",
+    "sizeRangeFr": "6–11 cm",
+    "colorDescription": "Dark purple-brown with white resin flecks",
+    "colorDescriptionFr": "Brun-pourpre foncé avec des taches de résine blanche",
+    "shapeDescription": "Cylindrical-ovoid, each scale with a long fragile bristle",
+    "shapeDescriptionFr": "Cylindrique-ovoïde, chaque écaille avec une longue épine fragile",
+    "habitat": "Subalpine zones, Rocky Mountains, exposed rocky slopes",
+    "habitatFr": "Zones subalpines, montagnes Rocheuses, pentes rocheuses exposées",
+    "baseRarity": "rare",
+    "imageUrls": [],
+    "interestingFacts": [
+      "Not to be confused with P. longaeva — the actual 'oldest tree' species.",
+      "Needles are dotted with white resin flecks, giving the tree a frosted appearance.",
+      "It thrives at elevations above 3000m where few other trees survive."
+    ],
+    "interestingFactsFr": [
+      "À ne pas confondre avec P. longaeva — la véritable espèce au 'plus vieil arbre'.",
+      "Les aiguilles sont parsemées de taches de résine blanche, donnant un aspect givré.",
+      "Il prospère à des altitudes supérieures à 3000 m où peu d'autres arbres survivent."
+    ],
+    "wikipediaSlug": "Pinus_aristata",
+    "coneLengthMinCm": 6.0,
+    "coneLengthMaxCm": 11.0,
+    "coneShape": "ovoid",
+    "umboPosition": "terminal",
+    "hasMucro": true,
+    "apophysisShape": "flat",
+    "isSerotinous": false,
+    "needlesPerFascicle": 5,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 35.0,
+        "latMax": 40.0,
+        "lonMin": -108.0,
+        "lonMax": -105.0
+      }
+    ],
+    "isIntroducedOrnamental": false,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 5,
+    "introducedCountryCodes": [
+      "GBR"
+    ]
+  },
+  {
+    "id": "pinus_longaeva",
+    "pokedexNumber": 20,
+    "scientificName": "Pinus longaeva",
+    "commonNames": {
+      "en": "Great Basin Bristlecone Pine",
+      "fr": "Pin Bristlecone du Grand Bassin"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Strobus",
+    "section": "Parrya",
+    "subsection": "Balfourianae",
+    "nativeCountryCodes": [
+      "USA"
+    ],
+    "continents": [
+      "North America"
+    ],
+    "description": "The oldest known living non-clonal organism on Earth. Specimens like 'Methuselah' have been dated to over 4,850 years old. Its needles can persist on the tree for up to 45 years — the longest needle retention of any plant.",
+    "descriptionFr": "Le plus ancien organisme non-clonal vivant connu sur Terre. Des spécimens comme 'Mathusalem' ont été datés de plus de 4 850 ans. Ses aiguilles peuvent persister sur l'arbre jusqu'à 45 ans — la plus longue rétention d'aiguilles de toute plante.",
+    "sizeRange": "6–10 cm",
+    "sizeRangeFr": "6–10 cm",
+    "colorDescription": "Brown with curved bristle spine",
+    "colorDescriptionFr": "Brun avec épine recourbée",
+    "shapeDescription": "Cylindrical-ovoid, curved bristle on each scale",
+    "shapeDescriptionFr": "Cylindrique-ovoïde, épine recourbée sur chaque écaille",
+    "habitat": "Subalpine dolomite slopes, Great Basin mountains",
+    "habitatFr": "Pentes subalpines de dolomite, montagnes du Grand Bassin",
+    "baseRarity": "legendary",
+    "imageUrls": [],
+    "interestingFacts": [
+      "'Methuselah' (4,854 years old) is kept at a secret location in the White Mountains of California.",
+      "The oldest specimen ever found, 'Prometheus', was 4,900 years old when a researcher accidentally cut it down in 1964.",
+      "Its needles persist for up to 45 years — the longest of any known plant."
+    ],
+    "interestingFactsFr": [
+      "'Mathusalem' (4 854 ans) est gardé dans un lieu secret dans les White Mountains de Californie.",
+      "Le plus ancien spécimen jamais trouvé, 'Prométhée', avait 4 900 ans quand un chercheur l'a accidentellement abattu en 1964.",
+      "Ses aiguilles persistent jusqu'à 45 ans — le record absolu de toute plante connue."
+    ],
+    "wikipediaSlug": "Pinus_longaeva",
+    "coneLengthMinCm": 6.0,
+    "coneLengthMaxCm": 10.0,
+    "coneShape": "ovoid",
+    "umboPosition": "terminal",
+    "hasMucro": true,
+    "apophysisShape": "flat",
+    "isSerotinous": false,
+    "needlesPerFascicle": 5,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 36.0,
+        "latMax": 41.0,
+        "lonMin": -118.0,
+        "lonMax": -112.0
+      }
+    ],
+    "isIntroducedOrnamental": false,
+    "conservationStatus": "VU",
+    "discoveryDifficulty": 5,
+    "introducedCountryCodes": []
+  },
+  {
+    "id": "pinus_edulis",
+    "pokedexNumber": 21,
+    "scientificName": "Pinus edulis",
+    "commonNames": {
+      "en": "Twoneedle Pinyon",
+      "fr": "Pin pignon à deux aiguilles"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Strobus",
+    "section": "Parrya",
+    "subsection": "Cembroides",
+    "nativeCountryCodes": [
+      "USA"
+    ],
+    "continents": [
+      "North America"
+    ],
+    "description": "A small, bushy pine of the American Southwest producing large, edible pine nuts — a staple food of Pueblo peoples for millennia. Its small, globular cones with thick, concave scales contain wingless seeds.",
+    "descriptionFr": "Un petit pin buissonnant du sud-ouest américain produisant de gros pignons comestibles — un aliment de base des peuples Pueblo depuis des millénaires. Ses petits cônes globuleux aux écailles épaisses et concaves contiennent des graines sans ailes.",
+    "sizeRange": "3–5 cm",
+    "sizeRangeFr": "3–5 cm",
+    "colorDescription": "Warm brown, thick widely-spaced scales",
+    "colorDescriptionFr": "Brun chaud, écailles épaisses et espacées",
+    "shapeDescription": "Globular, small, thick concave scales, wingless seeds",
+    "shapeDescriptionFr": "Globuleux, petit, écailles épaisses et concaves, graines sans ailes",
+    "habitat": "Pinyon-juniper woodlands, arid mesas",
+    "habitatFr": "Boisements de pignon-genévrier, mesas arides",
+    "baseRarity": "uncommon",
+    "imageUrls": [],
+    "interestingFacts": [
+      "It is the state tree of New Mexico.",
+      "Its pine nuts are a multi-million dollar harvest industry in the American Southwest.",
+      "Unusual among pines for having only 2 needles per fascicle in the Strobus subgenus."
+    ],
+    "interestingFactsFr": [
+      "C'est l'arbre d'État du Nouveau-Mexique.",
+      "Ses pignons représentent une industrie de récolte de plusieurs millions de dollars dans le sud-ouest américain.",
+      "Inhabituel parmi les pins pour n'avoir que 2 aiguilles par fascicule dans le sous-genre Strobus."
+    ],
+    "wikipediaSlug": "Pinus_edulis",
+    "coneLengthMinCm": 3.0,
+    "coneLengthMaxCm": 5.0,
+    "coneShape": "globular",
+    "umboPosition": "terminal",
+    "hasMucro": false,
+    "apophysisShape": "rounded",
+    "isSerotinous": false,
+    "needlesPerFascicle": 2,
+    "seedType": "edible_nut",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 33.0,
+        "latMax": 40.0,
+        "lonMin": -112.0,
+        "lonMax": -104.0
+      }
+    ],
+    "isIntroducedOrnamental": false,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 3,
+    "introducedCountryCodes": []
+  },
+  {
+    "id": "pinus_resinosa",
+    "pokedexNumber": 22,
+    "scientificName": "Pinus resinosa",
+    "commonNames": {
+      "en": "Red Pine",
+      "fr": "Pin rouge"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Pinus",
+    "section": "Pinus",
+    "subsection": "Pinus",
+    "nativeCountryCodes": [
+      "CAN",
+      "USA"
+    ],
+    "continents": [
+      "North America"
+    ],
+    "description": "A neat, symmetrical pine of northeastern North America named for its reddish bark. Its small, spineless, ovoid-conical cones are remarkably uniform and open widely at maturity, making them diagnostic of the species.",
+    "descriptionFr": "Un pin soigné et symétrique du nord-est de l'Amérique du Nord, nommé pour son écorce rougeâtre. Ses petits cônes ovoïdes-coniques sans épines sont remarquablement uniformes et s'ouvrent largement à maturité.",
+    "sizeRange": "4–6 cm",
+    "sizeRangeFr": "4–6 cm",
+    "colorDescription": "Light brown, spineless, concave scales",
+    "colorDescriptionFr": "Brun clair, sans épines, écailles concaves",
+    "shapeDescription": "Ovoid-conical, small, no spine, widely open at maturity",
+    "shapeDescriptionFr": "Ovoïde-conique, petit, sans épine, largement ouvert à maturité",
+    "habitat": "Sandy soils, northern hardwood-conifer forests",
+    "habitatFr": "Sols sableux, forêts de feuillus-conifères du nord",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [
+      "It is the state tree of Minnesota.",
+      "It is genetically one of the least variable pines — populations are nearly identical.",
+      "Its needles snap cleanly when bent — a quick field test distinguishing it from other pines."
+    ],
+    "interestingFactsFr": [
+      "C'est l'arbre d'État du Minnesota.",
+      "C'est génétiquement l'un des pins les moins variables — les populations sont presque identiques.",
+      "Ses aiguilles se cassent net quand on les plie — un test de terrain rapide le distinguant des autres pins."
+    ],
+    "wikipediaSlug": "Pinus_resinosa",
+    "coneLengthMinCm": 4.0,
+    "coneLengthMaxCm": 6.0,
+    "coneShape": "ovoid",
+    "umboPosition": "dorsal",
+    "hasMucro": false,
+    "apophysisShape": "flat",
+    "isSerotinous": false,
+    "needlesPerFascicle": 2,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 40.0,
+        "latMax": 52.0,
+        "lonMin": -95.0,
+        "lonMax": -60.0
+      }
+    ],
+    "isIntroducedOrnamental": false,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 2,
+    "introducedCountryCodes": []
+  },
+  {
+    "id": "pinus_rigida",
+    "pokedexNumber": 23,
+    "scientificName": "Pinus rigida",
+    "commonNames": {
+      "en": "Pitch Pine",
+      "fr": "Pin rigide"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Pinus",
+    "section": "Trifoliae",
+    "subsection": "Australes",
+    "nativeCountryCodes": [
+      "CAN",
+      "USA"
+    ],
+    "continents": [
+      "North America"
+    ],
+    "description": "A tough, fire-adapted pine of the northeastern US with a characteristic flat-bottomed cone armed with sharp prickles. Often found in clusters on the tree, its cones remain attached for years. One of few pines capable of sprouting from the trunk after fire.",
+    "descriptionFr": "Un pin résistant, adapté au feu, du nord-est des États-Unis avec un cône caractéristique à fond plat armé d'aiguillons acérés. Souvent trouvé en grappes sur l'arbre, ses cônes restent attachés pendant des années. L'un des rares pins capables de resurgir du tronc après un feu.",
+    "sizeRange": "4–7 cm",
+    "sizeRangeFr": "4–7 cm",
+    "colorDescription": "Warm brown, often clustered on branches",
+    "colorDescriptionFr": "Brun chaud, souvent groupé sur les branches",
+    "shapeDescription": "Ovoid, flat-bottomed when open, sharp prickle, often grouped",
+    "shapeDescriptionFr": "Ovoïde, fond plat ouvert, aiguillon acéré, souvent groupé",
+    "habitat": "Sandy barrens, rocky outcrops, pine-oak forests",
+    "habitatFr": "Landes sableuses, affleurements rocheux, forêts de pin-chêne",
+    "baseRarity": "uncommon",
+    "imageUrls": [],
+    "interestingFacts": [
+      "One of only a few pines worldwide that can sprout from the trunk after fire.",
+      "It is the characteristic tree of the New Jersey Pine Barrens.",
+      "Its extremely resinous wood was used as torches by colonial settlers."
+    ],
+    "interestingFactsFr": [
+      "L'un des rares pins au monde pouvant resurgir du tronc après un incendie.",
+      "C'est l'arbre caractéristique des Pine Barrens du New Jersey.",
+      "Son bois extrêmement résineux était utilisé comme torches par les colons."
+    ],
+    "wikipediaSlug": "Pinus_rigida",
+    "coneLengthMinCm": 4.0,
+    "coneLengthMaxCm": 7.0,
+    "coneShape": "ovoid",
+    "umboPosition": "dorsal",
+    "hasMucro": true,
+    "apophysisShape": "flat",
+    "isSerotinous": false,
+    "needlesPerFascicle": 3,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 33.0,
+        "latMax": 47.0,
+        "lonMin": -88.0,
+        "lonMax": -67.0
+      }
+    ],
+    "isIntroducedOrnamental": false,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 2,
+    "introducedCountryCodes": []
+  },
+  {
+    "id": "pinus_echinata",
+    "pokedexNumber": 24,
+    "scientificName": "Pinus echinata",
+    "commonNames": {
+      "en": "Shortleaf Pine",
+      "fr": "Pin à courtes feuilles"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Pinus",
+    "section": "Trifoliae",
+    "subsection": "Australes",
+    "nativeCountryCodes": [
+      "USA"
+    ],
+    "continents": [
+      "North America"
+    ],
+    "description": "A widespread pine of the eastern US with small, ovoid-conical cones that open widely at maturity. Its thin scales bear a small, sharp prickle. Like Pitch Pine, it can sprout from the root collar after fire.",
+    "descriptionFr": "Un pin répandu de l'est des États-Unis avec de petits cônes ovoïdes-coniques qui s'ouvrent largement à maturité. Ses écailles minces portent un petit aiguillon acéré. Comme le pin rigide, il peut resurgir du collet racinaire après un feu.",
+    "sizeRange": "4–6 cm",
+    "sizeRangeFr": "4–6 cm",
+    "colorDescription": "Pale reddish-brown, small prickle",
+    "colorDescriptionFr": "Brun-rougeâtre pâle, petit aiguillon",
+    "shapeDescription": "Small ovoid-conical, opens widely, thin scales with prickle",
+    "shapeDescriptionFr": "Petit ovoïde-conique, s'ouvre largement, écailles minces avec aiguillon",
+    "habitat": "Mixed pine-hardwood forests, upland ridges",
+    "habitatFr": "Forêts mixtes pin-feuillus, crêtes en hauteur",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [
+      "Its range spans the largest area of any southeastern US pine.",
+      "It can regenerate from root sprouts after fire — unusual for pines.",
+      "The resin was used in colonial America for tar and turpentine production."
+    ],
+    "interestingFactsFr": [
+      "Son aire de répartition couvre la plus grande surface de tous les pins du sud-est américain.",
+      "Il peut régénérer par rejets de racines après un feu — inhabituel pour les pins.",
+      "La résine était utilisée dans l'Amérique coloniale pour la production de goudron et de térébenthine."
+    ],
+    "wikipediaSlug": "Pinus_echinata",
+    "coneLengthMinCm": 4.0,
+    "coneLengthMaxCm": 6.0,
+    "coneShape": "ovoid",
+    "umboPosition": "dorsal",
+    "hasMucro": true,
+    "apophysisShape": "flat",
+    "isSerotinous": false,
+    "needlesPerFascicle": 2,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 30.0,
+        "latMax": 42.0,
+        "lonMin": -98.0,
+        "lonMax": -75.0
+      }
+    ],
+    "isIntroducedOrnamental": false,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 2,
+    "introducedCountryCodes": []
+  },
+  {
+    "id": "pinus_attenuata",
+    "pokedexNumber": 25,
+    "scientificName": "Pinus attenuata",
+    "commonNames": {
+      "en": "Knobcone Pine",
+      "fr": "Pin à cônes noueux"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Pinus",
+    "section": "Trifoliae",
+    "subsection": "Contortae",
+    "nativeCountryCodes": [
+      "USA",
+      "MEX"
+    ],
+    "continents": [
+      "North America"
+    ],
+    "description": "One of the most extremely serotinous pines — its cones can remain sealed on the tree trunk for decades, eventually becoming embedded in the growing bark. Only extreme fire heat opens them, releasing seeds onto freshly cleared mineral soil.",
+    "descriptionFr": "L'un des pins les plus extrêmement sérotineux — ses cônes peuvent rester scellés sur le tronc pendant des décennies, finissant par s'intégrer dans l'écorce croissante. Seule la chaleur extrême du feu les ouvre, libérant les graines sur le sol minéral fraîchement dégagé.",
+    "sizeRange": "8–15 cm",
+    "sizeRangeFr": "8–15 cm",
+    "colorDescription": "Grey-brown, weathered and persistent",
+    "colorDescriptionFr": "Gris-brun, patiné et persistant",
+    "shapeDescription": "Asymmetric, curved, tightly sealed, attached to trunk",
+    "shapeDescriptionFr": "Asymétrique, courbé, étroitement scellé, attaché au tronc",
+    "habitat": "Dry chaparral, fire-prone slopes, California-Oregon",
+    "habitatFr": "Chaparral sec, pentes sujettes aux feux, Californie-Oregon",
+    "baseRarity": "uncommon",
+    "imageUrls": [],
+    "interestingFacts": [
+      "Cones can stay sealed for 30+ years, becoming engulfed by the tree's growing bark.",
+      "After fire, a single tree can release thousands of cached seeds simultaneously.",
+      "It often grows in pure, even-aged stands that regenerated from a single fire event."
+    ],
+    "interestingFactsFr": [
+      "Les cônes peuvent rester scellés plus de 30 ans, devenant engloutis par l'écorce croissante.",
+      "Après un incendie, un seul arbre peut libérer des milliers de graines cachées simultanément.",
+      "Il pousse souvent en peuplements purs et équiennes régénérés par un seul feu."
+    ],
+    "wikipediaSlug": "Pinus_attenuata",
+    "coneLengthMinCm": 8.0,
+    "coneLengthMaxCm": 15.0,
+    "coneShape": "asymmetric",
+    "umboPosition": "dorsal",
+    "hasMucro": true,
+    "apophysisShape": "flat",
+    "isSerotinous": true,
+    "needlesPerFascicle": 3,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 33.0,
+        "latMax": 44.0,
+        "lonMin": -124.0,
+        "lonMax": -118.0
+      }
+    ],
+    "isIntroducedOrnamental": false,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 3,
+    "introducedCountryCodes": [
+      "NZL",
+      "AUS"
+    ]
+  },
+  {
+    "id": "pinus_maximartinezii",
+    "pokedexNumber": 26,
+    "scientificName": "Pinus maximartinezii",
+    "commonNames": {
+      "en": "Big-cone Pinyon",
+      "fr": "Pin à gros cônes du Mexique"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Strobus",
+    "section": "Parrya",
+    "subsection": "Cembroides",
+    "nativeCountryCodes": [
+      "MEX"
+    ],
+    "continents": [
+      "North America"
+    ],
+    "description": "One of the rarest pines on Earth — endemic to a single tiny area in Zacatecas, Mexico. It produces enormous, heavy cones (up to 2 kg) with highly prominent pyramidal apophyses and some of the largest edible seeds in the genus.",
+    "descriptionFr": "L'un des pins les plus rares sur Terre — endémique d'une seule petite zone à Zacatecas, au Mexique. Il produit d'énormes cônes lourds (jusqu'à 2 kg) avec des apophyses pyramidales très proéminentes et certaines des plus grosses graines comestibles du genre.",
+    "sizeRange": "15–27 cm",
+    "sizeRangeFr": "15–27 cm",
+    "colorDescription": "Yellowish-brown, massive pyramidal scales",
+    "colorDescriptionFr": "Brun-jaunâtre, écailles pyramidales massives",
+    "shapeDescription": "Ovoid-truncate, very heavy, prominent pyramidal apophyses",
+    "shapeDescriptionFr": "Ovoïde-tronqué, très lourd, apophyses pyramidales proéminentes",
+    "habitat": "Dry rocky slopes, single locality in Zacatecas, Mexico",
+    "habitatFr": "Pentes rocheuses sèches, localité unique à Zacatecas, Mexique",
+    "baseRarity": "legendary",
+    "imageUrls": [],
+    "interestingFacts": [
+      "Fewer than 10,000 individuals exist in the wild — all in one mountain range.",
+      "Its seeds are among the largest of any pine — each weighing over 1 gram.",
+      "Cones can weigh up to 2 kg, second only to Coulter Pine."
+    ],
+    "interestingFactsFr": [
+      "Moins de 10 000 individus existent à l'état sauvage — tous dans une seule chaîne de montagnes.",
+      "Ses graines sont parmi les plus grosses de tous les pins — chacune pesant plus de 1 gramme.",
+      "Les cônes peuvent peser jusqu'à 2 kg, deuxième seulement après le pin de Coulter."
+    ],
+    "wikipediaSlug": "Pinus_maximartinezii",
+    "coneLengthMinCm": 15.0,
+    "coneLengthMaxCm": 27.0,
+    "coneWeightMaxKg": 2.0,
+    "coneShape": "ovoid",
+    "umboPosition": "terminal",
+    "hasMucro": false,
+    "apophysisShape": "pyramidal",
+    "isSerotinous": false,
+    "needlesPerFascicle": 5,
+    "seedType": "edible_nut",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 21.5,
+        "latMax": 22.5,
+        "lonMin": -104.0,
+        "lonMax": -103.0
+      }
+    ],
+    "isIntroducedOrnamental": false,
+    "conservationStatus": "EN",
+    "discoveryDifficulty": 5,
+    "introducedCountryCodes": []
+  },
+  {
+    "id": "pinus_brutia",
+    "pokedexNumber": 27,
+    "scientificName": "Pinus brutia",
+    "commonNames": {
+      "en": "Turkish Pine",
+      "fr": "Pin brutia"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Pinus",
+    "section": "Pinus",
+    "subsection": "Pinaster",
+    "nativeCountryCodes": [
+      "TUR",
+      "CYP",
+      "SYR",
+      "LBN",
+      "GRC",
+      "BGR",
+      "RUS",
+      "GEO",
+      "UKR"
+    ],
+    "continents": [
+      "Europe",
+      "Asia"
+    ],
+    "description": "The eastern Mediterranean counterpart of P. halepensis. Distinguished by its sessile (stalkless) cones that point outward from the branch, rather than hanging on a stalk. A drought-tolerant species reforesting large areas of Turkey.",
+    "descriptionFr": "L'équivalent méditerranéen oriental de P. halepensis. Se distingue par ses cônes sessiles (sans tige) qui pointent vers l'extérieur de la branche, au lieu de pendre sur une tige. Une espèce tolérante à la sécheresse reboisante de vastes zones de Turquie.",
+    "sizeRange": "6–11 cm",
+    "sizeRangeFr": "6–11 cm",
+    "colorDescription": "Reddish-brown, sessile (no stalk)",
+    "colorDescriptionFr": "Brun-rougeâtre, sessile (sans tige)",
+    "shapeDescription": "Ovoid-conical, sessile, spreading outward from branch",
+    "shapeDescriptionFr": "Ovoïde-conique, sessile, s'étalant vers l'extérieur de la branche",
+    "habitat": "Eastern Mediterranean hillsides, dry forests",
+    "habitatFr": "Collines de Méditerranée orientale, forêts sèches",
+    "baseRarity": "uncommon",
+    "imageUrls": [],
+    "interestingFacts": [
+      "It is Turkey's most planted tree species, covering millions of hectares.",
+      "Distinguished from Aleppo Pine by its sessile (not pedunculate) cones.",
+      "Ancient Romans used its resin to flavor wine — modern retsina still carries this tradition."
+    ],
+    "interestingFactsFr": [
+      "C'est l'espèce d'arbre la plus plantée en Turquie, couvrant des millions d'hectares.",
+      "Se distingue du pin d'Alep par ses cônes sessiles (non pédonculés).",
+      "Les Romains utilisaient sa résine pour aromatiser le vin — le retsina moderne perpétue cette tradition."
+    ],
+    "wikipediaSlug": "Pinus_brutia",
+    "coneLengthMinCm": 6.0,
+    "coneLengthMaxCm": 11.0,
+    "coneShape": "ovoid",
+    "umboPosition": "dorsal",
+    "hasMucro": true,
+    "apophysisShape": "rhomboidal",
+    "isSerotinous": false,
+    "needlesPerFascicle": 2,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 32.0,
+        "latMax": 42.0,
+        "lonMin": 20.0,
+        "lonMax": 45.0
+      }
+    ],
+    "isIntroducedOrnamental": true,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 2,
+    "introducedCountryCodes": []
+  },
+  {
+    "id": "pinus_wallichiana",
+    "pokedexNumber": 28,
+    "scientificName": "Pinus wallichiana",
+    "commonNames": {
+      "en": "Himalayan White Pine",
+      "fr": "Pin de l'Himalaya"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Strobus",
+    "section": "Quinquefoliae",
+    "subsection": "Strobi",
+    "nativeCountryCodes": [
+      "AFG",
+      "PAK",
+      "IND",
+      "NPL",
+      "BTN",
+      "CHN",
+      "MMR"
+    ],
+    "continents": [
+      "Asia"
+    ],
+    "description": "An elegant white pine of the Himalayan mountains with long, drooping, blue-grey needles in groups of 5 and graceful, banana-shaped pendant cones covered in white resin. A popular ornamental in European parks.",
+    "descriptionFr": "Un élégant pin blanc des montagnes himalayennes avec de longues aiguilles bleu-gris pendantes par groupes de 5 et des cônes pendants gracieux en forme de banane, couverts de résine blanche. Un ornement populaire dans les parcs européens.",
+    "sizeRange": "15–30 cm",
+    "sizeRangeFr": "15–30 cm",
+    "colorDescription": "Pale brown, heavily coated in white resin",
+    "colorDescriptionFr": "Brun pâle, fortement recouvert de résine blanche",
+    "shapeDescription": "Cylindrical, banana-curved, pendant, white-resinous",
+    "shapeDescriptionFr": "Cylindrique, courbé en banane, pendant, blanc-résineux",
+    "habitat": "Himalayan montane forests, 1800–4000m altitude",
+    "habitatFr": "Forêts de montagne himalayennes, altitude 1800–4000 m",
+    "baseRarity": "uncommon",
+    "imageUrls": [],
+    "interestingFacts": [
+      "Its resin-coated cones are sometimes called 'Christmas candle' cones.",
+      "It is widely planted as an ornamental across Europe for its graceful form.",
+      "In the Himalayas, it forms forests at altitudes of up to 4000 meters."
+    ],
+    "interestingFactsFr": [
+      "Ses cônes recouverts de résine sont parfois appelés cônes 'bougie de Noël'.",
+      "Il est largement planté comme ornement en Europe pour sa forme gracieuse.",
+      "Dans l'Himalaya, il forme des forêts à des altitudes allant jusqu'à 4000 mètres."
+    ],
+    "wikipediaSlug": "Pinus_wallichiana",
+    "coneLengthMinCm": 15.0,
+    "coneLengthMaxCm": 30.0,
+    "coneShape": "cylindrical",
+    "umboPosition": "terminal",
+    "hasMucro": false,
+    "apophysisShape": "flat",
+    "isSerotinous": false,
+    "needlesPerFascicle": 5,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 27.0,
+        "latMax": 37.0,
+        "lonMin": 66.0,
+        "lonMax": 100.0
+      }
+    ],
+    "isIntroducedOrnamental": true,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 3,
+    "introducedCountryCodes": [
+      "GBR",
+      "USA",
+      "DEU"
+    ]
+  },
+  {
+    "id": "picea_abies",
+    "pokedexNumber": 29,
+    "scientificName": "Picea abies",
+    "commonNames": {
+      "en": "Norway Spruce",
+      "fr": "Épicéa commun"
+    },
+    "family": "Pinaceae",
+    "genus": "Picea",
+    "nativeCountryCodes": [
+      "NO",
+      "SE",
+      "FI",
+      "RU",
+      "DE",
+      "PL",
+      "CZ",
+      "SK",
+      "AT",
+      "CH",
+      "FR",
+      "IT",
+      "RO",
+      "UA",
+      "BY",
+      "LT",
+      "LV",
+      "EE"
+    ],
+    "continents": [
+      "Europe"
+    ],
+    "description": "Europe's most important commercial timber tree and the traditional Christmas tree of European culture. Its long, pendant cones with thin, papery scales distinguish it from all pine cones — a key negative diagnostic for the AI.",
+    "descriptionFr": "L'arbre de bois d'œuvre le plus important d'Europe et l'arbre de Noël traditionnel de la culture européenne. Ses longs cônes pendants aux écailles minces et papyracées le distinguent de tous les cônes de pin — un diagnostic négatif clé pour l'IA.",
+    "sizeRange": "10–18 cm",
+    "sizeRangeFr": "10–18 cm",
+    "colorDescription": "Reddish-brown, thin papery scales",
+    "colorDescriptionFr": "Brun-rougeâtre, écailles minces et papyracées",
+    "shapeDescription": "Cylindrical, pendant, thin flexible scales (not a pine!)",
+    "shapeDescriptionFr": "Cylindrique, pendant, écailles fines et flexibles (ce n'est pas un pin !)",
+    "habitat": "Boreal and montane forests, cool moist conditions",
+    "habitatFr": "Forêts boréales et de montagne, conditions fraîches et humides",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [
+      "The world's oldest known tree, 'Old Tjikko' in Sweden, is a Norway Spruce (9,550 years old by clonal root system).",
+      "Spruce cones hang downward, unlike fir cones which stand upright — a key identification trick.",
+      "It is the classic Christmas tree species throughout Europe."
+    ],
+    "interestingFactsFr": [
+      "Le plus vieil arbre connu au monde, 'Old Tjikko' en Suède, est un épicéa commun (9 550 ans par système racinaire clonal).",
+      "Les cônes d'épicéa pendent vers le bas, contrairement aux cônes de sapin qui se dressent — un truc d'identification clé.",
+      "C'est l'espèce classique du sapin de Noël en Europe."
+    ],
+    "wikipediaSlug": "Picea_abies",
+    "coneLengthMinCm": 10.0,
+    "coneLengthMaxCm": 18.0,
+    "coneShape": "cylindrical",
+    "isSerotinous": false,
+    "needlesPerFascicle": 1,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 42.0,
+        "latMax": 70.0,
+        "lonMin": 5.0,
+        "lonMax": 60.0
+      }
+    ],
+    "isIntroducedOrnamental": true,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 1
+  },
+  {
+    "id": "abies_alba",
+    "pokedexNumber": 30,
+    "scientificName": "Abies alba",
+    "commonNames": {
+      "en": "Silver Fir",
+      "fr": "Sapin pectiné"
+    },
+    "family": "Pinaceae",
+    "genus": "Abies",
+    "nativeCountryCodes": [
+      "FR",
+      "DE",
+      "AT",
+      "CH",
+      "IT",
+      "ES",
+      "PL",
+      "CZ",
+      "SK",
+      "RO",
+      "UA",
+      "HR",
+      "BA",
+      "RS",
+      "BG",
+      "GR",
+      "AL"
+    ],
+    "continents": [
+      "Europe"
+    ],
+    "description": "The iconic silver-barked fir of central European mountain forests. Its cones stand upright on branches (unlike spruces or pines) and disintegrate in place, scattering scales individually — so you'll never find a fallen 'whole' fir cone.",
+    "descriptionFr": "Le sapin emblématique à écorce argentée des forêts de montagne d'Europe centrale. Ses cônes se dressent sur les branches (contrairement aux épicéas ou pins) et se désintègrent sur place, dispersant les écailles une à une — vous ne trouverez donc jamais un cône de sapin 'entier' tombé au sol.",
+    "sizeRange": "10–16 cm",
+    "sizeRangeFr": "10–16 cm",
+    "colorDescription": "Green when young, turning brown, upright",
+    "colorDescriptionFr": "Vert jeune, devenant brun, dressé",
+    "shapeDescription": "Cylindrical, upright on branch, disintegrates on tree (never falls whole)",
+    "shapeDescriptionFr": "Cylindrique, dressé sur la branche, se désintègre sur l'arbre (ne tombe jamais entier)",
+    "habitat": "Montane mixed forests, shaded valleys, 500–1800m",
+    "habitatFr": "Forêts mixtes de montagne, vallées ombragées, 500–1800 m",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [
+      "Fir cones disintegrate on the tree — what falls to the ground are individual scales, not whole cones.",
+      "The upright stance of Abies cones vs pendant Picea cones is the #1 beginner botany distinction.",
+      "Its bark was historically used to produce 'Strasbourg turpentine'."
+    ],
+    "interestingFactsFr": [
+      "Les cônes de sapin se désintègrent sur l'arbre — ce qui tombe au sol sont des écailles individuelles, pas des cônes entiers.",
+      "La position dressée des cônes d'Abies vs pendante des cônes de Picea est la distinction botanique n°1 pour les débutants.",
+      "Son écorce était historiquement utilisée pour produire la 'térébenthine de Strasbourg'."
+    ],
+    "wikipediaSlug": "Abies_alba",
+    "coneLengthMinCm": 10.0,
+    "coneLengthMaxCm": 16.0,
+    "coneShape": "cylindrical",
+    "isSerotinous": false,
+    "needlesPerFascicle": 1,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 38.0,
+        "latMax": 52.0,
+        "lonMin": -5.0,
+        "lonMax": 25.0
+      }
+    ],
+    "isIntroducedOrnamental": false,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 2
+  },
+  {
+    "id": "cedrus_atlantica",
+    "pokedexNumber": 31,
+    "scientificName": "Cedrus atlantica",
+    "commonNames": {
+      "en": "Atlas Cedar",
+      "fr": "Cèdre de l'Atlas"
+    },
+    "family": "Pinaceae",
+    "genus": "Cedrus",
+    "nativeCountryCodes": [
+      "MA",
+      "DZ"
+    ],
+    "continents": [
+      "Africa"
+    ],
+    "description": "A majestic, aromatic cedar endemic to the Atlas Mountains of Morocco and Algeria. Its barrel-shaped, upright cones disintegrate on the branch like firs. The blue-foliaged cultivar 'Glauca' is one of the world's most popular ornamental conifers.",
+    "descriptionFr": "Un cèdre majestueux et aromatique, endémique des montagnes de l'Atlas au Maroc et en Algérie. Ses cônes en forme de tonneau, dressés, se désintègrent sur la branche comme ceux des sapins. Le cultivar à feuillage bleu 'Glauca' est l'un des conifères ornementaux les plus populaires au monde.",
+    "sizeRange": "5–8 cm",
+    "sizeRangeFr": "5–8 cm",
+    "colorDescription": "Pale brown, barrel-shaped, upright",
+    "colorDescriptionFr": "Brun pâle, en forme de tonneau, dressé",
+    "shapeDescription": "Barrel-shaped, upright, disintegrates on tree",
+    "shapeDescriptionFr": "En forme de tonneau, dressé, se désintègre sur l'arbre",
+    "habitat": "Atlas Mountain forests, 1500–2200m altitude",
+    "habitatFr": "Forêts des montagnes de l'Atlas, altitude 1500–2200 m",
+    "baseRarity": "uncommon",
+    "imageUrls": [],
+    "interestingFacts": [
+      "Like firs, cedar cones disintegrate on the branch — you rarely find a complete one on the ground.",
+      "The blue 'Glauca' cultivar is planted in parks worldwide, making it easily findable outside Africa.",
+      "Its aromatic wood has been used in perfumery and furniture since ancient Egyptian times."
+    ],
+    "interestingFactsFr": [
+      "Comme les sapins, les cônes de cèdre se désintègrent sur la branche — on en trouve rarement un complet au sol.",
+      "Le cultivar bleu 'Glauca' est planté dans des parcs du monde entier, le rendant facilement trouvable hors d'Afrique.",
+      "Son bois aromatique est utilisé en parfumerie et en ébénisterie depuis l'Égypte antique."
+    ],
+    "wikipediaSlug": "Cedrus_atlantica",
+    "coneLengthMinCm": 5.0,
+    "coneLengthMaxCm": 8.0,
+    "coneShape": "cylindrical",
+    "isSerotinous": false,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 31.0,
+        "latMax": 37.0,
+        "lonMin": -5.0,
+        "lonMax": 7.0
+      }
+    ],
+    "isIntroducedOrnamental": true,
+    "conservationStatus": "EN",
+    "discoveryDifficulty": 2
+  },
+  {
+    "id": "sequoiadendron_giganteum",
+    "pokedexNumber": 32,
+    "scientificName": "Sequoiadendron giganteum",
+    "commonNames": {
+      "en": "Giant Sequoia",
+      "fr": "Séquoia géant"
+    },
+    "family": "Cupressaceae",
+    "genus": "Sequoiadendron",
+    "nativeCountryCodes": [
+      "US"
+    ],
+    "continents": [
+      "North America"
+    ],
+    "description": "The largest tree species on Earth by total volume. Paradoxically, the world's most massive organism produces surprisingly small, egg-shaped cones. The cones are serotinous, requiring fire to release their tiny seeds.",
+    "descriptionFr": "La plus grande espèce d'arbre sur Terre par volume total. Paradoxalement, l'organisme le plus massif au monde produit des cônes étonnamment petits et ovoïdes. Les cônes sont sérotineux, nécessitant le feu pour libérer leurs minuscules graines.",
+    "sizeRange": "4–8 cm",
+    "sizeRangeFr": "4–8 cm",
+    "colorDescription": "Green when young, turning brown",
+    "colorDescriptionFr": "Vert jeune, devenant brun",
+    "shapeDescription": "Small egg-shaped, woody, serotinous",
+    "shapeDescriptionFr": "Petit ovoïde, ligneux, sérotineux",
+    "habitat": "Sierra Nevada montane forests, isolated groves",
+    "habitatFr": "Forêts de montagne de la Sierra Nevada, bosquets isolés",
+    "baseRarity": "veryRare",
+    "imageUrls": [],
+    "interestingFacts": [
+      "General Sherman, the world's largest tree, has a volume of 1,487 m³.",
+      "A single Giant Sequoia can produce 10,000 cones — but each cone is small enough to fit in your palm.",
+      "Its bark can be 60 cm thick, providing fireproofing."
+    ],
+    "interestingFactsFr": [
+      "Le Général Sherman, le plus grand arbre du monde, a un volume de 1 487 m³.",
+      "Un seul séquoia géant peut produire 10 000 cônes — mais chaque cône tient dans la paume de la main.",
+      "Son écorce peut atteindre 60 cm d'épaisseur, fournissant une protection contre le feu."
+    ],
+    "wikipediaSlug": "Sequoiadendron_giganteum",
+    "coneLengthMinCm": 4.0,
+    "coneLengthMaxCm": 8.0,
+    "coneShape": "ovoid",
+    "isSerotinous": true,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 35.5,
+        "latMax": 39.0,
+        "lonMin": -120.0,
+        "lonMax": -118.0
+      }
+    ],
+    "isIntroducedOrnamental": true,
+    "conservationStatus": "EN",
+    "discoveryDifficulty": 4
+  },
+  {
+    "id": "araucaria_araucana",
+    "pokedexNumber": 33,
+    "scientificName": "Araucaria araucana",
+    "commonNames": {
+      "en": "Monkey Puzzle Tree",
+      "fr": "Araucaria du Chili"
+    },
+    "family": "Araucariaceae",
+    "genus": "Araucaria",
+    "nativeCountryCodes": [
+      "CL",
+      "AR"
+    ],
+    "continents": [
+      "South America"
+    ],
+    "description": "A living fossil from the Mesozoic era — a tree that dinosaurs walked beneath. Its massive, spherical cones (up to 20 cm) disintegrate at maturity to release large, edible seeds that are a traditional Mapuche food.",
+    "descriptionFr": "Un fossile vivant de l'ère Mésozoïque — un arbre sous lequel les dinosaures marchaient. Ses énormes cônes sphériques (jusqu'à 20 cm) se désintègrent à maturité pour libérer de grosses graines comestibles, aliment traditionnel des Mapuches.",
+    "sizeRange": "12–20 cm",
+    "sizeRangeFr": "12–20 cm",
+    "colorDescription": "Golden-brown, spherical, massive",
+    "colorDescriptionFr": "Brun doré, sphérique, massif",
+    "shapeDescription": "Spherical, very large, disintegrates at maturity",
+    "shapeDescriptionFr": "Sphérique, très gros, se désintègre à maturité",
+    "habitat": "Andean mountain forests, volcanic soils",
+    "habitatFr": "Forêts de montagne andines, sols volcaniques",
+    "baseRarity": "rare",
+    "imageUrls": [],
+    "interestingFacts": [
+      "The genus existed when dinosaurs roamed — fossils date back 200 million years.",
+      "It is the national tree of Chile and a symbol of Mapuche culture.",
+      "Its seeds (piñones) are a staple food of the Mapuche people."
+    ],
+    "interestingFactsFr": [
+      "Le genre existait quand les dinosaures parcouraient la Terre — les fossiles remontent à 200 millions d'années.",
+      "C'est l'arbre national du Chili et un symbole de la culture Mapuche.",
+      "Ses graines (piñones) sont un aliment de base du peuple Mapuche."
+    ],
+    "wikipediaSlug": "Araucaria_araucana",
+    "coneLengthMinCm": 12.0,
+    "coneLengthMaxCm": 20.0,
+    "coneShape": "globular",
+    "isSerotinous": false,
+    "seedType": "edible_nut",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": -42.0,
+        "latMax": -37.0,
+        "lonMin": -72.0,
+        "lonMax": -70.0
+      }
+    ],
+    "isIntroducedOrnamental": true,
+    "conservationStatus": "EN",
+    "discoveryDifficulty": 3
+  },
+  {
+    "id": "larix_decidua",
+    "pokedexNumber": 34,
+    "scientificName": "Larix decidua",
+    "commonNames": {
+      "en": "European Larch",
+      "fr": "Mélèze d'Europe"
+    },
+    "family": "Pinaceae",
+    "genus": "Larix",
+    "nativeCountryCodes": [
+      "FR",
+      "CH",
+      "AT",
+      "IT",
+      "DE",
+      "PL",
+      "CZ",
+      "SK",
+      "RO",
+      "UA"
+    ],
+    "continents": [
+      "Europe"
+    ],
+    "description": "The only European conifer that drops its needles in autumn, turning brilliant gold before defoliating. Its small, erect, rosette-shaped cones persist on the tree for years and are a common find on the forest floor in the Alps.",
+    "descriptionFr": "Le seul conifère européen qui perd ses aiguilles en automne, virant au doré brillant avant de se dénuder. Ses petits cônes dressés en forme de rosette persistent sur l'arbre pendant des années et se trouvent communément au sol dans les Alpes.",
+    "sizeRange": "2–4 cm",
+    "sizeRangeFr": "2–4 cm",
+    "colorDescription": "Brown, small, rosette-like, erect",
+    "colorDescriptionFr": "Brun, petit, en forme de rosette, dressé",
+    "shapeDescription": "Small, erect, rosette-shaped, thin papery scales",
+    "shapeDescriptionFr": "Petit, dressé, en forme de rosette, écailles minces et papyracées",
+    "habitat": "Alpine and subalpine forests, 1000–2400m altitude",
+    "habitatFr": "Forêts alpines et subalpines, altitude 1000–2400 m",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [
+      "It is the only European conifer that is deciduous — its golden autumn display is spectacular.",
+      "Its extremely dense, rot-resistant wood was used to build Venice's foundations.",
+      "Larch forests create a unique ecological niche due to the light they let through in winter."
+    ],
+    "interestingFactsFr": [
+      "C'est le seul conifère européen à feuillage caduc — son spectacle automnal doré est spectaculaire.",
+      "Son bois extrêmement dense et résistant à la pourriture a servi à construire les fondations de Venise.",
+      "Les forêts de mélèze créent une niche écologique unique grâce à la lumière qu'elles laissent passer en hiver."
+    ],
+    "wikipediaSlug": "Larix_decidua",
+    "coneLengthMinCm": 2.0,
+    "coneLengthMaxCm": 4.0,
+    "coneShape": "ovoid",
+    "isSerotinous": false,
+    "needlesPerFascicle": 30,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 43.0,
+        "latMax": 51.0,
+        "lonMin": 4.0,
+        "lonMax": 25.0
+      }
+    ],
+    "isIntroducedOrnamental": true,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 1
+  },
+  {
+    "id": "pinus_jeffreyi",
+    "pokedexNumber": 35,
+    "scientificName": "Pinus jeffreyi",
+    "commonNames": {
+      "en": "Jeffrey Pine",
+      "fr": "Pin de Jeffrey"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Pinus",
+    "section": "Trifoliae",
+    "subsection": "Ponderosae",
+    "nativeCountryCodes": [
+      "US",
+      "MX"
+    ],
+    "continents": [
+      "North America"
+    ],
+    "description": "Often confused with Ponderosa Pine, Jeffrey Pine is distinguished by its larger cones with inward-pointing prickles (Ponderosa prickles point outward — the 'gentle Jeffrey' vs 'prickly Ponderosa' test) and bark that smells of vanilla or butterscotch.",
+    "descriptionFr": "Souvent confondu avec le pin ponderosa, le pin de Jeffrey se distingue par ses cônes plus grands aux aiguillons pointant vers l'intérieur (ceux du ponderosa pointent vers l'extérieur — le test 'doux Jeffrey' vs 'piquant Ponderosa') et son écorce qui sent la vanille ou le caramel.",
+    "sizeRange": "12–24 cm",
+    "sizeRangeFr": "12–24 cm",
+    "colorDescription": "Reddish-brown, inward-curving prickle",
+    "colorDescriptionFr": "Brun-rougeâtre, aiguillon recourbé vers l'intérieur",
+    "shapeDescription": "Ovoid to conical, large, inward-pointing prickle (gentle to hold)",
+    "shapeDescriptionFr": "Ovoïde à conique, grand, aiguillon pointant vers l'intérieur (doux au toucher)",
+    "habitat": "Montane forests, high elevations, volcanic soils",
+    "habitatFr": "Forêts de montagne, hautes altitudes, sols volcaniques",
+    "baseRarity": "uncommon",
+    "imageUrls": [],
+    "interestingFacts": [
+      "The 'gentle Jeffrey' test: you can close your hand around the cone without getting pricked.",
+      "Its resin contains pure n-heptane instead of turpentine — it was once used as an engine fuel.",
+      "The famous 'Jeffrey Pine on Sentinel Dome' in Yosemite was photographed by Ansel Adams."
+    ],
+    "interestingFactsFr": [
+      "Le test du 'doux Jeffrey' : on peut fermer la main autour du cône sans se piquer.",
+      "Sa résine contient du n-heptane pur au lieu de térébenthine — elle a été utilisée comme carburant.",
+      "Le célèbre 'Pin de Jeffrey sur Sentinel Dome' à Yosemite a été photographié par Ansel Adams."
+    ],
+    "wikipediaSlug": "Pinus_jeffreyi",
+    "coneLengthMinCm": 12.0,
+    "coneLengthMaxCm": 24.0,
+    "coneShape": "ovoid",
+    "umboPosition": "dorsal",
+    "hasMucro": true,
+    "apophysisShape": "rhomboidal",
+    "isSerotinous": false,
+    "needlesPerFascicle": 3,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 30.0,
+        "latMax": 44.0,
+        "lonMin": -124.0,
+        "lonMax": -115.0
+      }
+    ],
+    "isIntroducedOrnamental": false,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 3
+  },
+  {
+    "id": "pinus_densiflora",
+    "pokedexNumber": 36,
+    "scientificName": "Pinus densiflora",
+    "commonNames": {
+      "en": "Japanese Red Pine",
+      "fr": "Pin rouge du Japon"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Pinus",
+    "section": "Pinus",
+    "subsection": "Pinus",
+    "nativeCountryCodes": [
+      "JPN",
+      "KOR",
+      "PRK",
+      "CHN",
+      "RUS"
+    ],
+    "continents": [
+      "Asia"
+    ],
+    "description": "The iconic pine of Japanese art and garden culture. Its elegant, orange-red bark peeling in thin plates and small, delicate cones make it instantly recognizable. It is the 'pine' of classical Japanese paintings and bonsai.",
+    "descriptionFr": "Le pin emblématique de l'art et de la culture des jardins japonais. Son élégante écorce orange-rouge s'exfoliant en fines plaques et ses petits cônes délicats le rendent immédiatement reconnaissable. C'est le 'pin' des peintures classiques et du bonsaï japonais.",
+    "sizeRange": "3–5 cm",
+    "sizeRangeFr": "3–5 cm",
+    "colorDescription": "Yellow-brown, small and delicate",
+    "colorDescriptionFr": "Jaune-brun, petit et délicat",
+    "shapeDescription": "Small ovoid, symmetrical, flat apophyses",
+    "shapeDescriptionFr": "Petit ovoïde, symétrique, apophyses plates",
+    "habitat": "Japanese mountain forests, temple gardens",
+    "habitatFr": "Forêts de montagne japonaises, jardins de temples",
+    "baseRarity": "uncommon",
+    "imageUrls": [],
+    "interestingFacts": [
+      "It is the pine most commonly depicted in Japanese Ukiyo-e woodblock prints.",
+      "In Japan, paired pine trees ('Meoto Matsu') symbolize marriage and loyalty.",
+      "It is one of the most popular species for pine bonsai worldwide."
+    ],
+    "interestingFactsFr": [
+      "C'est le pin le plus souvent représenté dans les estampes Ukiyo-e japonaises.",
+      "Au Japon, les pins jumelés ('Meoto Matsu') symbolisent le mariage et la loyauté.",
+      "C'est l'une des espèces les plus populaires pour le bonsaï de pin dans le monde."
+    ],
+    "wikipediaSlug": "Pinus_densiflora",
+    "coneLengthMinCm": 3.0,
+    "coneLengthMaxCm": 5.0,
+    "coneShape": "ovoid",
+    "umboPosition": "dorsal",
+    "hasMucro": false,
+    "apophysisShape": "flat",
+    "isSerotinous": false,
+    "needlesPerFascicle": 2,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 30.0,
+        "latMax": 45.0,
+        "lonMin": 125.0,
+        "lonMax": 145.0
+      }
+    ],
+    "isIntroducedOrnamental": true,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 3,
+    "introducedCountryCodes": [
+      "USA",
+      "GBR"
+    ]
+  },
+  {
+    "id": "pinus_koraiensis",
+    "pokedexNumber": 37,
+    "scientificName": "Pinus koraiensis",
+    "commonNames": {
+      "en": "Korean Pine",
+      "fr": "Pin de Corée"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Strobus",
+    "section": "Quinquefoliae",
+    "subsection": "Cembrae",
+    "nativeCountryCodes": [
+      "RUS",
+      "CHN",
+      "PRK",
+      "KOR",
+      "JPN"
+    ],
+    "continents": [
+      "Asia"
+    ],
+    "description": "The East Asian counterpart of the European Swiss Stone Pine. Its large cones produce the commercial 'pine nuts' sold in supermarkets worldwide — the most economically important Strobus pine. Seeds are wingless and bird-dispersed.",
+    "descriptionFr": "L'équivalent est-asiatique du pin cembro européen. Ses gros cônes produisent les 'pignons de pin' commerciaux vendus dans les supermarchés du monde entier — le pin Strobus le plus important économiquement. Les graines sont aptères et dispersées par les oiseaux.",
+    "sizeRange": "8–17 cm",
+    "sizeRangeFr": "8–17 cm",
+    "colorDescription": "Pale brown, thick resinous scales",
+    "colorDescriptionFr": "Brun pâle, écailles épaisses et résineuses",
+    "shapeDescription": "Ovoid-cylindrical, indehiscent, thick scales, large wingless seeds",
+    "shapeDescriptionFr": "Ovoïde-cylindrique, indéhiscent, écailles épaisses, grosses graines aptères",
+    "habitat": "Mixed broadleaf-conifer forests, Korean Peninsula, Manchuria",
+    "habitatFr": "Forêts mixtes feuillus-conifères, péninsule coréenne, Mandchourie",
+    "baseRarity": "uncommon",
+    "imageUrls": [],
+    "interestingFacts": [
+      "Most 'pine nuts' in supermarkets come from this species, not from Mediterranean pines.",
+      "Like P. cembra, its cones depend on nutcrackers and jays for seed dispersal.",
+      "It is the most important timber pine of the Russian Far East."
+    ],
+    "interestingFactsFr": [
+      "La plupart des 'pignons de pin' en supermarché proviennent de cette espèce, pas des pins méditerranéens.",
+      "Comme P. cembra, ses cônes dépendent des cassenoix et des geais pour la dissémination.",
+      "C'est le pin de bois d'œuvre le plus important de l'Extrême-Orient russe."
+    ],
+    "wikipediaSlug": "Pinus_koraiensis",
+    "coneLengthMinCm": 8.0,
+    "coneLengthMaxCm": 17.0,
+    "coneShape": "ovoid",
+    "umboPosition": "terminal",
+    "hasMucro": false,
+    "apophysisShape": "rounded",
+    "isSerotinous": false,
+    "needlesPerFascicle": 5,
+    "seedType": "edible_nut",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 33.0,
+        "latMax": 50.0,
+        "lonMin": 120.0,
+        "lonMax": 145.0
+      }
+    ],
+    "isIntroducedOrnamental": false,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 3,
+    "introducedCountryCodes": [
+      "USA",
+      "GBR"
+    ]
+  },
+  {
+    "id": "pinus_cembroides",
+    "pokedexNumber": 38,
+    "scientificName": "Pinus cembroides",
+    "commonNames": {
+      "en": "Mexican Pinyon",
+      "fr": "Pin pignon du Mexique"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Strobus",
+    "section": "Parrya",
+    "subsection": "Cembroides",
+    "nativeCountryCodes": [
+      "MEX",
+      "USA"
+    ],
+    "continents": [
+      "North America"
+    ],
+    "description": "A small, bushy Mexican pinyon pine producing small globular cones with thick, widely-spaced scales. Its large edible seeds were a dietary staple of indigenous peoples throughout the Sierra Madre.",
+    "descriptionFr": "Un petit pin pignon mexicain buissonnant produisant de petits cônes globuleux aux écailles épaisses et espacées. Ses grosses graines comestibles étaient un aliment de base des peuples autochtones de la Sierra Madre.",
+    "sizeRange": "3–5 cm",
+    "sizeRangeFr": "3–5 cm",
+    "colorDescription": "Yellow-brown, widely spaced thick scales",
+    "colorDescriptionFr": "Jaune-brun, écailles épaisses et espacées",
+    "shapeDescription": "Small globular, thick concave scales, large wingless seeds",
+    "shapeDescriptionFr": "Petit globuleux, écailles concaves épaisses, grosses graines aptères",
+    "habitat": "Arid mountain woodlands, pinyon-juniper zone",
+    "habitatFr": "Boisements de montagne arides, zone pignon-genévrier",
+    "baseRarity": "uncommon",
+    "imageUrls": [],
+    "interestingFacts": [
+      "Its needles can grow in fascicles of 2, 3, or even 4 — unusual variation for a pine.",
+      "Piñón nuts from this species have been traded across Mexico for millennia.",
+      "It grows in the driest habitats of any five-needle pine."
+    ],
+    "interestingFactsFr": [
+      "Ses aiguilles peuvent pousser en fascicules de 2, 3, voire 4 — une variation inhabituelle pour un pin.",
+      "Les pignons de cette espèce sont commercialisés à travers le Mexique depuis des millénaires.",
+      "Il pousse dans les habitats les plus secs de tous les pins à cinq aiguilles."
+    ],
+    "wikipediaSlug": "Pinus_cembroides",
+    "coneLengthMinCm": 3.0,
+    "coneLengthMaxCm": 5.0,
+    "coneShape": "globular",
+    "umboPosition": "terminal",
+    "hasMucro": false,
+    "apophysisShape": "rounded",
+    "isSerotinous": false,
+    "needlesPerFascicle": 3,
+    "seedType": "edible_nut",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 18.0,
+        "latMax": 35.0,
+        "lonMin": -115.0,
+        "lonMax": -98.0
+      }
+    ],
+    "isIntroducedOrnamental": false,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 3,
+    "introducedCountryCodes": [
+      "ZAF"
+    ]
+  },
+  {
+    "id": "pinus_monticola",
+    "pokedexNumber": 39,
+    "scientificName": "Pinus monticola",
+    "commonNames": {
+      "en": "Western White Pine",
+      "fr": "Pin blanc de l'Ouest"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Strobus",
+    "section": "Quinquefoliae",
+    "subsection": "Strobi",
+    "nativeCountryCodes": [
+      "US",
+      "CA"
+    ],
+    "continents": [
+      "North America"
+    ],
+    "description": "The western counterpart of Eastern White Pine, producing long, pendant, cylindrical cones with thin, smooth scales. Once a major timber species, it has been devastated by white pine blister rust throughout its range.",
+    "descriptionFr": "L'équivalent occidental du pin blanc de l'Est, produisant de longs cônes cylindriques pendants aux écailles minces et lisses. Autrefois une espèce forestière majeure, il a été dévasté par la rouille vésiculeuse du pin blanc dans toute son aire.",
+    "sizeRange": "12–25 cm",
+    "sizeRangeFr": "12–25 cm",
+    "colorDescription": "Pale brown with resinous scale tips",
+    "colorDescriptionFr": "Brun pâle avec extrémités d'écailles résineuses",
+    "shapeDescription": "Cylindrical, pendant, thin smooth spineless scales",
+    "shapeDescriptionFr": "Cylindrique, pendant, écailles minces et lisses sans épines",
+    "habitat": "Montane and subalpine forests, Pacific Northwest",
+    "habitatFr": "Forêts de montagne et subalpines, nord-ouest Pacifique",
+    "baseRarity": "uncommon",
+    "imageUrls": [],
+    "interestingFacts": [
+      "White pine blister rust has killed over 90% of Western White Pines in some areas.",
+      "It is the state tree of Idaho.",
+      "Its soft, easily-worked wood was historically the most valuable timber in the Pacific Northwest."
+    ],
+    "interestingFactsFr": [
+      "La rouille vésiculeuse a tué plus de 90% des pins blancs de l'Ouest dans certaines zones.",
+      "C'est l'arbre d'État de l'Idaho.",
+      "Son bois tendre et facile à travailler était historiquement le bois le plus précieux du nord-ouest Pacifique."
+    ],
+    "wikipediaSlug": "Pinus_monticola",
+    "coneLengthMinCm": 12.0,
+    "coneLengthMaxCm": 25.0,
+    "coneShape": "cylindrical",
+    "umboPosition": "terminal",
+    "hasMucro": false,
+    "apophysisShape": "flat",
+    "isSerotinous": false,
+    "needlesPerFascicle": 5,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 35.0,
+        "latMax": 55.0,
+        "lonMin": -130.0,
+        "lonMax": -110.0
+      }
+    ],
+    "isIntroducedOrnamental": false,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 3
+  },
+  {
+    "id": "pinus_virginiana",
+    "pokedexNumber": 40,
+    "scientificName": "Pinus virginiana",
+    "commonNames": {
+      "en": "Virginia Pine",
+      "fr": "Pin de Virginie"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Pinus",
+    "section": "Trifoliae",
+    "subsection": "Contortae",
+    "nativeCountryCodes": [
+      "USA"
+    ],
+    "continents": [
+      "North America"
+    ],
+    "description": "A scrubby, small pine of the Appalachian foothills with twisted needles and small, persistent, prickly cones. Often colonizes poor, abandoned farmland and strip mines — a pioneer species of disturbed landscapes.",
+    "descriptionFr": "Un petit pin buissonnant des contreforts des Appalaches avec des aiguilles tordues et de petits cônes persistants et piquants. Colonise souvent les terres agricoles abandonnées et les mines à ciel ouvert — une espèce pionnière des paysages perturbés.",
+    "sizeRange": "4–7 cm",
+    "sizeRangeFr": "4–7 cm",
+    "colorDescription": "Reddish-brown, persistent on branches",
+    "colorDescriptionFr": "Brun-rougeâtre, persistant sur les branches",
+    "shapeDescription": "Small ovoid, persistent, armed with sharp prickle",
+    "shapeDescriptionFr": "Petit ovoïde, persistant, armé d'un aiguillon acéré",
+    "habitat": "Old fields, disturbed sites, poor soils, Appalachian foothills",
+    "habitatFr": "Anciennes terres, sites perturbés, sols pauvres, contreforts appalachiens",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [
+      "It is a popular Christmas tree species in the southeastern US.",
+      "It colonizes strip mines and abandoned farmland faster than almost any other tree.",
+      "Its small, prickly cones persist on dead branches for years."
+    ],
+    "interestingFactsFr": [
+      "C'est une espèce populaire de sapin de Noël dans le sud-est des États-Unis.",
+      "Il colonise les mines à ciel ouvert et les terres abandonnées plus vite que presque tout autre arbre.",
+      "Ses petits cônes piquants persistent sur les branches mortes pendant des années."
+    ],
+    "wikipediaSlug": "Pinus_virginiana",
+    "coneLengthMinCm": 4.0,
+    "coneLengthMaxCm": 7.0,
+    "coneShape": "ovoid",
+    "umboPosition": "dorsal",
+    "hasMucro": true,
+    "apophysisShape": "flat",
+    "isSerotinous": false,
+    "needlesPerFascicle": 2,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 33.0,
+        "latMax": 42.0,
+        "lonMin": -88.0,
+        "lonMax": -75.0
+      }
+    ],
+    "isIntroducedOrnamental": false,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 2,
+    "introducedCountryCodes": []
+  },
+  {
+    "id": "pinus_caribaea",
+    "pokedexNumber": 41,
+    "scientificName": "Pinus caribaea",
+    "commonNames": {
+      "en": "Caribbean Pine",
+      "fr": "Pin des Caraïbes"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Pinus",
+    "section": "Trifoliae",
+    "subsection": "Australes",
+    "nativeCountryCodes": [
+      "BHS",
+      "CUB",
+      "TCA",
+      "BLZ",
+      "GTM",
+      "HND",
+      "NIC"
+    ],
+    "continents": [
+      "North America"
+    ],
+    "description": "A tropical lowland pine — one of very few pines that naturally grows near sea level in the tropics. It dominates the Caribbean pine savannas of Belize, Honduras, and the Bahamas. Widely planted throughout tropical Asia and Africa.",
+    "descriptionFr": "Un pin tropical de plaine — l'un des très rares pins qui poussent naturellement près du niveau de la mer sous les tropiques. Il domine les savanes à pin des Caraïbes au Belize, Honduras et aux Bahamas. Largement planté en Asie et Afrique tropicales.",
+    "sizeRange": "7–12 cm",
+    "sizeRangeFr": "7–12 cm",
+    "colorDescription": "Glossy brown, slightly asymmetric",
+    "colorDescriptionFr": "Brun brillant, légèrement asymétrique",
+    "shapeDescription": "Ovoid-conical, slightly asymmetric, moderate prickle",
+    "shapeDescriptionFr": "Ovoïde-conique, légèrement asymétrique, aiguillon modéré",
+    "habitat": "Tropical pine savannas, coastal lowlands",
+    "habitatFr": "Savanes à pins tropicales, plaines côtières",
+    "baseRarity": "uncommon",
+    "imageUrls": [],
+    "interestingFacts": [
+      "One of very few pines that grows naturally in the tropics.",
+      "It is the most widely planted tropical pine in the world.",
+      "Caribbean Pine savannas in Belize are maintained by regular fire."
+    ],
+    "interestingFactsFr": [
+      "L'un des très rares pins poussant naturellement sous les tropiques.",
+      "C'est le pin tropical le plus largement planté au monde.",
+      "Les savanes à pin des Caraïbes au Belize sont entretenues par des feux réguliers."
+    ],
+    "wikipediaSlug": "Pinus_caribaea",
+    "coneLengthMinCm": 7.0,
+    "coneLengthMaxCm": 12.0,
+    "coneShape": "ovoid",
+    "umboPosition": "dorsal",
+    "hasMucro": true,
+    "apophysisShape": "flat",
+    "isSerotinous": false,
+    "needlesPerFascicle": 3,
+    "seedType": "winged",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 13.0,
+        "latMax": 27.0,
+        "lonMin": -90.0,
+        "lonMax": -72.0
+      }
+    ],
+    "isIntroducedOrnamental": true,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 3,
+    "introducedCountryCodes": [
+      "AUS",
+      "NCL",
+      "ZAF",
+      "FJI",
+      "COL",
+      "BRA",
+      "VEN",
+      "GUY"
+    ]
+  },
+  {
+    "id": "pinus_pumila",
+    "pokedexNumber": 42,
+    "scientificName": "Pinus pumila",
+    "commonNames": {
+      "en": "Siberian Dwarf Pine",
+      "fr": "Pin nain de Sibérie"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "subgenus": "Strobus",
+    "section": "Quinquefoliae",
+    "subsection": "Cembrae",
+    "nativeCountryCodes": [
+      "RUS",
+      "CHN",
+      "MNG",
+      "PRK",
+      "KOR",
+      "JPN"
+    ],
+    "continents": [
+      "Asia"
+    ],
+    "description": "A prostrate, creeping shrub pine of subarctic and alpine zones across northeast Asia. Despite its diminutive size (rarely exceeding 5 meters), it covers vast tracts of Siberian tundra and produces small, indehiscent cones like its Alpine relative P. cembra.",
+    "descriptionFr": "Un pin arbustif prostré et rampant des zones subarctiques et alpines d'Asie du nord-est. Malgré sa taille minuscule (dépassant rarement 5 mètres), il couvre de vastes étendues de la toundra sibérienne et produit de petits cônes indéhiscents comme son parent alpin P. cembra.",
+    "sizeRange": "3–5 cm",
+    "sizeRangeFr": "3–5 cm",
+    "colorDescription": "Purple-brown, small, indehiscent",
+    "colorDescriptionFr": "Brun-pourpre, petit, indéhiscent",
+    "shapeDescription": "Small ovoid, indehiscent, blunt thick scales",
+    "shapeDescriptionFr": "Petit ovoïde, indéhiscent, écailles obtuses et épaisses",
+    "habitat": "Subarctic scrubland, alpine tundra, Siberia, Hokkaido",
+    "habitatFr": "Broussailles subarctiques, toundra alpine, Sibérie, Hokkaido",
+    "baseRarity": "rare",
+    "imageUrls": [],
+    "interestingFacts": [
+      "It forms vast 'krummholz' mats — dense carpets of prostrate branches — at the Arctic treeline.",
+      "Despite being a shrub, it is one of the most abundant conifers by coverage area in Asia.",
+      "Its nuts are a critical food source for the Spotted Nutcracker in Siberia."
+    ],
+    "interestingFactsFr": [
+      "Il forme de vastes tapis de 'krummholz' — des carpets denses de branches prostrées — à la limite forestière arctique.",
+      "Bien qu'arbustif, c'est l'un des conifères les plus abondants par surface en Asie.",
+      "Ses noix sont une source alimentaire critique pour le Cassenoix moucheté en Sibérie."
+    ],
+    "wikipediaSlug": "Pinus_pumila",
+    "coneLengthMinCm": 3.0,
+    "coneLengthMaxCm": 5.0,
+    "coneShape": "ovoid",
+    "umboPosition": "terminal",
+    "hasMucro": false,
+    "apophysisShape": "rounded",
+    "isSerotinous": false,
+    "needlesPerFascicle": 5,
+    "seedType": "bird_dispersed",
+    "nativeBoundingBoxes": [
+      {
+        "latMin": 35.0,
+        "latMax": 72.0,
+        "lonMin": 85.0,
+        "lonMax": 175.0
+      }
+    ],
+    "isIntroducedOrnamental": false,
+    "conservationStatus": "LC",
+    "discoveryDifficulty": 5,
+    "introducedCountryCodes": [
+      "GBR"
+    ]
+  },
+  {
+    "id": "a57028f0-554c-4a0c-86fb-eed6507d9c85",
+    "scientificName": "Pinus sibirica",
+    "commonNames": {
+      "en": "Pinus sibirica",
+      "fr": "Pinus sibirica"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "nativeCountryCodes": [
+      "RUS",
+      "MNG",
+      "KAZ",
+      "CHN"
+    ],
+    "introducedCountryCodes": [],
+    "continents": [],
+    "description": "Information pending.",
+    "sizeRange": "Unknown",
+    "colorDescription": "Unknown",
+    "shapeDescription": "Unknown",
+    "habitat": "Unknown",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [],
+    "wikipediaSlug": "Pinus_sibirica",
+    "updatedAt": "2026-06-23T00:00:00Z"
+  },
+  {
+    "id": "d38ee4ad-149f-4d37-80b1-d9a194c50e8a",
+    "scientificName": "Pinus massoniana",
+    "commonNames": {
+      "en": "Pinus massoniana",
+      "fr": "Pinus massoniana"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "nativeCountryCodes": [
+      "CHN",
+      "TWN",
+      "VNM"
+    ],
+    "introducedCountryCodes": [],
+    "continents": [],
+    "description": "Information pending.",
+    "sizeRange": "Unknown",
+    "colorDescription": "Unknown",
+    "shapeDescription": "Unknown",
+    "habitat": "Unknown",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [],
+    "wikipediaSlug": "Pinus_massoniana",
+    "updatedAt": "2026-06-23T00:00:00Z"
+  },
+  {
+    "id": "da71bb30-e194-4958-90dd-ad9ec0b65d3d",
+    "scientificName": "Pinus monophylla",
+    "commonNames": {
+      "en": "Pinus monophylla",
+      "fr": "Pinus monophylla"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "nativeCountryCodes": [
+      "USA",
+      "MEX"
+    ],
+    "introducedCountryCodes": [],
+    "continents": [],
+    "description": "Information pending.",
+    "sizeRange": "Unknown",
+    "colorDescription": "Unknown",
+    "shapeDescription": "Unknown",
+    "habitat": "Unknown",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [],
+    "wikipediaSlug": "Pinus_monophylla",
+    "updatedAt": "2026-06-23T00:00:00Z"
+  },
+  {
+    "id": "a07db244-7bc0-4e40-b6b5-2a19a9cd90b9",
+    "scientificName": "Pinus heldreichii",
+    "commonNames": {
+      "en": "Pinus heldreichii",
+      "fr": "Pinus heldreichii"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "nativeCountryCodes": [
+      "ALB",
+      "BIH",
+      "BGR",
+      "GRC",
+      "ITA",
+      "MKD",
+      "MNE",
+      "SRB"
+    ],
+    "introducedCountryCodes": [],
+    "continents": [],
+    "description": "Information pending.",
+    "sizeRange": "Unknown",
+    "colorDescription": "Unknown",
+    "shapeDescription": "Unknown",
+    "habitat": "Unknown",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [],
+    "wikipediaSlug": "Pinus_heldreichii",
+    "updatedAt": "2026-06-23T00:00:00Z"
+  },
+  {
+    "id": "d09f26b3-b20b-4a7a-9c7e-02b0d9e36eeb",
+    "scientificName": "Pinus oocarpa",
+    "commonNames": {
+      "en": "Pinus oocarpa",
+      "fr": "Pinus oocarpa"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "nativeCountryCodes": [
+      "MEX",
+      "GTM",
+      "BLZ",
+      "HND",
+      "SLV",
+      "NIC"
+    ],
+    "introducedCountryCodes": [
+      "ECU",
+      "KEN",
+      "ZMB",
+      "COL",
+      "BOL",
+      "BRA",
+      "ZAF",
+      "AUS"
+    ],
+    "continents": [],
+    "description": "Information pending.",
+    "sizeRange": "Unknown",
+    "colorDescription": "Unknown",
+    "shapeDescription": "Unknown",
+    "habitat": "Unknown",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [],
+    "wikipediaSlug": "Pinus_oocarpa",
+    "updatedAt": "2026-06-23T00:00:00Z"
+  },
+  {
+    "id": "5e2fbc86-c229-4b8a-a327-ca10ec1d8376",
+    "scientificName": "Pinus thunbergii",
+    "commonNames": {
+      "en": "Pinus thunbergii",
+      "fr": "Pinus thunbergii"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "nativeCountryCodes": [
+      "JPN",
+      "KOR"
+    ],
+    "introducedCountryCodes": [
+      "USA"
+    ],
+    "continents": [],
+    "description": "Information pending.",
+    "sizeRange": "Unknown",
+    "colorDescription": "Unknown",
+    "shapeDescription": "Unknown",
+    "habitat": "Unknown",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [],
+    "wikipediaSlug": "Pinus_thunbergii",
+    "updatedAt": "2026-06-23T00:00:00Z"
+  },
+  {
+    "id": "60d280b9-1539-4737-9778-59ff91d455f2",
+    "scientificName": "Pinus bungeana",
+    "commonNames": {
+      "en": "Pinus bungeana",
+      "fr": "Pinus bungeana"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "nativeCountryCodes": [
+      "CHN"
+    ],
+    "introducedCountryCodes": [
+      "USA",
+      "GBR"
+    ],
+    "continents": [],
+    "description": "Information pending.",
+    "sizeRange": "Unknown",
+    "colorDescription": "Unknown",
+    "shapeDescription": "Unknown",
+    "habitat": "Unknown",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [],
+    "wikipediaSlug": "Pinus_bungeana",
+    "updatedAt": "2026-06-23T00:00:00Z"
+  },
+  {
+    "id": "0b1496b1-c1ac-4e24-8e72-2a2e4d760e95",
+    "scientificName": "Pinus patula",
+    "commonNames": {
+      "en": "Pinus patula",
+      "fr": "Pinus patula"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "nativeCountryCodes": [
+      "MEX"
+    ],
+    "introducedCountryCodes": [
+      "BOL",
+      "ZWE",
+      "AGO",
+      "ZAF",
+      "MWI",
+      "MDG",
+      "NZL"
+    ],
+    "continents": [],
+    "description": "Information pending.",
+    "sizeRange": "Unknown",
+    "colorDescription": "Unknown",
+    "shapeDescription": "Unknown",
+    "habitat": "Unknown",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [],
+    "wikipediaSlug": "Pinus_patula",
+    "updatedAt": "2026-06-23T00:00:00Z"
+  },
+  {
+    "id": "cf1bb608-240f-4130-a56a-0909e7530011",
+    "scientificName": "Pinus quadrifolia",
+    "commonNames": {
+      "en": "Pinus quadrifolia",
+      "fr": "Pinus quadrifolia"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "nativeCountryCodes": [
+      "USA",
+      "MEX"
+    ],
+    "introducedCountryCodes": [],
+    "continents": [],
+    "description": "Information pending.",
+    "sizeRange": "Unknown",
+    "colorDescription": "Unknown",
+    "shapeDescription": "Unknown",
+    "habitat": "Unknown",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [],
+    "wikipediaSlug": "Pinus_quadrifolia",
+    "updatedAt": "2026-06-23T00:00:00Z"
+  },
+  {
+    "id": "d950e238-c829-4def-8a27-f114d5475642",
+    "scientificName": "Pinus merkusii",
+    "commonNames": {
+      "en": "Pinus merkusii",
+      "fr": "Pinus merkusii"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "nativeCountryCodes": [
+      "IDN",
+      "PHL"
+    ],
+    "introducedCountryCodes": [
+      "THA",
+      "MYS",
+      "ZAF"
+    ],
+    "continents": [],
+    "description": "Information pending.",
+    "sizeRange": "Unknown",
+    "colorDescription": "Unknown",
+    "shapeDescription": "Unknown",
+    "habitat": "Unknown",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [],
+    "wikipediaSlug": "Pinus_merkusii",
+    "updatedAt": "2026-06-23T00:00:00Z"
+  },
+  {
+    "id": "5d359442-88ea-4658-ba47-483be0980345",
+    "scientificName": "Pinus peuce",
+    "commonNames": {
+      "en": "Pinus peuce",
+      "fr": "Pinus peuce"
+    },
+    "family": "Pinaceae",
+    "genus": "Pinus",
+    "nativeCountryCodes": [
+      "MKD",
+      "ALB",
+      "GRC",
+      "BGR",
+      "SRB",
+      "MNE"
+    ],
+    "introducedCountryCodes": [
+      "GBR",
+      "DEU",
+      "SWE"
+    ],
+    "continents": [],
+    "description": "Information pending.",
+    "sizeRange": "Unknown",
+    "colorDescription": "Unknown",
+    "shapeDescription": "Unknown",
+    "habitat": "Unknown",
+    "baseRarity": "common",
+    "imageUrls": [],
+    "interestingFacts": [],
+    "wikipediaSlug": "Pinus_peuce",
+    "updatedAt": "2026-06-23T00:00:00Z"
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "pine_cones",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {"fieldPath": "userId", "order": "ASCENDING"},
+        {"fieldPath": "collectedAt", "order": "DESCENDING"}
+      ]
+    },
+    {
+      "collectionGroup": "pine_cones",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {"fieldPath": "userId", "order": "ASCENDING"},
+        {"fieldPath": "rarity", "order": "ASCENDING"},
+        {"fieldPath": "collectedAt", "order": "DESCENDING"}
+      ]
+    },
+    {
+      "collectionGroup": "pine_cones",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {"fieldPath": "userId", "order": "ASCENDING"},
+        {"fieldPath": "countryCode", "order": "ASCENDING"}
+      ]
+    },
+    {
+      "collectionGroup": "pine_cones",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {"fieldPath": "userId", "order": "ASCENDING"},
+        {"fieldPath": "speciesId", "order": "ASCENDING"},
+        {"fieldPath": "collectedAt", "order": "DESCENDING"}
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
