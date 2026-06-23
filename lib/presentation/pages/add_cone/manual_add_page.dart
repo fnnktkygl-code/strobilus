@@ -16,6 +16,7 @@ import '../../../core/theme/design_system.dart';
 import '../../../data/models/pine_cone_model.dart';
 import '../../../data/services/maps_service.dart';
 import '../../../presentation/providers/collection_provider.dart';
+import '../../../presentation/providers/species_provider.dart';
 import '../../../data/models/location_model.dart';
 import '../../widgets/common/full_screen_image_viewer.dart';
 import '../../widgets/common/strobilus_image.dart';
@@ -147,13 +148,26 @@ class _ManualAddPageState extends State<ManualAddPage> {
     try {
       final currentUserId = FirebaseAuth.instance.currentUser?.uid ?? '';
 
+      final scientificNameInput = _scientificNameController.text.trim();
+      String? matchedSpeciesId;
+      if (scientificNameInput.isNotEmpty) {
+        final speciesList = context.read<SpeciesProvider>().allSpecies;
+        for (final s in speciesList) {
+          if (s.scientificName.toLowerCase() == scientificNameInput.toLowerCase()) {
+            matchedSpeciesId = s.id;
+            break;
+          }
+        }
+      }
+
       final newCone = PineConeModel(
         id: const Uuid().v4(),
         userId: currentUserId,
         commonName: _commonNameController.text.trim(),
-        scientificName: _scientificNameController.text.trim().isNotEmpty
-            ? _scientificNameController.text.trim()
+        scientificName: scientificNameInput.isNotEmpty
+            ? scientificNameInput
             : null,
+        speciesId: matchedSpeciesId,
         photoUrls: [
           _imageFile!.path,
         ], // Local path; CollectionProvider uploads it

@@ -17,6 +17,7 @@ import '../../../data/models/pine_cone_model.dart';
 import '../../../data/services/gemini_service.dart';
 import '../../../data/services/maps_service.dart';
 import '../../../presentation/providers/collection_provider.dart';
+import '../../../presentation/providers/species_provider.dart';
 import '../../widgets/common/full_screen_image_viewer.dart';
 import '../../widgets/common/location_picker_field.dart';
 
@@ -223,6 +224,18 @@ class _QuickCapturePageState extends State<QuickCapturePage> {
       );
     }
 
+    String? matchedSpeciesId;
+    if (_aiResult?.topMatches.isNotEmpty == true) {
+      final scientificName = _aiResult!.topMatches.first.scientificName;
+      final speciesList = context.read<SpeciesProvider>().allSpecies;
+      for (final s in speciesList) {
+        if (s.scientificName.toLowerCase() == scientificName.toLowerCase()) {
+          matchedSpeciesId = s.id;
+          break;
+        }
+      }
+    }
+
     final cone = PineConeModel(
       id: const Uuid().v4(),
       userId: currentUserId,
@@ -232,7 +245,7 @@ class _QuickCapturePageState extends State<QuickCapturePage> {
       scientificName: _aiResult?.topMatches.isNotEmpty == true
           ? _aiResult!.topMatches.first.scientificName
           : null,
-      speciesId: null, // Will need matching to DB
+      speciesId: matchedSpeciesId,
       photoUrls: [_capturedImage!.path], // Save local path
       latitude: _resolvedLocation?.latitude ?? _currentPosition?.latitude ?? 0.0,
       longitude: _resolvedLocation?.longitude ?? _currentPosition?.longitude ?? 0.0,
