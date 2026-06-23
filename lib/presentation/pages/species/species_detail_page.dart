@@ -17,6 +17,8 @@ import '../../../presentation/providers/auth_provider.dart';
 import '../../../presentation/providers/collection_provider.dart';
 import '../../../presentation/providers/map_provider.dart';
 import '../../../presentation/providers/species_provider.dart';
+import '../../../core/theme/app_theme.dart';
+import '../../widgets/common/strobilus_image.dart';
 
 /// Premium species detail page with taxonomy, morphology, distribution, and collection tracking.
 class SpeciesDetailPage extends StatelessWidget {
@@ -331,7 +333,7 @@ class SpeciesDetailPage extends StatelessWidget {
                       ),
                     ),
                   )
-                else
+                else ...[
                   Container(
                     padding: const EdgeInsets.all(DS.md),
                     decoration: BoxDecoration(
@@ -358,6 +360,19 @@ class SpeciesDetailPage extends StatelessWidget {
                       ],
                     ),
                   ),
+                  const SizedBox(height: DS.md),
+                  SizedBox(
+                    height: 140,
+                    child: ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: userCones.length,
+                      separatorBuilder: (_, __) => const SizedBox(width: DS.md),
+                      itemBuilder: (context, index) {
+                        return _SpecimenCard(cone: userCones[index]);
+                      },
+                    ),
+                  ),
+                ],
                 const SizedBox(height: DS.xxxl),
               ]),
             ),
@@ -1079,6 +1094,119 @@ class _SpeciesInteractiveHeaderState extends State<_SpeciesInteractiveHeader> {
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+// ── Specimen Card ──
+
+class _SpecimenCard extends StatelessWidget {
+  final PineConeModel cone;
+
+  const _SpecimenCard({required this.cone});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final ext = theme.extension<StrobilusExtension>()!;
+
+    return GestureDetector(
+      onTap: () => context.push('/cone/${cone.id}'),
+      child: Container(
+        width: 240,
+        decoration: BoxDecoration(
+          color: theme.colorScheme.surface,
+          borderRadius: DS.borderRadiusMd,
+          border: Border.all(
+            color: theme.colorScheme.outlineVariant,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.05),
+              blurRadius: 10,
+              offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+        clipBehavior: Clip.antiAlias,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  cone.photoUrls.isNotEmpty
+                      ? StrobilusImage(
+                          imagePath: cone.photoUrls.first,
+                          fit: BoxFit.cover,
+                        )
+                      : Container(
+                          color: theme.colorScheme.surfaceContainerHighest,
+                          child: Icon(
+                            Icons.forest,
+                            size: 40,
+                            color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.5),
+                          ),
+                        ),
+                  if (cone.isAiIdentified)
+                    Positioned(
+                      top: 8,
+                      right: 8,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                        decoration: BoxDecoration(
+                          color: ext.palette.primary,
+                          borderRadius: DS.borderRadiusFull,
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const Icon(Icons.auto_awesome, color: Colors.white, size: 12),
+                            const SizedBox(width: 4),
+                            const Text(
+                              'AI',
+                              style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    cone.city.isNotEmpty ? cone.city : cone.locationName,
+                    style: theme.textTheme.titleSmall?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const SizedBox(height: 4),
+                  Row(
+                    children: [
+                      Icon(Icons.calendar_today, size: 12, color: theme.colorScheme.onSurfaceVariant),
+                      const SizedBox(width: 4),
+                      Text(
+                        '${cone.collectedAt.day}/${cone.collectedAt.month}/${cone.collectedAt.year}',
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: theme.colorScheme.onSurfaceVariant,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

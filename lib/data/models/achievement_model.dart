@@ -79,6 +79,7 @@ class AchievementModel {
       category: AchievementCategory.documentation,
       xpReward: 600,
       progressTarget: 5,
+      requiredCones: 5,
       hintKey: 'achTheMeasurerHint',
     ),
     AchievementModel(
@@ -90,6 +91,7 @@ class AchievementModel {
       category: AchievementCategory.documentation,
       xpReward: 150,
       progressTarget: 10,
+      requiredCones: 10,
       hintKey: 'achImperfectBeautyHint',
     ),
 
@@ -114,6 +116,7 @@ class AchievementModel {
       category: AchievementCategory.collection,
       xpReward: 2000,
       progressTarget: 2,
+      requiredSpecies: 2,
       hintKey: 'achFamilyTreeHint',
     ),
     AchievementModel(
@@ -125,6 +128,7 @@ class AchievementModel {
       category: AchievementCategory.collection,
       xpReward: 800,
       progressTarget: 10,
+      requiredCones: 10,
       hintKey: 'achFreneticHarvestHint',
     ),
     AchievementModel(
@@ -136,6 +140,7 @@ class AchievementModel {
       category: AchievementCategory.collection,
       xpReward: 3000,
       progressTarget: 30,
+      requiredCones: 30,
       hintKey: 'achRootedHint',
     ),
 
@@ -238,6 +243,7 @@ class AchievementModel {
       category: AchievementCategory.showcase,
       xpReward: 10000,
       progressTarget: 15,
+      requiredCones: 15,
     ),
     AchievementModel(
       id: 'taxonomist',
@@ -248,6 +254,7 @@ class AchievementModel {
       category: AchievementCategory.showcase,
       xpReward: 5000,
       progressTarget: 50,
+      requiredSpecies: 50,
     ),
   ];
 
@@ -265,16 +272,29 @@ class AchievementModel {
       if (currentlyUnlockedIds.contains(achievement.id)) continue;
 
       bool unlocks = true;
-      if (achievement.requiredCones > 0 &&
-          totalCones < achievement.requiredCones) {
-        unlocks = false;
+      bool hasConditions = false;
+
+      if (achievement.requiredCones > 0) {
+        hasConditions = true;
+        if (totalCones < achievement.requiredCones) {
+          unlocks = false;
+        }
       }
-      if (achievement.requiredSpecies > 0 &&
-          uniqueSpecies < achievement.requiredSpecies) {
-        unlocks = false;
+      if (achievement.requiredSpecies > 0) {
+        hasConditions = true;
+        if (uniqueSpecies < achievement.requiredSpecies) {
+          unlocks = false;
+        }
       }
-      if (achievement.requiredCountries > 0 &&
-          countries < achievement.requiredCountries) {
+      if (achievement.requiredCountries > 0) {
+        hasConditions = true;
+        if (countries < achievement.requiredCountries) {
+          unlocks = false;
+        }
+      }
+
+      // If the achievement has no specific collection criteria (e.g., secret or purely manual unlock), it cannot auto-unlock.
+      if (!hasConditions) {
         unlocks = false;
       }
 

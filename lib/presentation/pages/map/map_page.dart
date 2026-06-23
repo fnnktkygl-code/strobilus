@@ -83,6 +83,8 @@ class _MapPageState extends State<MapPage> {
     final cones = mapProvider.filterCones(collectionProvider.allCones);
 
     final List<Polygon> polygons = [];
+    final List<CircleMarker> circles = [];
+
     if (mapProvider.viewMode == MapViewMode.distribution && mapProvider.selectedSpeciesDistributionId != null) {
       final species = speciesProvider.getSpeciesById(mapProvider.selectedSpeciesDistributionId!);
       if (species != null) {
@@ -92,6 +94,7 @@ class _MapPageState extends State<MapPage> {
         for (var entry in _countryPolygons.entries) {
           final isNative = nativeCodes.contains(entry.key);
           final isIntroduced = introducedCodes.contains(entry.key);
+
           if (isNative || isIntroduced) {
             final color = isNative 
               ? SemanticColors.successLeaf.withValues(alpha: 0.5) 
@@ -110,6 +113,32 @@ class _MapPageState extends State<MapPage> {
             }
           }
         }
+
+        // Add circles for user's findings of this species
+        final userCones = collectionProvider.allCones
+            .where((c) => c.speciesId == species.id);
+        for (var cone in userCones) {
+          circles.add(CircleMarker(
+            point: LatLng(cone.latitude, cone.longitude),
+            color: ext.palette.primary.withValues(alpha: 0.3),
+            borderColor: ext.palette.primary.withValues(alpha: 0.8),
+            borderStrokeWidth: 2,
+            radius: 15000, // 15 km radius to roughly cover a city area
+            useRadiusInMeter: true,
+          ));
+        }
+      }
+    } else if (mapProvider.viewMode == MapViewMode.collection) {
+      // Add circles for all user's findings
+      for (var cone in collectionProvider.allCones) {
+        circles.add(CircleMarker(
+          point: LatLng(cone.latitude, cone.longitude),
+          color: ext.palette.primary.withValues(alpha: 0.2),
+          borderColor: ext.palette.primary.withValues(alpha: 0.5),
+          borderStrokeWidth: 1.5,
+          radius: 15000,
+          useRadiusInMeter: true,
+        ));
       }
     }
 
@@ -142,8 +171,10 @@ class _MapPageState extends State<MapPage> {
                 userAgentPackageName: 'com.strobilus.strobilus',
                 subdomains: const ['a', 'b', 'c'],
               ),
-              if (mapProvider.viewMode == MapViewMode.distribution)
+              if (polygons.isNotEmpty)
                 PolygonLayer(polygons: polygons),
+              if (circles.isNotEmpty)
+                CircleLayer(circles: circles),
               if (mapProvider.viewMode == MapViewMode.collection)
                 MarkerLayer(
                   markers: cones.map((cone) => _buildMarker(cone, ext, context)).toList(),
@@ -397,6 +428,7 @@ class _SpeciesDistributionCard extends StatelessWidget {
 
     final speciesProvider = context.read<SpeciesProvider>();
     final mapProvider = context.read<MapProvider>();
+    final ext = Theme.of(context).extension<StrobilusExtension>()!;
     final allSpecies = speciesProvider.allSpecies;
     final currentIndex = allSpecies.indexWhere((s) => s.id == species!.id);
     
@@ -458,6 +490,10 @@ class _SpeciesDistributionCard extends StatelessWidget {
                     polygonsLoaded 
                       ? Row(
                           children: [
+                            Container(width: 8, height: 8, decoration: BoxDecoration(color: ext.palette.primary, shape: BoxShape.circle)),
+                            const SizedBox(width: 4),
+                            const Text('Mes trouvailles', style: TextStyle(fontSize: 12)),
+                            const SizedBox(width: 12),
                             Container(width: 8, height: 8, decoration: const BoxDecoration(color: SemanticColors.successLeaf, shape: BoxShape.circle)),
                             const SizedBox(width: 4),
                             Text(AppLocalizations.of(context).distributionNativeLabel, style: const TextStyle(fontSize: 12)),
