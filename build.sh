@@ -7,4 +7,4 @@ else
 fi
 ./flutter/bin/flutter config --no-analytics
 ./flutter/bin/flutter pub get
-./flutter/bin/flutter build web --release --no-wasm-dry-run --web-renderer canvaskit
+./flutter/bin/flutter build web --release --no-wasm-dry-run
