@@ -23,8 +23,6 @@ class MapProvider extends ChangeNotifier {
   String? _speciesFilter;
   DateTimeRange? _dateRangeFilter;
   
-  bool _isFogOfWarEnabled = true;
-
   LatLng get center => _center;
   double get zoom => _zoom;
   String? get selectedConeId => _selectedConeId;
@@ -38,7 +36,6 @@ class MapProvider extends ChangeNotifier {
       _rarityFilter != null ||
       _speciesFilter != null ||
       _dateRangeFilter != null;
-  bool get isFogOfWarEnabled => _isFogOfWarEnabled;
 
   String get tileUrl {
     switch (_tileStyle) {
@@ -66,11 +63,6 @@ class MapProvider extends ChangeNotifier {
 
   void setTileStyle(MapTileStyle style) {
     _tileStyle = style;
-    notifyListeners();
-  }
-  
-  void toggleFogOfWar() {
-    _isFogOfWarEnabled = !_isFogOfWarEnabled;
     notifyListeners();
   }
 
