@@ -45,9 +45,8 @@ class StrobilusApp extends StatelessWidget {
 
         // === Feature Providers ===
         ChangeNotifierProvider<AuthProvider>(
-          create: (ctx) => AuthProvider(
-            firestoreService: ctx.read<FirestoreService>(),
-          ),
+          create: (ctx) =>
+              AuthProvider(firestoreService: ctx.read<FirestoreService>()),
         ),
         ChangeNotifierProxyProvider<AuthProvider, CollectionProvider>(
           create: (ctx) => CollectionProvider(

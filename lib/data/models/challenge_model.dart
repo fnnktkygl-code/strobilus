@@ -25,13 +25,18 @@ class ChallengeModel {
   static ChallengeModel getCurrentWeeklyChallenge() {
     final now = DateTime.now();
     // Calculate week number (simple approximation)
-    final dayOfYear = int.parse(now.difference(DateTime(now.year, 1, 1)).inDays.toString());
+    final dayOfYear = int.parse(
+      now.difference(DateTime(now.year, 1, 1)).inDays.toString(),
+    );
     final weekNumber = ((dayOfYear - now.weekday + 10) / 7).floor();
 
     // End of the current week (Sunday 23:59:59)
     final daysUntilSunday = DateTime.sunday - now.weekday;
-    final endOfWeek = DateTime(now.year, now.month, now.day)
-        .add(Duration(days: daysUntilSunday, hours: 23, minutes: 59, seconds: 59));
+    final endOfWeek = DateTime(
+      now.year,
+      now.month,
+      now.day,
+    ).add(Duration(days: daysUntilSunday, hours: 23, minutes: 59, seconds: 59));
 
     // We cycle through 4 types of challenges based on the week number
     final challengeType = weekNumber % 4;

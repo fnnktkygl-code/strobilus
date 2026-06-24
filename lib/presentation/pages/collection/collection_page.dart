@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:strobilus/l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
@@ -80,7 +79,7 @@ class _CollectionPageState extends State<CollectionPage> {
       body: Column(
         children: [
           const _WeeklyChallengeBanner(),
-          
+
           // Search bar
           Padding(
             padding: const EdgeInsets.symmetric(
@@ -149,10 +148,10 @@ class _WeeklyChallengeBanner extends StatelessWidget {
 
     final challenge = ChallengeModel.getCurrentWeeklyChallenge();
     // Validate if the user is on the current challenge, otherwise assume 0
-    final progress = user.currentWeeklyChallengeId == challenge.id 
-      ? user.weeklyChallengeProgress 
-      : 0;
-    
+    final progress = user.currentWeeklyChallengeId == challenge.id
+        ? user.weeklyChallengeProgress
+        : 0;
+
     final isCompleted = progress >= challenge.targetCount;
     final progressRatio = (progress / challenge.targetCount).clamp(0.0, 1.0);
 
@@ -161,9 +160,12 @@ class _WeeklyChallengeBanner extends StatelessWidget {
       padding: const EdgeInsets.all(DS.md),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: isCompleted 
-            ? [Colors.amber.shade700, Colors.amber.shade900]
-            : [theme.colorScheme.primaryContainer, theme.colorScheme.secondaryContainer],
+          colors: isCompleted
+              ? [Colors.amber.shade700, Colors.amber.shade900]
+              : [
+                  theme.colorScheme.primaryContainer,
+                  theme.colorScheme.secondaryContainer,
+                ],
         ),
         borderRadius: DS.borderRadiusLg,
         boxShadow: DS.shadowCard(theme),
@@ -174,7 +176,7 @@ class _WeeklyChallengeBanner extends StatelessWidget {
           Row(
             children: [
               Icon(
-                isCompleted ? Icons.star : Icons.calendar_month, 
+                isCompleted ? Icons.star : Icons.calendar_month,
                 color: isCompleted ? Colors.white : theme.colorScheme.primary,
               ),
               const SizedBox(width: DS.sm),
@@ -183,21 +185,29 @@ class _WeeklyChallengeBanner extends StatelessWidget {
                   challenge.title,
                   style: theme.textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.bold,
-                    color: isCompleted ? Colors.white : theme.colorScheme.onPrimaryContainer,
+                    color: isCompleted
+                        ? Colors.white
+                        : theme.colorScheme.onPrimaryContainer,
                   ),
                 ),
               ),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  color: isCompleted ? Colors.white.withValues(alpha: 0.2) : theme.colorScheme.onPrimaryContainer.withValues(alpha: 0.1),
+                  color: isCompleted
+                      ? Colors.white.withValues(alpha: 0.2)
+                      : theme.colorScheme.onPrimaryContainer.withValues(
+                          alpha: 0.1,
+                        ),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
                   '+${challenge.xpReward} XP',
                   style: theme.textTheme.labelMedium?.copyWith(
                     fontWeight: FontWeight.bold,
-                    color: isCompleted ? Colors.white : theme.colorScheme.onPrimaryContainer,
+                    color: isCompleted
+                        ? Colors.white
+                        : theme.colorScheme.onPrimaryContainer,
                   ),
                 ),
               ),
@@ -207,7 +217,9 @@ class _WeeklyChallengeBanner extends StatelessWidget {
           Text(
             challenge.description,
             style: theme.textTheme.bodySmall?.copyWith(
-              color: isCompleted ? Colors.white.withValues(alpha: 0.9) : theme.colorScheme.onPrimaryContainer.withValues(alpha: 0.8),
+              color: isCompleted
+                  ? Colors.white.withValues(alpha: 0.9)
+                  : theme.colorScheme.onPrimaryContainer.withValues(alpha: 0.8),
             ),
           ),
           const SizedBox(height: DS.sm),
@@ -219,9 +231,15 @@ class _WeeklyChallengeBanner extends StatelessWidget {
                   child: LinearProgressIndicator(
                     value: progressRatio,
                     minHeight: 8,
-                    backgroundColor: isCompleted ? Colors.white.withValues(alpha: 0.3) : theme.colorScheme.onPrimaryContainer.withValues(alpha: 0.2),
+                    backgroundColor: isCompleted
+                        ? Colors.white.withValues(alpha: 0.3)
+                        : theme.colorScheme.onPrimaryContainer.withValues(
+                            alpha: 0.2,
+                          ),
                     valueColor: AlwaysStoppedAnimation<Color>(
-                      isCompleted ? Colors.white : theme.colorScheme.onPrimaryContainer,
+                      isCompleted
+                          ? Colors.white
+                          : theme.colorScheme.onPrimaryContainer,
                     ),
                   ),
                 ),
@@ -231,7 +249,9 @@ class _WeeklyChallengeBanner extends StatelessWidget {
                 '$progress / ${challenge.targetCount}',
                 style: theme.textTheme.labelMedium?.copyWith(
                   fontWeight: FontWeight.bold,
-                  color: isCompleted ? Colors.white : theme.colorScheme.onPrimaryContainer,
+                  color: isCompleted
+                      ? Colors.white
+                      : theme.colorScheme.onPrimaryContainer,
                 ),
               ),
             ],
@@ -338,11 +358,11 @@ class _GridView extends StatelessWidget {
         childAspectRatio: 0.75, // Taller for polaroid style
       ),
       itemCount: cones.length,
-      itemBuilder: (context, index) => _ConeCard(cone: cones[index], index: index),
+      itemBuilder: (context, index) =>
+          _ConeCard(cone: cones[index], index: index),
     );
   }
 }
-
 
 class _ListView extends StatelessWidget {
   final List<PineConeModel> cones;
@@ -373,7 +393,7 @@ class _ConeCard extends StatelessWidget {
     // Slant between -4 and 4 degrees
     final double slantDegrees = (random.nextDouble() * 8) - 4;
     final double slantRadians = slantDegrees * math.pi / 180;
-    
+
     // Tape colors
     final tapeColors = [
       const Color(0xFFFDE68A), // Amber-100
@@ -415,11 +435,18 @@ class _ConeCard extends StatelessWidget {
                   // Photo Area (Square)
                   Expanded(
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 8, right: 8, top: 16, bottom: 8),
+                      padding: const EdgeInsets.only(
+                        left: 8,
+                        right: 8,
+                        top: 16,
+                        bottom: 8,
+                      ),
                       child: Container(
                         decoration: BoxDecoration(
                           color: const Color(0xFFE2E8F0),
-                          border: Border.all(color: Colors.black.withValues(alpha: 0.05)),
+                          border: Border.all(
+                            color: Colors.black.withValues(alpha: 0.05),
+                          ),
                         ),
                         child: ClipRect(
                           child: Stack(
@@ -429,7 +456,9 @@ class _ConeCard extends StatelessWidget {
                                 label: 'Photo of ${cone.commonName}',
                                 image: true,
                                 child: StrobilusImage(
-                                  imagePath: cone.photoUrls.isNotEmpty ? cone.photoUrls.first : null,
+                                  imagePath: cone.photoUrls.isNotEmpty
+                                      ? cone.photoUrls.first
+                                      : null,
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -445,7 +474,11 @@ class _ConeCard extends StatelessWidget {
                                     shape: BoxShape.circle,
                                   ),
                                   child: PopupMenuButton<String>(
-                                    icon: const Icon(Icons.more_horiz, size: 14, color: Colors.white),
+                                    icon: const Icon(
+                                      Icons.more_horiz,
+                                      size: 14,
+                                      color: Colors.white,
+                                    ),
                                     padding: EdgeInsets.zero,
                                     onSelected: (action) {
                                       if (action == 'edit') {
@@ -454,12 +487,24 @@ class _ConeCard extends StatelessWidget {
                                           pathParameters: {'coneId': cone.id},
                                         );
                                       } else if (action == 'delete') {
-                                        context.read<CollectionProvider>().deleteCone(cone.id);
+                                        context
+                                            .read<CollectionProvider>()
+                                            .deleteCone(cone.id);
                                       }
                                     },
                                     itemBuilder: (_) => [
-                                      PopupMenuItem(value: 'edit', child: Text(AppLocalizations.of(context).edit)),
-                                      PopupMenuItem(value: 'delete', child: Text(AppLocalizations.of(context).delete)),
+                                      PopupMenuItem(
+                                        value: 'edit',
+                                        child: Text(
+                                          AppLocalizations.of(context).edit,
+                                        ),
+                                      ),
+                                      PopupMenuItem(
+                                        value: 'delete',
+                                        child: Text(
+                                          AppLocalizations.of(context).delete,
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -470,10 +515,13 @@ class _ConeCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  
+
                   // Text Area (Bottom)
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 8,
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -493,9 +541,14 @@ class _ConeCard extends StatelessWidget {
                         const SizedBox(height: 6),
                         // Small tag for rarity/details
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 6,
+                            vertical: 2,
+                          ),
                           decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black.withValues(alpha: 0.15)),
+                            border: Border.all(
+                              color: Colors.black.withValues(alpha: 0.15),
+                            ),
                             borderRadius: BorderRadius.circular(4),
                           ),
                           child: Row(
@@ -505,7 +558,10 @@ class _ConeCard extends StatelessWidget {
                                 width: 6,
                                 height: 6,
                                 decoration: BoxDecoration(
-                                  color: RarityColors.forRarity(cone.rarity.name, isDark: false),
+                                  color: RarityColors.forRarity(
+                                    cone.rarity.name,
+                                    isDark: false,
+                                  ),
                                   shape: BoxShape.circle,
                                 ),
                               ),
@@ -529,7 +585,7 @@ class _ConeCard extends StatelessWidget {
                   ),
                 ],
               ),
-              
+
               // Tape at the top center
               Positioned(
                 top: -8,

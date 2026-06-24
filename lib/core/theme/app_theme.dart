@@ -223,9 +223,7 @@ class AppTheme {
           borderRadius: BorderRadius.circular(DS.radiusSm),
           border: Border.all(color: palette.divider),
         ),
-        textStyle: AppTypography.labelSmall.copyWith(
-          color: palette.onSurface,
-        ),
+        textStyle: AppTypography.labelSmall.copyWith(color: palette.onSurface),
       ),
 
       // Snackbar

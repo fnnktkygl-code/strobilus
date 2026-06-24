@@ -36,7 +36,9 @@ class RateLimitException implements Exception {
 
 class AiNetworkException implements Exception {
   final String message;
-  const AiNetworkException([this.message = 'Network error during AI identification.']);
+  const AiNetworkException([
+    this.message = 'Network error during AI identification.',
+  ]);
   @override
   String toString() => 'AiNetworkException: $message';
 }
@@ -50,7 +52,9 @@ class AiQuotaException implements Exception {
 
 class AiInvalidImageException implements Exception {
   final String message;
-  const AiInvalidImageException([this.message = 'Invalid image provided to AI.']);
+  const AiInvalidImageException([
+    this.message = 'Invalid image provided to AI.',
+  ]);
   @override
   String toString() => 'AiInvalidImageException: $message';
 }

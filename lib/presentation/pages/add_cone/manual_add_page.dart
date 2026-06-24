@@ -120,14 +120,20 @@ class _ManualAddPageState extends State<ManualAddPage> {
       }
     } catch (e) {
       if (mounted) {
-        StrobilusSnackBar.error(context, '${AppLocalizations.of(context).errorGeneric}: $e');
+        StrobilusSnackBar.error(
+          context,
+          '${AppLocalizations.of(context).errorGeneric}: $e',
+        );
       }
     }
   }
 
   Future<void> _saveCone() async {
     if (_imageFile == null) {
-      StrobilusSnackBar.error(context, AppLocalizations.of(context).errorNoPhoto);
+      StrobilusSnackBar.error(
+        context,
+        AppLocalizations.of(context).errorNoPhoto,
+      );
       return;
     }
 
@@ -144,7 +150,8 @@ class _ManualAddPageState extends State<ManualAddPage> {
       if (scientificNameInput.isNotEmpty) {
         final speciesList = context.read<SpeciesProvider>().allSpecies;
         for (final s in speciesList) {
-          if (s.scientificName.toLowerCase() == scientificNameInput.toLowerCase()) {
+          if (s.scientificName.toLowerCase() ==
+              scientificNameInput.toLowerCase()) {
             matchedSpeciesId = s.id;
             break;
           }
@@ -162,8 +169,14 @@ class _ManualAddPageState extends State<ManualAddPage> {
         photoUrls: [
           _imageFile!.path,
         ], // Local path; CollectionProvider uploads it
-        latitude: _selectedLocation?.latitude ?? _location?.latitude ?? AppConstants.defaultMapLat,
-        longitude: _selectedLocation?.longitude ?? _location?.longitude ?? AppConstants.defaultMapLon,
+        latitude:
+            _selectedLocation?.latitude ??
+            _location?.latitude ??
+            AppConstants.defaultMapLat,
+        longitude:
+            _selectedLocation?.longitude ??
+            _location?.longitude ??
+            AppConstants.defaultMapLon,
         locationName: _selectedLocation?.locationName ?? l10n.unknownLocation,
         city: _selectedLocation?.city ?? '',
         country: _selectedLocation?.country ?? '',
@@ -188,11 +201,17 @@ class _ManualAddPageState extends State<ManualAddPage> {
 
       if (mounted) {
         context.pop();
-        StrobilusSnackBar.success(context, AppLocalizations.of(context).coneAddedSuccess);
+        StrobilusSnackBar.success(
+          context,
+          AppLocalizations.of(context).coneAddedSuccess,
+        );
       }
     } catch (e) {
       if (mounted) {
-        StrobilusSnackBar.error(context, AppLocalizations.of(context).errorGeneric);
+        StrobilusSnackBar.error(
+          context,
+          AppLocalizations.of(context).errorGeneric,
+        );
       }
     } finally {
       if (mounted) {
@@ -307,7 +326,9 @@ class _ManualAddPageState extends State<ManualAddPage> {
                                     Icons.fullscreen,
                                     color: Colors.white,
                                   ),
-                                  tooltip: AppLocalizations.of(context).viewFullImage,
+                                  tooltip: AppLocalizations.of(
+                                    context,
+                                  ).viewFullImage,
                                   onPressed: () {
                                     FullScreenImageViewer.show(
                                       context,
@@ -324,16 +345,20 @@ class _ManualAddPageState extends State<ManualAddPage> {
                     ),
                     const SizedBox(height: DS.xl),
 
-                      DropdownButtonFormField<SpeciesModel>(
-                        decoration: InputDecoration(
-                          labelText: l10n.speciesTypeLabel,
-                          hintText: l10n.speciesTypeHint,
-                          border: const OutlineInputBorder(),
-                        ),
-                        isExpanded: true,
-                        value: _selectedSpecies,
-                        items: context.read<SpeciesProvider>().allSpecies.map((SpeciesModel s) {
-                        final commonName = s.getCommonName(Localizations.localeOf(context).languageCode);
+                    DropdownButtonFormField<SpeciesModel>(
+                      decoration: InputDecoration(
+                        labelText: l10n.speciesTypeLabel,
+                        hintText: l10n.speciesTypeHint,
+                        border: const OutlineInputBorder(),
+                      ),
+                      isExpanded: true,
+                      value: _selectedSpecies,
+                      items: context.read<SpeciesProvider>().allSpecies.map((
+                        SpeciesModel s,
+                      ) {
+                        final commonName = s.getCommonName(
+                          Localizations.localeOf(context).languageCode,
+                        );
                         return DropdownMenuItem<SpeciesModel>(
                           value: s,
                           child: Text('$commonName (${s.scientificName})'),
@@ -343,8 +368,12 @@ class _ManualAddPageState extends State<ManualAddPage> {
                         if (selection != null) {
                           setState(() {
                             _selectedSpecies = selection;
-                            _commonNameController.text = selection.getCommonName(Localizations.localeOf(context).languageCode);
-                            _scientificNameController.text = selection.scientificName;
+                            _commonNameController.text = selection
+                                .getCommonName(
+                                  Localizations.localeOf(context).languageCode,
+                                );
+                            _scientificNameController.text =
+                                selection.scientificName;
                           });
                         }
                       },
@@ -374,7 +403,7 @@ class _ManualAddPageState extends State<ManualAddPage> {
                       ),
                     ),
                     const SizedBox(height: DS.md),
-                    
+
                     // Location Picker Widget
                     LocationPickerField(
                       initialLocation: _selectedLocation,
@@ -383,7 +412,7 @@ class _ManualAddPageState extends State<ManualAddPage> {
                       },
                     ),
                     const SizedBox(height: DS.lg),
-                    
+
                     // Optional Details Accordion
                     ExpansionTile(
                       title: Text(
@@ -402,11 +431,15 @@ class _ManualAddPageState extends State<ManualAddPage> {
                       ),
                       shape: RoundedRectangleBorder(
                         borderRadius: DS.borderRadiusMd,
-                        side: BorderSide(color: Theme.of(context).colorScheme.outlineVariant),
+                        side: BorderSide(
+                          color: Theme.of(context).colorScheme.outlineVariant,
+                        ),
                       ),
                       collapsedShape: RoundedRectangleBorder(
                         borderRadius: DS.borderRadiusMd,
-                        side: BorderSide(color: Theme.of(context).colorScheme.outlineVariant),
+                        side: BorderSide(
+                          color: Theme.of(context).colorScheme.outlineVariant,
+                        ),
                       ),
                       childrenPadding: const EdgeInsets.all(DS.md),
                       children: [
@@ -423,7 +456,8 @@ class _ManualAddPageState extends State<ManualAddPage> {
                             );
                           }).toList(),
                           onChanged: (val) {
-                            if (val != null) setState(() => _selectedSize = val);
+                            if (val != null)
+                              setState(() => _selectedSize = val);
                           },
                         ),
                         const SizedBox(height: DS.md),
@@ -461,7 +495,8 @@ class _ManualAddPageState extends State<ManualAddPage> {
                             );
                           }).toList(),
                           onChanged: (val) {
-                            if (val != null) setState(() => _selectedRarity = val);
+                            if (val != null)
+                              setState(() => _selectedRarity = val);
                           },
                         ),
                         const SizedBox(height: DS.lg),

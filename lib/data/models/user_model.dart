@@ -76,21 +76,25 @@ class UserModel {
       totalCones: data['totalCones'] as int? ?? 0,
       uniqueSpeciesCount: data['uniqueSpeciesCount'] as int? ?? 0,
       countriesCount: data['countriesCount'] as int? ?? 0,
-      unlockedAchievementIds:
-          List<String>.from(data['unlockedAchievementIds'] ?? []),
-      claimableAchievementIds:
-          List<String>.from(data['claimableAchievementIds'] ?? []),
+      unlockedAchievementIds: List<String>.from(
+        data['unlockedAchievementIds'] ?? [],
+      ),
+      claimableAchievementIds: List<String>.from(
+        data['claimableAchievementIds'] ?? [],
+      ),
       achievementUnlockDates:
           (data['achievementUnlockDates'] as Map<String, dynamic>?)?.map(
             (k, v) => MapEntry(k, (v as Timestamp).toDate()),
           ) ??
           {},
-      customSpeciesPhotos:
-          Map<String, String>.from(data['customSpeciesPhotos'] ?? {}),
+      customSpeciesPhotos: Map<String, String>.from(
+        data['customSpeciesPhotos'] ?? {},
+      ),
       xpPoints: data['xpPoints'] as int? ?? 0,
       level: data['level'] as int? ?? 1,
       currentStreak: data['currentStreak'] as int? ?? 0,
-      longestStreak: data['longestStreak'] as int? ?? data['currentStreak'] as int? ?? 0,
+      longestStreak:
+          data['longestStreak'] as int? ?? data['currentStreak'] as int? ?? 0,
       lastActivityAt: (data['lastActivityAt'] as Timestamp?)?.toDate(),
       joinedAt: (data['joinedAt'] as Timestamp?)?.toDate() ?? DateTime.now(),
       preferredLanguage: data['preferredLanguage'] ?? 'en',
@@ -219,8 +223,10 @@ class UserModel {
       unitSystem: unitSystem ?? this.unitSystem,
       isPublicProfile: isPublicProfile ?? this.isPublicProfile,
       privacyConsent: privacyConsent ?? this.privacyConsent,
-      currentWeeklyChallengeId: currentWeeklyChallengeId ?? this.currentWeeklyChallengeId,
-      weeklyChallengeProgress: weeklyChallengeProgress ?? this.weeklyChallengeProgress,
+      currentWeeklyChallengeId:
+          currentWeeklyChallengeId ?? this.currentWeeklyChallengeId,
+      weeklyChallengeProgress:
+          weeklyChallengeProgress ?? this.weeklyChallengeProgress,
     );
   }
 }

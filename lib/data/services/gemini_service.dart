@@ -208,8 +208,8 @@ class GeminiService {
       return ConeIdentificationResult.fromJson(json);
     } on DioException catch (e) {
       _logger.e('Gemini identification failed with DioException: $e');
-      if (e.type == DioExceptionType.connectionTimeout || 
-          e.type == DioExceptionType.receiveTimeout || 
+      if (e.type == DioExceptionType.connectionTimeout ||
+          e.type == DioExceptionType.receiveTimeout ||
           (e.type == DioExceptionType.unknown && e.error is SocketException)) {
         throw const AiNetworkException();
       } else if (e.response?.statusCode == 429) {
@@ -227,7 +227,12 @@ class GeminiService {
     }
   }
 
-  String _buildPrompt({double? lat, double? lon, String? locationContext, String languageCode = 'en'}) {
+  String _buildPrompt({
+    double? lat,
+    double? lon,
+    String? locationContext,
+    String languageCode = 'en',
+  }) {
     String contextString = '';
     if (lat != null && lon != null) {
       contextString =

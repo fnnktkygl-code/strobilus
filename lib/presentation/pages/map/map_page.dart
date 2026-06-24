@@ -68,7 +68,9 @@ class _MapPageState extends State<MapPage> {
     if (mounted && !_hasCenteredOnUser) {
       _hasCenteredOnUser = true;
       _mapController.move(LatLng(position.latitude, position.longitude), 4.0);
-      context.read<MapProvider>().setCenter(LatLng(position.latitude, position.longitude));
+      context.read<MapProvider>().setCenter(
+        LatLng(position.latitude, position.longitude),
+      );
     }
   }
 
@@ -86,8 +88,11 @@ class _MapPageState extends State<MapPage> {
     final List<Polygon> polygons = [];
     final List<CircleMarker> circles = [];
 
-    if (mapProvider.viewMode == MapViewMode.distribution && mapProvider.selectedSpeciesDistributionId != null) {
-      final species = speciesProvider.getSpeciesById(mapProvider.selectedSpeciesDistributionId!);
+    if (mapProvider.viewMode == MapViewMode.distribution &&
+        mapProvider.selectedSpeciesDistributionId != null) {
+      final species = speciesProvider.getSpeciesById(
+        mapProvider.selectedSpeciesDistributionId!,
+      );
       if (species != null) {
         final nativeCodes = species.nativeCountryCodes;
         final introducedCodes = species.introducedCountryCodes ?? [];
@@ -97,56 +102,63 @@ class _MapPageState extends State<MapPage> {
           final isIntroduced = introducedCodes.contains(entry.key);
 
           if (isNative || isIntroduced) {
-            final color = isNative 
-              ? SemanticColors.successLeaf.withValues(alpha: 0.5) 
-              : Colors.amber.withValues(alpha: 0.5);
-            final borderColor = isNative 
-              ? SemanticColors.successLeaf 
-              : Colors.amber;
+            final color = isNative
+                ? SemanticColors.successLeaf.withValues(alpha: 0.5)
+                : Colors.amber.withValues(alpha: 0.5);
+            final borderColor = isNative
+                ? SemanticColors.successLeaf
+                : Colors.amber;
 
             for (var points in entry.value) {
-              polygons.add(Polygon(
-                points: points,
-                color: color,
-                borderColor: borderColor,
-                borderStrokeWidth: 1.5,
-              ));
+              polygons.add(
+                Polygon(
+                  points: points,
+                  color: color,
+                  borderColor: borderColor,
+                  borderStrokeWidth: 1.5,
+                ),
+              );
             }
           }
         }
 
         // Add circles for user's findings of this species
-        final userCones = collectionProvider.allCones
-            .where((c) => c.speciesId == species.id);
+        final userCones = collectionProvider.allCones.where(
+          (c) => c.speciesId == species.id,
+        );
         for (var cone in userCones) {
-          circles.add(CircleMarker(
-            point: LatLng(cone.latitude, cone.longitude),
-            color: ext.palette.primary.withValues(alpha: 0.3),
-            borderColor: ext.palette.primary.withValues(alpha: 0.8),
-            borderStrokeWidth: 2,
-            radius: 15000, // 15 km radius to roughly cover a city area
-            useRadiusInMeter: true,
-          ));
+          circles.add(
+            CircleMarker(
+              point: LatLng(cone.latitude, cone.longitude),
+              color: ext.palette.primary.withValues(alpha: 0.3),
+              borderColor: ext.palette.primary.withValues(alpha: 0.8),
+              borderStrokeWidth: 2,
+              radius: 15000, // 15 km radius to roughly cover a city area
+              useRadiusInMeter: true,
+            ),
+          );
         }
       }
     } else if (mapProvider.viewMode == MapViewMode.collection) {
       // Add circles for all user's findings (normal mode)
       for (var cone in collectionProvider.allCones) {
-        circles.add(CircleMarker(
-          point: LatLng(cone.latitude, cone.longitude),
-          color: ext.palette.primary.withValues(alpha: 0.2),
-          borderColor: ext.palette.primary.withValues(alpha: 0.5),
-          borderStrokeWidth: 1.5,
-          radius: 15000,
-          useRadiusInMeter: true,
-        ));
+        circles.add(
+          CircleMarker(
+            point: LatLng(cone.latitude, cone.longitude),
+            color: ext.palette.primary.withValues(alpha: 0.2),
+            borderColor: ext.palette.primary.withValues(alpha: 0.5),
+            borderStrokeWidth: 1.5,
+            radius: 15000,
+            useRadiusInMeter: true,
+          ),
+        );
       }
     }
 
     // CartoDB Dark Matter for premium look in dark mode
-    final tileUrl = isDark 
-      ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
-      : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+    final tileUrl = isDark
+        ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+        : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
 
     return Scaffold(
       body: Stack(
@@ -177,20 +189,22 @@ class _MapPageState extends State<MapPage> {
                 userAgentPackageName: 'com.strobilus.strobilus',
                 subdomains: const ['a', 'b', 'c'],
               ),
-              if (polygons.isNotEmpty)
-                PolygonLayer(polygons: polygons),
-              if (circles.isNotEmpty)
-                CircleLayer(circles: circles),
+              if (polygons.isNotEmpty) PolygonLayer(polygons: polygons),
+              if (circles.isNotEmpty) CircleLayer(circles: circles),
               if (mapProvider.viewMode == MapViewMode.collection)
                 MarkerLayer(
-                  markers: cones.map((cone) => _buildMarker(cone, ext, context)).toList(),
+                  markers: cones
+                      .map((cone) => _buildMarker(cone, ext, context))
+                      .toList(),
                 ),
             ],
           ),
 
           // Top Gradient overlay for UI readability
           Positioned(
-            top: 0, left: 0, right: 0,
+            top: 0,
+            left: 0,
+            right: 0,
             height: 120,
             child: Container(
               decoration: BoxDecoration(
@@ -225,8 +239,12 @@ class _MapPageState extends State<MapPage> {
                   label: 'Distribution',
                   icon: Icons.public,
                   onTap: () {
-                    if (mapProvider.selectedSpeciesDistributionId == null && speciesProvider.allSpecies.isNotEmpty) {
-                      mapProvider.setViewMode(MapViewMode.distribution, speciesId: speciesProvider.allSpecies.first.id);
+                    if (mapProvider.selectedSpeciesDistributionId == null &&
+                        speciesProvider.allSpecies.isNotEmpty) {
+                      mapProvider.setViewMode(
+                        MapViewMode.distribution,
+                        speciesId: speciesProvider.allSpecies.first.id,
+                      );
                     } else {
                       mapProvider.setViewMode(MapViewMode.distribution);
                     }
@@ -246,7 +264,10 @@ class _MapPageState extends State<MapPage> {
                   icon: Icons.my_location,
                   onTap: () async {
                     final position = await Geolocator.getCurrentPosition();
-                    _mapController.move(LatLng(position.latitude, position.longitude), _mapController.camera.zoom);
+                    _mapController.move(
+                      LatLng(position.latitude, position.longitude),
+                      _mapController.camera.zoom,
+                    );
                   },
                 ),
                 if (mapProvider.viewMode == MapViewMode.collection) ...[
@@ -312,7 +333,9 @@ class _MapPageState extends State<MapPage> {
                     FilledButton.icon(
                       onPressed: () => context.push('/add-cone'),
                       icon: const Icon(Icons.add),
-                      label: Text(AppLocalizations.of(context).emptyCollectionCta),
+                      label: Text(
+                        AppLocalizations.of(context).emptyCollectionCta,
+                      ),
                     ),
                   ],
                 ),
@@ -326,21 +349,31 @@ class _MapPageState extends State<MapPage> {
             bottom: DS.lg + MediaQuery.of(context).padding.bottom,
             child: mapProvider.viewMode == MapViewMode.collection
                 ? (mapProvider.selectedConeId != null
-                    ? _ConeInfoCard(cone: collectionProvider.getConeById(mapProvider.selectedConeId!))
-                    : const SizedBox.shrink())
+                      ? _ConeInfoCard(
+                          cone: collectionProvider.getConeById(
+                            mapProvider.selectedConeId!,
+                          ),
+                        )
+                      : const SizedBox.shrink())
                 : (mapProvider.selectedSpeciesDistributionId != null
-                    ? _SpeciesDistributionCard(
-                        species: speciesProvider.getSpeciesById(mapProvider.selectedSpeciesDistributionId!),
-                        polygonsLoaded: !_isLoadingGeoJson,
-                      )
-                    : const SizedBox.shrink()),
+                      ? _SpeciesDistributionCard(
+                          species: speciesProvider.getSpeciesById(
+                            mapProvider.selectedSpeciesDistributionId!,
+                          ),
+                          polygonsLoaded: !_isLoadingGeoJson,
+                        )
+                      : const SizedBox.shrink()),
           ),
         ],
       ),
     );
   }
 
-  Marker _buildMarker(PineConeModel cone, StrobilusExtension ext, BuildContext context) {
+  Marker _buildMarker(
+    PineConeModel cone,
+    StrobilusExtension ext,
+    BuildContext context,
+  ) {
     return Marker(
       point: LatLng(cone.latitude, cone.longitude),
       width: 44,
@@ -361,7 +394,11 @@ class _MapPageState extends State<MapPage> {
             boxShadow: DS.shadowCard(Theme.of(context)),
           ),
           child: Center(
-            child: Image.asset('assets/images/logo_squared.png', width: 24, height: 24),
+            child: Image.asset(
+              'assets/images/logo_squared.png',
+              width: 24,
+              height: 24,
+            ),
           ),
         ),
       ),
@@ -381,9 +418,19 @@ class _MapPageState extends State<MapPage> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Container(width: 40, height: 4, decoration: BoxDecoration(color: Colors.grey.withValues(alpha: 0.3), borderRadius: BorderRadius.circular(2))),
+            Container(
+              width: 40,
+              height: 4,
+              decoration: BoxDecoration(
+                color: Colors.grey.withValues(alpha: 0.3),
+                borderRadius: BorderRadius.circular(2),
+              ),
+            ),
             const SizedBox(height: DS.lg),
-            Text(AppLocalizations.of(ctx).mapFilterComingSoon, style: Theme.of(context).textTheme.titleMedium),
+            Text(
+              AppLocalizations.of(ctx).mapFilterComingSoon,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
             const SizedBox(height: DS.xxl),
           ],
         ),
@@ -397,7 +444,11 @@ class _GlassButton extends StatelessWidget {
   final VoidCallback onTap;
   final bool badge;
 
-  const _GlassButton({required this.icon, required this.onTap, this.badge = false});
+  const _GlassButton({
+    required this.icon,
+    required this.onTap,
+    this.badge = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -422,10 +473,15 @@ class _GlassButton extends StatelessWidget {
                   Icon(icon, color: Colors.white, size: 24),
                   if (badge)
                     Positioned(
-                      top: 10, right: 10,
+                      top: 10,
+                      right: 10,
                       child: Container(
-                        width: 8, height: 8,
-                        decoration: const BoxDecoration(color: SemanticColors.successLeaf, shape: BoxShape.circle),
+                        width: 8,
+                        height: 8,
+                        decoration: const BoxDecoration(
+                          color: SemanticColors.successLeaf,
+                          shape: BoxShape.circle,
+                        ),
                       ),
                     ),
                 ],
@@ -444,7 +500,12 @@ class _GlassToggle extends StatelessWidget {
   final IconData icon;
   final VoidCallback onTap;
 
-  const _GlassToggle({required this.isActive, required this.label, required this.icon, required this.onTap});
+  const _GlassToggle({
+    required this.isActive,
+    required this.label,
+    required this.icon,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -454,13 +515,17 @@ class _GlassToggle extends StatelessWidget {
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
           child: Material(
-            color: isActive ? SemanticColors.successLeaf.withValues(alpha: 0.8) : Colors.white.withValues(alpha: 0.1),
+            color: isActive
+                ? SemanticColors.successLeaf.withValues(alpha: 0.8)
+                : Colors.white.withValues(alpha: 0.1),
             child: InkWell(
               onTap: onTap,
               child: Container(
                 padding: const EdgeInsets.symmetric(vertical: DS.md),
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.white.withValues(alpha: isActive ? 0.4 : 0.1)),
+                  border: Border.all(
+                    color: Colors.white.withValues(alpha: isActive ? 0.4 : 0.1),
+                  ),
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Row(
@@ -468,7 +533,13 @@ class _GlassToggle extends StatelessWidget {
                   children: [
                     Icon(icon, color: Colors.white, size: 20),
                     const SizedBox(width: DS.xs),
-                    Text(label, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                    Text(
+                      label,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -495,23 +566,35 @@ class _SpeciesDistributionCard extends StatelessWidget {
     final ext = Theme.of(context).extension<StrobilusExtension>()!;
     final allSpecies = speciesProvider.allSpecies;
     final currentIndex = allSpecies.indexWhere((s) => s.id == species!.id);
-    
+
     void goToPrevious() {
       if (currentIndex > 0) {
-        mapProvider.setViewMode(MapViewMode.distribution, speciesId: allSpecies[currentIndex - 1].id);
+        mapProvider.setViewMode(
+          MapViewMode.distribution,
+          speciesId: allSpecies[currentIndex - 1].id,
+        );
       } else {
-        mapProvider.setViewMode(MapViewMode.distribution, speciesId: allSpecies.last.id);
+        mapProvider.setViewMode(
+          MapViewMode.distribution,
+          speciesId: allSpecies.last.id,
+        );
       }
     }
 
     void goToNext() {
       if (currentIndex < allSpecies.length - 1) {
-        mapProvider.setViewMode(MapViewMode.distribution, speciesId: allSpecies[currentIndex + 1].id);
+        mapProvider.setViewMode(
+          MapViewMode.distribution,
+          speciesId: allSpecies[currentIndex + 1].id,
+        );
       } else {
-        mapProvider.setViewMode(MapViewMode.distribution, speciesId: allSpecies.first.id);
+        mapProvider.setViewMode(
+          MapViewMode.distribution,
+          speciesId: allSpecies.first.id,
+        );
       }
     }
-    
+
     return ClipRRect(
       borderRadius: BorderRadius.circular(24),
       child: BackdropFilter(
@@ -519,21 +602,30 @@ class _SpeciesDistributionCard extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(DS.md),
           decoration: BoxDecoration(
-            color: Theme.of(context).brightness == Brightness.dark 
-              ? Colors.black.withValues(alpha: 0.6)
-              : Colors.white.withValues(alpha: 0.8),
+            color: Theme.of(context).brightness == Brightness.dark
+                ? Colors.black.withValues(alpha: 0.6)
+                : Colors.white.withValues(alpha: 0.8),
             border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
             borderRadius: BorderRadius.circular(24),
           ),
           child: Row(
             children: [
               Container(
-                width: 60, height: 60,
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
+                width: 60,
+                height: 60,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                ),
                 clipBehavior: Clip.antiAlias,
                 child: species!.imageUrls.isNotEmpty
-                    ? StrobilusImage(imagePath: species!.imageUrls.first, fit: BoxFit.cover)
-                    : Container(color: Colors.grey.withValues(alpha: 0.2), child: const Icon(Icons.forest)),
+                    ? StrobilusImage(
+                        imagePath: species!.imageUrls.first,
+                        fit: BoxFit.cover,
+                      )
+                    : Container(
+                        color: Colors.grey.withValues(alpha: 0.2),
+                        child: const Icon(Icons.forest),
+                      ),
               ),
               const SizedBox(width: DS.md),
               Expanded(
@@ -542,32 +634,79 @@ class _SpeciesDistributionCard extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      species!.getCommonName(AppLocalizations.of(context).localeName),
-                      style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                      maxLines: 1, overflow: TextOverflow.ellipsis,
+                      species!.getCommonName(
+                        AppLocalizations.of(context).localeName,
+                      ),
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
                     Text(
                       species!.scientificName,
-                      style: TextStyle(fontStyle: FontStyle.italic, color: Colors.grey.shade400, fontSize: 14),
+                      style: TextStyle(
+                        fontStyle: FontStyle.italic,
+                        color: Colors.grey.shade400,
+                        fontSize: 14,
+                      ),
                     ),
                     const SizedBox(height: 4),
-                    polygonsLoaded 
-                      ? Row(
-                          children: [
-                            Container(width: 8, height: 8, decoration: BoxDecoration(color: ext.palette.primary, shape: BoxShape.circle)),
-                            const SizedBox(width: 4),
-                            const Text('Mes trouvailles', style: TextStyle(fontSize: 12)),
-                            const SizedBox(width: 12),
-                            Container(width: 8, height: 8, decoration: const BoxDecoration(color: SemanticColors.successLeaf, shape: BoxShape.circle)),
-                            const SizedBox(width: 4),
-                            Text(AppLocalizations.of(context).distributionNativeLabel, style: const TextStyle(fontSize: 12)),
-                            const SizedBox(width: 12),
-                            Container(width: 8, height: 8, decoration: const BoxDecoration(color: Colors.amber, shape: BoxShape.circle)),
-                            const SizedBox(width: 4),
-                            Text(AppLocalizations.of(context).distributionIntroducedLabel, style: const TextStyle(fontSize: 12)),
-                          ],
-                        )
-                      : Text(AppLocalizations.of(context).loadingMapData, style: const TextStyle(fontSize: 12)),
+                    polygonsLoaded
+                        ? Row(
+                            children: [
+                              Container(
+                                width: 8,
+                                height: 8,
+                                decoration: BoxDecoration(
+                                  color: ext.palette.primary,
+                                  shape: BoxShape.circle,
+                                ),
+                              ),
+                              const SizedBox(width: 4),
+                              const Text(
+                                'Mes trouvailles',
+                                style: TextStyle(fontSize: 12),
+                              ),
+                              const SizedBox(width: 12),
+                              Container(
+                                width: 8,
+                                height: 8,
+                                decoration: const BoxDecoration(
+                                  color: SemanticColors.successLeaf,
+                                  shape: BoxShape.circle,
+                                ),
+                              ),
+                              const SizedBox(width: 4),
+                              Text(
+                                AppLocalizations.of(
+                                  context,
+                                ).distributionNativeLabel,
+                                style: const TextStyle(fontSize: 12),
+                              ),
+                              const SizedBox(width: 12),
+                              Container(
+                                width: 8,
+                                height: 8,
+                                decoration: const BoxDecoration(
+                                  color: Colors.amber,
+                                  shape: BoxShape.circle,
+                                ),
+                              ),
+                              const SizedBox(width: 4),
+                              Text(
+                                AppLocalizations.of(
+                                  context,
+                                ).distributionIntroducedLabel,
+                                style: const TextStyle(fontSize: 12),
+                              ),
+                            ],
+                          )
+                        : Text(
+                            AppLocalizations.of(context).loadingMapData,
+                            style: const TextStyle(fontSize: 12),
+                          ),
                   ],
                 ),
               ),
@@ -609,7 +748,7 @@ class _ConeInfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (cone == null) return const SizedBox.shrink();
-    
+
     return ClipRRect(
       borderRadius: BorderRadius.circular(24),
       child: BackdropFilter(
@@ -617,9 +756,9 @@ class _ConeInfoCard extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(DS.md),
           decoration: BoxDecoration(
-            color: Theme.of(context).brightness == Brightness.dark 
-              ? Colors.black.withValues(alpha: 0.6)
-              : Colors.white.withValues(alpha: 0.8),
+            color: Theme.of(context).brightness == Brightness.dark
+                ? Colors.black.withValues(alpha: 0.6)
+                : Colors.white.withValues(alpha: 0.8),
             border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
             borderRadius: BorderRadius.circular(24),
           ),
@@ -628,11 +767,16 @@ class _ConeInfoCard extends StatelessWidget {
             child: Row(
               children: [
                 Container(
-                  width: 60, height: 60,
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
+                  width: 60,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
                   clipBehavior: Clip.antiAlias,
                   child: StrobilusImage(
-                    imagePath: cone!.photoUrls.isNotEmpty ? cone!.photoUrls.first : null,
+                    imagePath: cone!.photoUrls.isNotEmpty
+                        ? cone!.photoUrls.first
+                        : null,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -644,12 +788,18 @@ class _ConeInfoCard extends StatelessWidget {
                     children: [
                       const Text(
                         'Collected Cone',
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
                       ),
                       const SizedBox(height: 4),
                       Text(
                         '${cone!.collectedAt.day}/${cone!.collectedAt.month}/${cone!.collectedAt.year}',
-                        style: TextStyle(color: Colors.grey.shade400, fontSize: 14),
+                        style: TextStyle(
+                          color: Colors.grey.shade400,
+                          fontSize: 14,
+                        ),
                       ),
                     ],
                   ),

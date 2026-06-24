@@ -449,6 +449,19 @@ class AppLocalizationsFr extends AppLocalizations {
   String get settingsDeleteAccountAction => 'Supprimer';
 
   @override
+  String get settingsResetAccount => 'Réinitialiser le compte';
+
+  @override
+  String get settingsResetAccountConfirm =>
+      'Êtes-vous sûr de vouloir réinitialiser votre compte ? Toutes vos pommes de pin, collections et succès seront effacés, mais votre compte restera actif.';
+
+  @override
+  String get settingsResetAccountCancel => 'Annuler';
+
+  @override
+  String get settingsResetAccountAction => 'Réinitialiser';
+
+  @override
   String get settingsPrivacyPolicy => 'Politique de confidentialité';
 
   @override

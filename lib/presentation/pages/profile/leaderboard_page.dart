@@ -61,7 +61,11 @@ class _LeaderboardPageState extends State<LeaderboardPage> {
     );
   }
 
-  Widget _buildBody(ThemeData theme, AppLocalizations l10n, UserModel? currentUser) {
+  Widget _buildBody(
+    ThemeData theme,
+    AppLocalizations l10n,
+    UserModel? currentUser,
+  ) {
     if (_isLoading) {
       return const Center(child: CircularProgressIndicator());
     }
@@ -85,9 +89,7 @@ class _LeaderboardPageState extends State<LeaderboardPage> {
     }
 
     if (_topUsers.isEmpty) {
-      return const Center(
-        child: Text('Aucun joueur public trouvé.'),
-      );
+      return const Center(child: Text('Aucun joueur public trouvé.'));
     }
 
     return ListView.builder(
@@ -102,9 +104,14 @@ class _LeaderboardPageState extends State<LeaderboardPage> {
     );
   }
 
-  Widget _buildLeaderboardTile(BuildContext context, UserModel user, int rank, bool isCurrentUser) {
+  Widget _buildLeaderboardTile(
+    BuildContext context,
+    UserModel user,
+    int rank,
+    bool isCurrentUser,
+  ) {
     final theme = Theme.of(context);
-    
+
     // Logic for rank colors
     Color? rankColor;
     if (rank == 1) {
@@ -123,9 +130,9 @@ class _LeaderboardPageState extends State<LeaderboardPage> {
       margin: const EdgeInsets.only(bottom: DS.sm),
       shape: RoundedRectangleBorder(
         borderRadius: DS.borderRadiusMd,
-        side: isCurrentUser 
-          ? BorderSide(color: theme.colorScheme.primary, width: 2) 
-          : BorderSide.none,
+        side: isCurrentUser
+            ? BorderSide(color: theme.colorScheme.primary, width: 2)
+            : BorderSide.none,
       ),
       child: ListTile(
         leading: Row(
@@ -144,10 +151,16 @@ class _LeaderboardPageState extends State<LeaderboardPage> {
             ),
             const SizedBox(width: DS.sm),
             CircleAvatar(
-              backgroundImage: user.avatarUrl != null ? NetworkImage(user.avatarUrl!) : null,
+              backgroundImage: user.avatarUrl != null
+                  ? NetworkImage(user.avatarUrl!)
+                  : null,
               child: user.avatarUrl == null
-                ? Text(user.displayName.isNotEmpty ? user.displayName[0].toUpperCase() : 'U')
-                : null,
+                  ? Text(
+                      user.displayName.isNotEmpty
+                          ? user.displayName[0].toUpperCase()
+                          : 'U',
+                    )
+                  : null,
             ),
           ],
         ),
@@ -157,7 +170,9 @@ class _LeaderboardPageState extends State<LeaderboardPage> {
             fontWeight: isCurrentUser ? FontWeight.bold : FontWeight.normal,
           ),
         ),
-        subtitle: Text('Niveau \${user.level} • \${user.totalCones} trouvailles'),
+        subtitle: Text(
+          'Niveau \${user.level} • \${user.totalCones} trouvailles',
+        ),
         trailing: Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
           decoration: BoxDecoration(

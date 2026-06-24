@@ -443,6 +443,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settingsDeleteAccountAction => 'Delete';
 
   @override
+  String get settingsResetAccount => 'Reset Account';
+
+  @override
+  String get settingsResetAccountConfirm =>
+      'Are you sure you want to reset your account? All your pine cones, collections, and achievements will be erased, but your account will remain active.';
+
+  @override
+  String get settingsResetAccountCancel => 'Cancel';
+
+  @override
+  String get settingsResetAccountAction => 'Reset';
+
+  @override
   String get settingsPrivacyPolicy => 'Privacy Policy';
 
   @override

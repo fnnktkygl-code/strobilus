@@ -27,7 +27,7 @@ class AuthProvider extends ChangeNotifier {
   final FirestoreService _firestoreService;
 
   AuthProvider({required FirestoreService firestoreService})
-      : _firestoreService = firestoreService {
+    : _firestoreService = firestoreService {
     _auth.authStateChanges().listen(_onAuthStateChanged);
   }
 
@@ -154,6 +154,46 @@ class AuthProvider extends ChangeNotifier {
     _setLoading(false);
   }
 
+  Future<void> resetAccount(
+    FirestoreService firestoreService,
+    StorageService storageService,
+  ) async {
+    _setLoading(true);
+    try {
+      final userId = _firebaseUser!.uid;
+
+      // 1. Fetch user's cones to delete their storage folders
+      final cones = await firestoreService.getUserCones(userId);
+      for (final cone in cones) {
+        await storageService.deleteConeFiles(cone.id);
+      }
+
+      // 2. Delete user's profile images
+      await storageService.deleteUserAvatar(userId);
+      await storageService.deleteUserBanner(userId);
+
+      // 3. Delete Firestore data (which also deletes the user document)
+      await firestoreService.deleteAllUserData(userId);
+
+      // 4. Create a fresh user document
+      final freshUser = UserModel.newUser(
+        id: userId,
+        email: _firebaseUser!.email ?? '',
+        displayName: _firebaseUser!.displayName ?? 'Explorer',
+        consent:
+            _userModel?.privacyConsent ??
+            PrivacyConsent(consentedAt: DateTime.now()),
+      );
+      await firestoreService.createUser(freshUser);
+
+      _userModel = freshUser;
+      _error = null;
+    } catch (e) {
+      _error = e.toString();
+    }
+    _setLoading(false);
+  }
+
   Future<void> loadUserModel(FirestoreService firestoreService) async {
     if (_firebaseUser == null) return;
     try {
@@ -215,8 +255,12 @@ class AuthProvider extends ChangeNotifier {
         bio: bio,
         avatarUrl: avatarUrl,
         bannerUrl: bannerUrl == '' ? null : bannerUrl,
-        backgroundImageUrl: backgroundImageUrl == '' ? null : backgroundImageUrl,
-        profileBackgroundTheme: profileBackgroundTheme == '' ? null : profileBackgroundTheme,
+        backgroundImageUrl: backgroundImageUrl == ''
+            ? null
+            : backgroundImageUrl,
+        profileBackgroundTheme: profileBackgroundTheme == ''
+            ? null
+            : profileBackgroundTheme,
         isPublicProfile: isPublicProfile,
       );
 
@@ -229,9 +273,15 @@ class AuthProvider extends ChangeNotifier {
         displayName: updatedUser.displayName,
         avatarUrl: updatedUser.avatarUrl,
         bio: updatedUser.bio,
-        bannerUrl: bannerUrl == '' ? null : (bannerUrl ?? updatedUser.bannerUrl),
-        backgroundImageUrl: backgroundImageUrl == '' ? null : (backgroundImageUrl ?? updatedUser.backgroundImageUrl),
-        profileBackgroundTheme: profileBackgroundTheme == '' ? null : (profileBackgroundTheme ?? updatedUser.profileBackgroundTheme),
+        bannerUrl: bannerUrl == ''
+            ? null
+            : (bannerUrl ?? updatedUser.bannerUrl),
+        backgroundImageUrl: backgroundImageUrl == ''
+            ? null
+            : (backgroundImageUrl ?? updatedUser.backgroundImageUrl),
+        profileBackgroundTheme: profileBackgroundTheme == ''
+            ? null
+            : (profileBackgroundTheme ?? updatedUser.profileBackgroundTheme),
         totalCones: updatedUser.totalCones,
         uniqueSpeciesCount: updatedUser.uniqueSpeciesCount,
         countriesCount: updatedUser.countriesCount,
@@ -285,12 +335,16 @@ class AuthProvider extends ChangeNotifier {
     int newLongestStreak = _userModel!.longestStreak;
     final now = DateTime.now();
     final lastActivity = _userModel!.lastActivityAt;
-    
+
     if (lastActivity != null) {
-      final lastDate = DateTime(lastActivity.year, lastActivity.month, lastActivity.day);
+      final lastDate = DateTime(
+        lastActivity.year,
+        lastActivity.month,
+        lastActivity.day,
+      );
       final today = DateTime(now.year, now.month, now.day);
       final diff = today.difference(lastDate).inDays;
-      
+
       if (diff == 1) {
         newStreak += 1;
       } else if (diff > 1) {
@@ -299,14 +353,14 @@ class AuthProvider extends ChangeNotifier {
     } else {
       newStreak = 1;
     }
-    
+
     if (newStreak > newLongestStreak) {
       newLongestStreak = newStreak;
     }
 
     final int xpToAdd = (xpPointsToAdd ?? 0) + (newAchievementIds.length * 100);
     int newXp = _userModel!.xpPoints + xpToAdd;
-    
+
     // Simple level calculation: Level 1 + 1 level per 500 XP
     int newLevel = 1 + (newXp ~/ 500);
 
@@ -341,13 +395,17 @@ class AuthProvider extends ChangeNotifier {
     if (_firebaseUser == null || _userModel == null) return;
     if (!_userModel!.claimableAchievementIds.contains(achievementId)) return;
 
-    final updatedClaimable = List<String>.from(_userModel!.claimableAchievementIds)
-      ..remove(achievementId);
-    
-    final updatedUnlocked = List<String>.from(_userModel!.unlockedAchievementIds)
-      ..add(achievementId);
+    final updatedClaimable = List<String>.from(
+      _userModel!.claimableAchievementIds,
+    )..remove(achievementId);
 
-    final updatedDates = Map<String, DateTime>.from(_userModel!.achievementUnlockDates);
+    final updatedUnlocked = List<String>.from(
+      _userModel!.unlockedAchievementIds,
+    )..add(achievementId);
+
+    final updatedDates = Map<String, DateTime>.from(
+      _userModel!.achievementUnlockDates,
+    );
     updatedDates[achievementId] = DateTime.now();
 
     final updatedUser = _userModel!.copyWith(
@@ -374,7 +432,9 @@ class AuthProvider extends ChangeNotifier {
   }) async {
     if (_firebaseUser == null || _userModel == null) return;
 
-    final updatedPhotos = Map<String, String>.from(_userModel!.customSpeciesPhotos);
+    final updatedPhotos = Map<String, String>.from(
+      _userModel!.customSpeciesPhotos,
+    );
     updatedPhotos[speciesId] = photoUrl;
 
     final updatedUser = _userModel!.copyWith(

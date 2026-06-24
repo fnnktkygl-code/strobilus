@@ -62,10 +62,11 @@ class CollectionProvider extends ChangeNotifier {
   CollectionSort _sort = CollectionSort.newestFirst;
   String? _loadedUserId;
   AuthProvider? _authProvider;
-  
+
   // Stream for newly unlocked achievements
   final _achievementUnlockController = StreamController<String>.broadcast();
-  Stream<String> get onAchievementUnlocked => _achievementUnlockController.stream;
+  Stream<String> get onAchievementUnlocked =>
+      _achievementUnlockController.stream;
 
   CollectionProvider({
     required this.firestoreService,
@@ -270,7 +271,7 @@ class CollectionProvider extends ChangeNotifier {
 
   Future<void> _syncGamificationStats({PineConeModel? newCone}) async {
     if (_authProvider?.userModel == null) return;
-    
+
     final user = _authProvider!.userModel!;
 
     final currentUnlocked = user.unlockedAchievementIds;
@@ -286,7 +287,8 @@ class CollectionProvider extends ChangeNotifier {
 
     // Weekly Challenge logic
     final currentChallenge = ChallengeModel.getCurrentWeeklyChallenge();
-    String currentChallengeId = user.currentWeeklyChallengeId ?? currentChallenge.id;
+    String currentChallengeId =
+        user.currentWeeklyChallengeId ?? currentChallenge.id;
     int progress = user.weeklyChallengeProgress;
     int xpBonus = 0;
 
@@ -299,12 +301,13 @@ class CollectionProvider extends ChangeNotifier {
     if (newCone != null && progress < currentChallenge.targetCount) {
       // Evaluate if newCone matches challenge criteria
       bool matches = true;
-      if (currentChallenge.requiredSpeciesId != null && newCone.speciesId != currentChallenge.requiredSpeciesId) {
+      if (currentChallenge.requiredSpeciesId != null &&
+          newCone.speciesId != currentChallenge.requiredSpeciesId) {
         matches = false;
       }
       // Simple family check based on name text or other logic (can be expanded)
       // Since we don't have family on PineConeModel, we assume generic ones.
-      
+
       if (matches) {
         progress += 1;
         if (progress == currentChallenge.targetCount) {
@@ -323,7 +326,7 @@ class CollectionProvider extends ChangeNotifier {
       currentWeeklyChallengeId: currentChallengeId,
       weeklyChallengeProgress: progress,
     );
-    
+
     for (final achievementId in newlyUnlocked) {
       _achievementUnlockController.add(achievementId);
     }

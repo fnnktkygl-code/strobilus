@@ -32,26 +32,30 @@ class ShareablePostcardState extends State<ShareablePostcard> {
 
   Future<void> sharePostcard() async {
     if (_isSharing) return;
-    
+
     setState(() => _isSharing = true);
-    
+
     try {
       // 1. Wait a frame to ensure boundary is rendered
       await Future.delayed(const Duration(milliseconds: 50));
-      
+
       // 2. Capture the image
-      final boundary = _globalKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;
+      final boundary =
+          _globalKey.currentContext?.findRenderObject()
+              as RenderRepaintBoundary?;
       if (boundary == null) return;
-      
+
       final image = await boundary.toImage(pixelRatio: 3.0);
       final byteData = await image.toByteData(format: ui.ImageByteFormat.png);
       if (byteData == null) return;
-      
+
       final buffer = byteData.buffer;
 
       // 3. Save to temp file
       final tempDir = await getTemporaryDirectory();
-      final file = await File('${tempDir.path}/strobilus_postcard_${widget.cone.id}.png').create();
+      final file = await File(
+        '${tempDir.path}/strobilus_postcard_${widget.cone.id}.png',
+      ).create();
       await file.writeAsBytes(
         buffer.asUint8List(byteData.offsetInBytes, byteData.lengthInBytes),
       );
@@ -61,7 +65,7 @@ class ShareablePostcardState extends State<ShareablePostcard> {
       final text = widget.species != null
           ? 'Regarde cette magnifique ${widget.species!.getCommonName(Localizations.localeOf(context).languageCode)} trouvée via Strobilus ! 🌲'
           : 'Regarde ma nouvelle trouvaille via Strobilus ! 🌲';
-          
+
       await Share.shareXFiles([xfile], text: text);
     } catch (e) {
       debugPrint('Error sharing postcard: $e');
@@ -78,7 +82,7 @@ class ShareablePostcardState extends State<ShareablePostcard> {
         children: [
           // The visible child that the user taps
           widget.child,
-          
+
           // The hidden postcard layout to be captured
           Positioned(
             left: -9999, // Render off-screen
@@ -90,15 +94,13 @@ class ShareablePostcardState extends State<ShareablePostcard> {
               ),
             ),
           ),
-          
+
           // Loading overlay on the child if sharing
           if (_isSharing)
             Positioned.fill(
               child: Container(
                 color: Colors.white.withValues(alpha: 0.5),
-                child: const Center(
-                  child: CircularProgressIndicator(),
-                ),
+                child: const Center(child: CircularProgressIndicator()),
               ),
             ),
         ],
@@ -111,10 +113,7 @@ class _PostcardLayout extends StatelessWidget {
   final PineConeModel cone;
   final SpeciesModel? species;
 
-  const _PostcardLayout({
-    required this.cone,
-    this.species,
-  });
+  const _PostcardLayout({required this.cone, this.species});
 
   @override
   Widget build(BuildContext context) {
@@ -122,7 +121,9 @@ class _PostcardLayout extends StatelessWidget {
     final dateStr = DateFormat.yMMMd().format(cone.collectedAt);
 
     return Container(
-      width: 1080 / 2, // Instagram story ratio approx (1080x1920) divided for screen rendering
+      width:
+          1080 /
+          2, // Instagram story ratio approx (1080x1920) divided for screen rendering
       height: 1920 / 2,
       decoration: const BoxDecoration(
         color: Color(0xFF0F172A), // Midnight Dark
@@ -132,13 +133,10 @@ class _PostcardLayout extends StatelessWidget {
         children: [
           // Background image
           if (cone.photoUrls.isNotEmpty)
-            Image.file(
-              File(cone.photoUrls.first),
-              fit: BoxFit.cover,
-            )
+            Image.file(File(cone.photoUrls.first), fit: BoxFit.cover)
           else
             Container(color: theme.colorScheme.primary),
-            
+
           // Gradient overlay
           Container(
             decoration: BoxDecoration(
@@ -154,7 +152,7 @@ class _PostcardLayout extends StatelessWidget {
               ),
             ),
           ),
-          
+
           // Content
           Padding(
             padding: const EdgeInsets.all(DS.xl),
@@ -177,7 +175,7 @@ class _PostcardLayout extends StatelessWidget {
                     ),
                   ],
                 ),
-                
+
                 // Bottom: Info Card
                 Container(
                   padding: const EdgeInsets.all(DS.lg),
@@ -216,17 +214,23 @@ class _PostcardLayout extends StatelessWidget {
                           ),
                         ),
                       ],
-                      
+
                       const SizedBox(height: DS.md),
-                      
+
                       Row(
                         children: [
-                          const Icon(Icons.location_on, color: Colors.white70, size: 16),
+                          const Icon(
+                            Icons.location_on,
+                            color: Colors.white70,
+                            size: 16,
+                          ),
                           const SizedBox(width: DS.xs),
                           Expanded(
                             child: Text(
                               '\${cone.latitude.toStringAsFixed(4)}, \${cone.longitude.toStringAsFixed(4)}',
-                              style: theme.textTheme.bodyMedium?.copyWith(color: Colors.white70),
+                              style: theme.textTheme.bodyMedium?.copyWith(
+                                color: Colors.white70,
+                              ),
                             ),
                           ),
                         ],
@@ -234,11 +238,17 @@ class _PostcardLayout extends StatelessWidget {
                       const SizedBox(height: DS.xs),
                       Row(
                         children: [
-                          const Icon(Icons.calendar_today, color: Colors.white70, size: 16),
+                          const Icon(
+                            Icons.calendar_today,
+                            color: Colors.white70,
+                            size: 16,
+                          ),
                           const SizedBox(width: DS.xs),
                           Text(
                             dateStr,
-                            style: theme.textTheme.bodyMedium?.copyWith(color: Colors.white70),
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              color: Colors.white70,
+                            ),
                           ),
                         ],
                       ),

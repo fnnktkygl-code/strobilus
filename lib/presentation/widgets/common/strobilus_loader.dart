@@ -20,18 +20,14 @@ class StrobilusLoader extends StatelessWidget {
     this.height = 40,
   });
 
-  factory StrobilusLoader.spinner({String? message}) => 
+  factory StrobilusLoader.spinner({String? message}) =>
       StrobilusLoader(type: LoaderType.spinner, message: message);
 
-  factory StrobilusLoader.shimmer({
-    required Widget child, 
-    String? message,
-  }) => StrobilusLoader(type: LoaderType.shimmer, child: child, message: message);
+  factory StrobilusLoader.shimmer({required Widget child, String? message}) =>
+      StrobilusLoader(type: LoaderType.shimmer, child: child, message: message);
 
-  factory StrobilusLoader.scan({
-    required Widget child, 
-    String? message,
-  }) => StrobilusLoader(type: LoaderType.scan, child: child, message: message);
+  factory StrobilusLoader.scan({required Widget child, String? message}) =>
+      StrobilusLoader(type: LoaderType.scan, child: child, message: message);
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +49,8 @@ class StrobilusLoader extends StatelessWidget {
         loader = Shimmer.fromColors(
           baseColor: theme.colorScheme.surfaceContainerHighest,
           highlightColor: theme.colorScheme.surface,
-          child: child ?? 
+          child:
+              child ??
               Container(
                 width: width,
                 height: height,
@@ -100,7 +97,8 @@ class _ScannerAnimation extends StatefulWidget {
   State<_ScannerAnimation> createState() => _ScannerAnimationState();
 }
 
-class _ScannerAnimationState extends State<_ScannerAnimation> with SingleTickerProviderStateMixin {
+class _ScannerAnimationState extends State<_ScannerAnimation>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
   @override
@@ -135,7 +133,9 @@ class _ScannerAnimationState extends State<_ScannerAnimation> with SingleTickerP
                     end: Alignment.bottomCenter,
                     colors: [
                       Colors.transparent,
-                      Theme.of(context).colorScheme.primary.withValues(alpha: 0.5),
+                      Theme.of(
+                        context,
+                      ).colorScheme.primary.withValues(alpha: 0.5),
                       Colors.transparent,
                     ],
                     stops: [
@@ -146,9 +146,7 @@ class _ScannerAnimationState extends State<_ScannerAnimation> with SingleTickerP
                   ).createShader(rect);
                 },
                 blendMode: BlendMode.srcATop,
-                child: Container(
-                  color: Colors.white,
-                ),
+                child: Container(color: Colors.white),
               );
             },
           ),

@@ -49,7 +49,8 @@ class SpeciesLibraryPage extends StatelessWidget {
                 l10n.speciesLibrary,
                 style: const TextStyle(fontWeight: FontWeight.w700),
               ),
-              background: (user?.bannerUrl != null || user?.backgroundImageUrl != null)
+              background:
+                  (user?.bannerUrl != null || user?.backgroundImageUrl != null)
                   ? Image.network(
                       user?.bannerUrl ?? user!.backgroundImageUrl!,
                       fit: BoxFit.cover,
@@ -63,11 +64,15 @@ class SpeciesLibraryPage extends StatelessWidget {
                           end: Alignment.bottomRight,
                           colors: isDark
                               ? [
-                                  theme.colorScheme.primary.withValues(alpha: 0.3),
+                                  theme.colorScheme.primary.withValues(
+                                    alpha: 0.3,
+                                  ),
                                   theme.colorScheme.surface,
                                 ]
                               : [
-                                  theme.colorScheme.primary.withValues(alpha: 0.15),
+                                  theme.colorScheme.primary.withValues(
+                                    alpha: 0.15,
+                                  ),
                                   theme.colorScheme.surface,
                                 ],
                         ),
@@ -142,21 +147,25 @@ class SpeciesLibraryPage extends StatelessWidget {
                         _FilterChip(
                           label: l10n.pokedexHardPines,
                           isSelected: speciesProvider.subgenusFilter == 'Pinus',
-                          onTap: () => speciesProvider.setSubgenusFilter('Pinus'),
+                          onTap: () =>
+                              speciesProvider.setSubgenusFilter('Pinus'),
                           iconData: Icons.shield_outlined,
                         ),
                         const SizedBox(width: DS.sm),
                         _FilterChip(
                           label: l10n.pokedexSoftPines,
-                          isSelected: speciesProvider.subgenusFilter == 'Strobus',
-                          onTap: () => speciesProvider.setSubgenusFilter('Strobus'),
+                          isSelected:
+                              speciesProvider.subgenusFilter == 'Strobus',
+                          onTap: () =>
+                              speciesProvider.setSubgenusFilter('Strobus'),
                           iconData: Icons.spa_outlined,
                         ),
                         if (speciesProvider.hasNonPinusSpecies) ...[
                           const SizedBox(width: DS.sm),
                           _FilterChip(
                             label: l10n.pokedexOtherConifers,
-                            isSelected: speciesProvider.subgenusFilter == '_other',
+                            isSelected:
+                                speciesProvider.subgenusFilter == '_other',
                             onTap: () =>
                                 speciesProvider.setSubgenusFilter('_other'),
                             iconData: Icons.park_outlined,
@@ -179,13 +188,16 @@ class SpeciesLibraryPage extends StatelessWidget {
                         _FilterChip(
                           label: 'Commun',
                           isSelected: speciesProvider.rarityFilter == 'common',
-                          onTap: () => speciesProvider.setRarityFilter('common'),
+                          onTap: () =>
+                              speciesProvider.setRarityFilter('common'),
                         ),
                         const SizedBox(width: DS.sm),
                         _FilterChip(
                           label: 'Peu commun',
-                          isSelected: speciesProvider.rarityFilter == 'uncommon',
-                          onTap: () => speciesProvider.setRarityFilter('uncommon'),
+                          isSelected:
+                              speciesProvider.rarityFilter == 'uncommon',
+                          onTap: () =>
+                              speciesProvider.setRarityFilter('uncommon'),
                         ),
                         const SizedBox(width: DS.sm),
                         _FilterChip(
@@ -196,8 +208,10 @@ class SpeciesLibraryPage extends StatelessWidget {
                         const SizedBox(width: DS.sm),
                         _FilterChip(
                           label: 'Légendaire',
-                          isSelected: speciesProvider.rarityFilter == 'legendary',
-                          onTap: () => speciesProvider.setRarityFilter('legendary'),
+                          isSelected:
+                              speciesProvider.rarityFilter == 'legendary',
+                          onTap: () =>
+                              speciesProvider.setRarityFilter('legendary'),
                         ),
                       ],
                     ),

@@ -896,6 +896,30 @@ abstract class AppLocalizations {
   /// **'Delete'**
   String get settingsDeleteAccountAction;
 
+  /// No description provided for @settingsResetAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Account'**
+  String get settingsResetAccount;
+
+  /// No description provided for @settingsResetAccountConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to reset your account? All your pine cones, collections, and achievements will be erased, but your account will remain active.'**
+  String get settingsResetAccountConfirm;
+
+  /// No description provided for @settingsResetAccountCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get settingsResetAccountCancel;
+
+  /// No description provided for @settingsResetAccountAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset'**
+  String get settingsResetAccountAction;
+
   /// No description provided for @settingsPrivacyPolicy.
   ///
   /// In en, this message translates to:

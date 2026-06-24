@@ -292,8 +292,8 @@ class SpeciesModel extends HiveObject {
       family: data['family'] as String? ?? '',
       genus: data['genus'] as String? ?? '',
       nativeCountryCodes: List<String>.from(data['nativeCountryCodes'] ?? []),
-      introducedCountryCodes: data['introducedCountryCodes'] != null 
-          ? List<String>.from(data['introducedCountryCodes']) 
+      introducedCountryCodes: data['introducedCountryCodes'] != null
+          ? List<String>.from(data['introducedCountryCodes'])
           : null,
       continents: List<String>.from(data['continents'] ?? []),
       description: data['description'] as String? ?? '',
@@ -343,8 +343,8 @@ class SpeciesModel extends HiveObject {
       family: json['family'] as String? ?? '',
       genus: json['genus'] as String? ?? '',
       nativeCountryCodes: List<String>.from(json['nativeCountryCodes'] ?? []),
-      introducedCountryCodes: json['introducedCountryCodes'] != null 
-          ? List<String>.from(json['introducedCountryCodes']) 
+      introducedCountryCodes: json['introducedCountryCodes'] != null
+          ? List<String>.from(json['introducedCountryCodes'])
           : null,
       continents: List<String>.from(json['continents'] ?? []),
       description: json['description'] as String? ?? '',

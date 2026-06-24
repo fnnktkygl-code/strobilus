@@ -93,11 +93,17 @@ class _EditConePageState extends State<EditConePage> {
       await context.read<CollectionProvider>().updateCone(updatedCone);
       if (mounted) {
         context.pop();
-        StrobilusSnackBar.success(context, AppLocalizations.of(context).coneUpdatedSuccess);
+        StrobilusSnackBar.success(
+          context,
+          AppLocalizations.of(context).coneUpdatedSuccess,
+        );
       }
     } catch (e) {
       if (mounted) {
-        StrobilusSnackBar.error(context, AppLocalizations.of(context).errorGeneric);
+        StrobilusSnackBar.error(
+          context,
+          AppLocalizations.of(context).errorGeneric,
+        );
       }
     } finally {
       if (mounted) {

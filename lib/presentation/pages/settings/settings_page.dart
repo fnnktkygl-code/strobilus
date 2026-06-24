@@ -180,6 +180,16 @@ class SettingsPage extends StatelessWidget {
             },
           ),
 
+          // Reset Account
+          ListTile(
+            leading: Icon(Icons.restart_alt, color: theme.colorScheme.error),
+            title: Text(
+              l10n.settingsResetAccount,
+              style: TextStyle(color: theme.colorScheme.error),
+            ),
+            onTap: () => _showResetAccountDialog(context, l10n, theme),
+          ),
+
           // Delete Account
           ListTile(
             leading: Icon(Icons.delete_forever, color: theme.colorScheme.error),
@@ -226,24 +236,75 @@ class SettingsPage extends StatelessWidget {
       final firestoreService = context.read<FirestoreService>();
       final storageService = context.read<StorageService>();
       final authProvider = context.read<AuthProvider>();
-      
+
       context.read<CollectionProvider>().clear();
 
-      await authProvider.deleteAccount(
-        firestoreService,
-        storageService,
-      );
+      await authProvider.deleteAccount(firestoreService, storageService);
 
       if (context.mounted) {
         if (authProvider.error != null) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('Error: ${authProvider.error} - Please log in again to delete your account.'),
+              content: Text(
+                'Error: ${authProvider.error} - Please log in again to delete your account.',
+              ),
               backgroundColor: theme.colorScheme.error,
             ),
           );
         } else {
           context.go('/auth/login');
+        }
+      }
+    }
+  }
+
+  Future<void> _showResetAccountDialog(
+    BuildContext context,
+    AppLocalizations l10n,
+    ThemeData theme,
+  ) async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(l10n.settingsResetAccount),
+        content: Text(l10n.settingsResetAccountConfirm),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: Text(l10n.settingsResetAccountCancel),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(ctx, true),
+            style: FilledButton.styleFrom(
+              backgroundColor: theme.colorScheme.error,
+              foregroundColor: theme.colorScheme.onError,
+            ),
+            child: Text(l10n.settingsResetAccountAction),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed == true && context.mounted) {
+      final firestoreService = context.read<FirestoreService>();
+      final storageService = context.read<StorageService>();
+      final authProvider = context.read<AuthProvider>();
+
+      context.read<CollectionProvider>().clear();
+
+      await authProvider.resetAccount(firestoreService, storageService);
+
+      if (context.mounted) {
+        if (authProvider.error != null) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Error: ${authProvider.error}'),
+              backgroundColor: theme.colorScheme.error,
+            ),
+          );
+        } else {
+          // Send to main screen
+          context.go('/');
         }
       }
     }

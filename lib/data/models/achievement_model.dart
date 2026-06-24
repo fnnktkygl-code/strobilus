@@ -6,7 +6,7 @@ enum AchievementCategory {
   documentation,
   collection,
   exploration,
-  secret
+  secret,
 }
 
 /// Achievement badge definitions (display-only in Phase 1).

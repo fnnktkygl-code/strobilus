@@ -48,7 +48,9 @@ class SpeciesProvider extends ChangeNotifier {
 
     // Continent filter
     if (_continentFilter != null && _continentFilter!.isNotEmpty) {
-      list = list.where((s) => s.continents.contains(_continentFilter)).toList();
+      list = list
+          .where((s) => s.continents.contains(_continentFilter))
+          .toList();
     }
 
     // Search query

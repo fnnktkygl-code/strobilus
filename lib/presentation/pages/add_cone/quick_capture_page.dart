@@ -164,7 +164,10 @@ class _QuickCapturePageState extends State<QuickCapturePage>
       }
     } catch (e) {
       if (mounted) {
-        StrobilusSnackBar.error(context, AppLocalizations.of(context).cameraError);
+        StrobilusSnackBar.error(
+          context,
+          AppLocalizations.of(context).cameraError,
+        );
         setState(() => _state = CaptureState.viewfinder);
       }
     }
@@ -207,7 +210,10 @@ class _QuickCapturePageState extends State<QuickCapturePage>
           _aiResult = null;
           _state = CaptureState.review;
         });
-        StrobilusSnackBar.error(context, 'Erreur réseau. Vérifiez votre connexion Internet.');
+        StrobilusSnackBar.error(
+          context,
+          'Erreur réseau. Vérifiez votre connexion Internet.',
+        );
       }
     } on AiQuotaException catch (_) {
       _stopScanAnimation();
@@ -216,7 +222,10 @@ class _QuickCapturePageState extends State<QuickCapturePage>
           _aiResult = null;
           _state = CaptureState.review;
         });
-        StrobilusSnackBar.error(context, "Limite quotidienne d'identification atteinte. Réessayez demain !");
+        StrobilusSnackBar.error(
+          context,
+          "Limite quotidienne d'identification atteinte. Réessayez demain !",
+        );
       }
     } on AiInvalidImageException catch (_) {
       _stopScanAnimation();
@@ -225,7 +234,10 @@ class _QuickCapturePageState extends State<QuickCapturePage>
           _aiResult = null;
           _state = CaptureState.review;
         });
-        StrobilusSnackBar.error(context, "L'image n'est pas claire ou n'est pas une pomme de pin.");
+        StrobilusSnackBar.error(
+          context,
+          "L'image n'est pas claire ou n'est pas une pomme de pin.",
+        );
       }
     } catch (e) {
       _stopScanAnimation();
@@ -234,7 +246,10 @@ class _QuickCapturePageState extends State<QuickCapturePage>
           _aiResult = null;
           _state = CaptureState.review;
         });
-        StrobilusSnackBar.error(context, AppLocalizations.of(context).aiIdentificationFailed);
+        StrobilusSnackBar.error(
+          context,
+          AppLocalizations.of(context).aiIdentificationFailed,
+        );
       }
     }
   }
@@ -268,11 +283,14 @@ class _QuickCapturePageState extends State<QuickCapturePage>
     String? matchedSpeciesId;
     String? matchedCommonName;
     if (_aiResult?.topMatches.isNotEmpty == true) {
-      final scientificName = _aiResult!.topMatches.first.scientificName.toLowerCase();
+      final scientificName = _aiResult!.topMatches.first.scientificName
+          .toLowerCase();
       final speciesList = context.read<SpeciesProvider>().allSpecies;
       for (final s in speciesList) {
         final sName = s.scientificName.toLowerCase();
-        if (sName == scientificName || sName.contains(scientificName) || scientificName.contains(sName)) {
+        if (sName == scientificName ||
+            sName.contains(scientificName) ||
+            scientificName.contains(sName)) {
           matchedSpeciesId = s.id;
           final locale = Localizations.localeOf(context).languageCode;
           matchedCommonName = s.getCommonName(locale);
@@ -284,7 +302,8 @@ class _QuickCapturePageState extends State<QuickCapturePage>
     final cone = PineConeModel(
       id: const Uuid().v4(),
       userId: currentUserId,
-      commonName: matchedCommonName ??
+      commonName:
+          matchedCommonName ??
           (_aiResult?.topMatches.isNotEmpty == true
               ? _aiResult!.topMatches.first.commonName
               : AppLocalizations.of(context).unknownCone),
@@ -293,9 +312,13 @@ class _QuickCapturePageState extends State<QuickCapturePage>
           : null,
       speciesId: matchedSpeciesId,
       photoUrls: [_capturedImage!.path], // Save local path
-      latitude: _resolvedLocation?.latitude ?? _currentPosition?.latitude ?? 0.0,
-      longitude: _resolvedLocation?.longitude ?? _currentPosition?.longitude ?? 0.0,
-      locationName: _resolvedLocation?.locationName ?? AppLocalizations.of(context).unknownLocation,
+      latitude:
+          _resolvedLocation?.latitude ?? _currentPosition?.latitude ?? 0.0,
+      longitude:
+          _resolvedLocation?.longitude ?? _currentPosition?.longitude ?? 0.0,
+      locationName:
+          _resolvedLocation?.locationName ??
+          AppLocalizations.of(context).unknownLocation,
       city: _resolvedLocation?.city ?? '',
       country: _resolvedLocation?.country ?? '',
       countryCode: _resolvedLocation?.countryCode ?? '',
@@ -315,7 +338,10 @@ class _QuickCapturePageState extends State<QuickCapturePage>
     try {
       await collection.addCone(cone, photos: [_capturedImage!]);
       if (mounted) {
-        StrobilusSnackBar.success(context, AppLocalizations.of(context).coneSavedSuccess);
+        StrobilusSnackBar.success(
+          context,
+          AppLocalizations.of(context).coneSavedSuccess,
+        );
         if (navigateToEdit) {
           context.pushReplacementNamed(
             RouteNames.editCone,
@@ -327,7 +353,10 @@ class _QuickCapturePageState extends State<QuickCapturePage>
       }
     } catch (e) {
       if (mounted) {
-        StrobilusSnackBar.error(context, AppLocalizations.of(context).errorGeneric);
+        StrobilusSnackBar.error(
+          context,
+          AppLocalizations.of(context).errorGeneric,
+        );
         setState(() => _state = CaptureState.review); // Revert state on error
       }
     }
@@ -350,10 +379,14 @@ class _QuickCapturePageState extends State<QuickCapturePage>
 
   String _getScanText(AppLocalizations l10n) {
     switch (_scanTextIndex) {
-      case 0: return l10n.scanStep1;
-      case 1: return l10n.scanStep2;
-      case 2: return l10n.scanStep3;
-      default: return l10n.scanStep4;
+      case 0:
+        return l10n.scanStep1;
+      case 1:
+        return l10n.scanStep2;
+      case 2:
+        return l10n.scanStep3;
+      default:
+        return l10n.scanStep4;
     }
   }
 
@@ -460,7 +493,10 @@ class _QuickCapturePageState extends State<QuickCapturePage>
           // Processing Overlay — Animated Scan
           if (_state == CaptureState.processing)
             AnimatedBuilder(
-              animation: Listenable.merge([_scanController!, _pulseController!]),
+              animation: Listenable.merge([
+                _scanController!,
+                _pulseController!,
+              ]),
               builder: (context, child) {
                 return Container(
                   color: Colors.black.withValues(alpha: 0.6),
@@ -468,7 +504,9 @@ class _QuickCapturePageState extends State<QuickCapturePage>
                     children: [
                       // Scan line
                       Positioned(
-                        top: MediaQuery.of(context).size.height * _scanController!.value,
+                        top:
+                            MediaQuery.of(context).size.height *
+                            _scanController!.value,
                         left: 0,
                         right: 0,
                         child: Container(
@@ -477,15 +515,21 @@ class _QuickCapturePageState extends State<QuickCapturePage>
                             gradient: LinearGradient(
                               colors: [
                                 Colors.transparent,
-                                theme.colorScheme.primary.withValues(alpha: 0.8),
+                                theme.colorScheme.primary.withValues(
+                                  alpha: 0.8,
+                                ),
                                 theme.colorScheme.primary,
-                                theme.colorScheme.primary.withValues(alpha: 0.8),
+                                theme.colorScheme.primary.withValues(
+                                  alpha: 0.8,
+                                ),
                                 Colors.transparent,
                               ],
                             ),
                             boxShadow: [
                               BoxShadow(
-                                color: theme.colorScheme.primary.withValues(alpha: 0.5),
+                                color: theme.colorScheme.primary.withValues(
+                                  alpha: 0.5,
+                                ),
                                 blurRadius: 16,
                                 spreadRadius: 4,
                               ),
@@ -506,9 +550,13 @@ class _QuickCapturePageState extends State<QuickCapturePage>
                                 height: 80,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: theme.colorScheme.primary.withValues(alpha: 0.15),
+                                  color: theme.colorScheme.primary.withValues(
+                                    alpha: 0.15,
+                                  ),
                                   border: Border.all(
-                                    color: theme.colorScheme.primary.withValues(alpha: 0.5),
+                                    color: theme.colorScheme.primary.withValues(
+                                      alpha: 0.5,
+                                    ),
                                     width: 2,
                                   ),
                                 ),

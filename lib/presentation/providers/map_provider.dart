@@ -22,7 +22,7 @@ class MapProvider extends ChangeNotifier {
   ConeRarity? _rarityFilter;
   String? _speciesFilter;
   DateTimeRange? _dateRangeFilter;
-  
+
   LatLng get center => _center;
   double get zoom => _zoom;
   String? get selectedConeId => _selectedConeId;

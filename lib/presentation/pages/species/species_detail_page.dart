@@ -204,11 +204,16 @@ class SpeciesDetailPage extends StatelessWidget {
                   width: double.infinity,
                   child: OutlinedButton.icon(
                     onPressed: () {
-                      context.read<MapProvider>().setViewMode(MapViewMode.distribution, speciesId: species.id);
+                      context.read<MapProvider>().setViewMode(
+                        MapViewMode.distribution,
+                        speciesId: species.id,
+                      );
                       context.go('/map');
                     },
                     icon: const Icon(Icons.map_outlined),
-                    label: Text(AppLocalizations.of(context).viewInteractiveMap),
+                    label: Text(
+                      AppLocalizations.of(context).viewInteractiveMap,
+                    ),
                     style: OutlinedButton.styleFrom(
                       foregroundColor: SemanticColors.successLeaf,
                       side: const BorderSide(color: SemanticColors.successLeaf),
@@ -982,7 +987,7 @@ class _SpeciesInteractiveHeaderState extends State<_SpeciesInteractiveHeader> {
         photoUrl: url,
         firestoreService: firestore,
       );
-      
+
       if (!context.mounted) return;
       StrobilusSnackBar.success(context, l10n.editProfileSaveSuccess);
     } catch (e) {
@@ -1033,10 +1038,7 @@ class _SpeciesInteractiveHeaderState extends State<_SpeciesInteractiveHeader> {
               fit: StackFit.expand,
               children: [
                 if (customPhotoUrl != null)
-                  Image.network(
-                    customPhotoUrl,
-                    fit: BoxFit.cover,
-                  )
+                  Image.network(customPhotoUrl, fit: BoxFit.cover)
                 else
                   Center(
                     child: Text(
@@ -1051,7 +1053,7 @@ class _SpeciesInteractiveHeaderState extends State<_SpeciesInteractiveHeader> {
                       ),
                     ),
                   ),
-                
+
                 // Dark overlay if image is present to make title readable
                 if (customPhotoUrl != null)
                   Container(
@@ -1059,10 +1061,7 @@ class _SpeciesInteractiveHeaderState extends State<_SpeciesInteractiveHeader> {
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
-                        colors: [
-                          Colors.transparent,
-                          theme.colorScheme.surface,
-                        ],
+                        colors: [Colors.transparent, theme.colorScheme.surface],
                         stops: const [0.5, 1.0],
                       ),
                     ),
@@ -1121,9 +1120,7 @@ class _SpecimenCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: theme.colorScheme.surface,
           borderRadius: DS.borderRadiusMd,
-          border: Border.all(
-            color: theme.colorScheme.outlineVariant,
-          ),
+          border: Border.all(color: theme.colorScheme.outlineVariant),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withValues(alpha: 0.05),
@@ -1150,7 +1147,8 @@ class _SpecimenCard extends StatelessWidget {
                           child: Icon(
                             Icons.forest,
                             size: 40,
-                            color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.5),
+                            color: theme.colorScheme.onSurfaceVariant
+                                .withValues(alpha: 0.5),
                           ),
                         ),
                   if (cone.isAiIdentified)
@@ -1158,7 +1156,10 @@ class _SpecimenCard extends StatelessWidget {
                       top: 8,
                       right: 8,
                       child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 4,
+                        ),
                         decoration: BoxDecoration(
                           color: ext.palette.primary,
                           borderRadius: DS.borderRadiusFull,
@@ -1166,11 +1167,19 @@ class _SpecimenCard extends StatelessWidget {
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            const Icon(Icons.auto_awesome, color: Colors.white, size: 12),
+                            const Icon(
+                              Icons.auto_awesome,
+                              color: Colors.white,
+                              size: 12,
+                            ),
                             const SizedBox(width: 4),
                             const Text(
                               'AI',
-                              style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 10,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ],
                         ),
@@ -1195,7 +1204,11 @@ class _SpecimenCard extends StatelessWidget {
                   const SizedBox(height: 4),
                   Row(
                     children: [
-                      Icon(Icons.calendar_today, size: 12, color: theme.colorScheme.onSurfaceVariant),
+                      Icon(
+                        Icons.calendar_today,
+                        size: 12,
+                        color: theme.colorScheme.onSurfaceVariant,
+                      ),
                       const SizedBox(width: 4),
                       Text(
                         '${cone.collectedAt.day}/${cone.collectedAt.month}/${cone.collectedAt.year}',

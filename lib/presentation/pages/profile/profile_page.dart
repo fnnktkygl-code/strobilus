@@ -95,7 +95,9 @@ class ProfilePage extends StatelessWidget {
           // Full Screen Premium Gradient or Custom Background Image
           Container(
             decoration: BoxDecoration(
-              gradient: user?.backgroundImageUrl == null ? _getFullScreenGradient(profileBgTheme) : null,
+              gradient: user?.backgroundImageUrl == null
+                  ? _getFullScreenGradient(profileBgTheme)
+                  : null,
               image: user?.backgroundImageUrl != null
                   ? DecorationImage(
                       image: NetworkImage(user!.backgroundImageUrl!),
@@ -163,7 +165,9 @@ class ProfilePage extends StatelessWidget {
                       ),
                       child: CircleAvatar(
                         radius: 55,
-                        backgroundColor: const Color(0xFF10B981).withValues(alpha: 0.2),
+                        backgroundColor: const Color(
+                          0xFF10B981,
+                        ).withValues(alpha: 0.2),
                         backgroundImage: avatarProvider as ImageProvider?,
                         child: !hasAvatar
                             ? Text(
@@ -222,10 +226,19 @@ class ProfilePage extends StatelessWidget {
                     children: [
                       OutlinedButton.icon(
                         onPressed: () => context.push('/profile/edit'),
-                        icon: const Icon(Icons.edit_outlined, size: 16, color: Colors.white),
-                        label: Text(l10n.profileEditProfile, style: const TextStyle(color: Colors.white)),
+                        icon: const Icon(
+                          Icons.edit_outlined,
+                          size: 16,
+                          color: Colors.white,
+                        ),
+                        label: Text(
+                          l10n.profileEditProfile,
+                          style: const TextStyle(color: Colors.white),
+                        ),
                         style: OutlinedButton.styleFrom(
-                          side: BorderSide(color: Colors.white.withValues(alpha: 0.3)),
+                          side: BorderSide(
+                            color: Colors.white.withValues(alpha: 0.3),
+                          ),
                           backgroundColor: Colors.white.withValues(alpha: 0.1),
                           padding: const EdgeInsets.symmetric(
                             horizontal: DS.lg,
@@ -239,10 +252,19 @@ class ProfilePage extends StatelessWidget {
                       const SizedBox(width: DS.sm),
                       OutlinedButton.icon(
                         onPressed: () => context.push('/leaderboard'),
-                        icon: const Icon(Icons.leaderboard, size: 16, color: Colors.white),
-                        label: const Text('Classement', style: TextStyle(color: Colors.white)),
+                        icon: const Icon(
+                          Icons.leaderboard,
+                          size: 16,
+                          color: Colors.white,
+                        ),
+                        label: const Text(
+                          'Classement',
+                          style: TextStyle(color: Colors.white),
+                        ),
                         style: OutlinedButton.styleFrom(
-                          side: BorderSide(color: Colors.white.withValues(alpha: 0.3)),
+                          side: BorderSide(
+                            color: Colors.white.withValues(alpha: 0.3),
+                          ),
                           backgroundColor: Colors.white.withValues(alpha: 0.1),
                           padding: const EdgeInsets.symmetric(
                             horizontal: DS.lg,
@@ -279,13 +301,19 @@ class ProfilePage extends StatelessWidget {
                       _GlassStatCard(
                         label: l10n.profileSpecies,
                         value: '${collection.uniqueSpeciesCount}',
-                        iconWidget: const Text('🧬', style: TextStyle(fontSize: 24)),
+                        iconWidget: const Text(
+                          '🧬',
+                          style: TextStyle(fontSize: 24),
+                        ),
                       ),
                       const SizedBox(width: DS.md),
                       _GlassStatCard(
                         label: l10n.profileCountries,
                         value: '${collection.countriesCount}',
-                        iconWidget: const Text('🌍', style: TextStyle(fontSize: 24)),
+                        iconWidget: const Text(
+                          '🌍',
+                          style: TextStyle(fontSize: 24),
+                        ),
                       ),
                     ],
                   ),
@@ -293,12 +321,12 @@ class ProfilePage extends StatelessWidget {
 
                   // ── Premium Achievements Shortcut ──
                   _buildAchievementsBanner(context, user, l10n),
-                  
+
                   const SizedBox(height: DS.xl),
 
                   // ── Recent Activity (Glassmorphism) ──
                   _buildRecentActivity(context, collection, l10n),
-                  
+
                   const SizedBox(height: DS.xxxl),
                 ],
               ),
@@ -309,7 +337,11 @@ class ProfilePage extends StatelessWidget {
     );
   }
 
-  Widget _buildAchievementsBanner(BuildContext context, dynamic user, AppLocalizations l10n) {
+  Widget _buildAchievementsBanner(
+    BuildContext context,
+    dynamic user,
+    AppLocalizations l10n,
+  ) {
     final unlockedCount = user?.unlockedAchievementIds.length ?? 0;
     final claimableCount = user?.claimableAchievementIds.length ?? 0;
     final showBadge = claimableCount > 0;
@@ -321,12 +353,24 @@ class ProfilePage extends StatelessWidget {
           color: Colors.white.withValues(alpha: 0.05),
           borderRadius: BorderRadius.circular(24),
           border: Border.all(
-            color: showBadge ? Colors.amber : Colors.white.withValues(alpha: 0.1),
+            color: showBadge
+                ? Colors.amber
+                : Colors.white.withValues(alpha: 0.1),
             width: showBadge ? 2 : 1,
           ),
           boxShadow: showBadge
-              ? [BoxShadow(color: Colors.amber.withValues(alpha: 0.3), blurRadius: 15)]
-              : [BoxShadow(color: Colors.black.withValues(alpha: 0.2), blurRadius: 10)],
+              ? [
+                  BoxShadow(
+                    color: Colors.amber.withValues(alpha: 0.3),
+                    blurRadius: 15,
+                  ),
+                ]
+              : [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.2),
+                    blurRadius: 10,
+                  ),
+                ],
         ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(24),
@@ -368,50 +412,63 @@ class ProfilePage extends StatelessWidget {
                       ),
                       if (showBadge)
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 4,
+                          ),
                           decoration: BoxDecoration(
                             color: Colors.amber,
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Text(
                             '+$claimableCount',
-                            style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
                           ),
                         )
                       else
                         const Icon(Icons.chevron_right, color: Colors.white),
                     ],
                   ),
-                  
+
                   if (unlockedCount > 0) ...[
                     const SizedBox(height: DS.md),
                     const Divider(color: Colors.white24, height: 1),
                     const SizedBox(height: DS.md),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: user!.unlockedAchievementIds.take(4).map<Widget>(
-                        (id) {
-                          final achievement = AchievementModel
-                              .phase1Achievements
-                              .firstWhere((a) => a.id == id, orElse: () => AchievementModel.phase1Achievements.first);
-                          return Tooltip(
-                            message: achievement.titleKey,
-                            child: Container(
-                              padding: const EdgeInsets.all(DS.sm),
-                              decoration: BoxDecoration(
-                                color: Colors.white.withValues(alpha: 0.1),
-                                shape: BoxShape.circle,
-                                border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
+                      children: user!.unlockedAchievementIds
+                          .take(4)
+                          .map<Widget>((id) {
+                            final achievement = AchievementModel
+                                .phase1Achievements
+                                .firstWhere(
+                                  (a) => a.id == id,
+                                  orElse: () =>
+                                      AchievementModel.phase1Achievements.first,
+                                );
+                            return Tooltip(
+                              message: achievement.titleKey,
+                              child: Container(
+                                padding: const EdgeInsets.all(DS.sm),
+                                decoration: BoxDecoration(
+                                  color: Colors.white.withValues(alpha: 0.1),
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: Colors.white.withValues(alpha: 0.2),
+                                  ),
+                                ),
+                                child: Icon(
+                                  achievement.icon,
+                                  color: Colors.white,
+                                  size: 24,
+                                ),
                               ),
-                              child: Icon(
-                                achievement.icon,
-                                color: Colors.white,
-                                size: 24,
-                              ),
-                            ),
-                          );
-                        },
-                      ).toList(),
+                            );
+                          })
+                          .toList(),
                     ),
                   ],
                 ],
@@ -423,7 +480,11 @@ class ProfilePage extends StatelessWidget {
     );
   }
 
-  Widget _buildRecentActivity(BuildContext context, CollectionProvider collection, AppLocalizations l10n) {
+  Widget _buildRecentActivity(
+    BuildContext context,
+    CollectionProvider collection,
+    AppLocalizations l10n,
+  ) {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white.withValues(alpha: 0.05),
@@ -457,7 +518,9 @@ class ProfilePage extends StatelessWidget {
                 if (collection.totalCones == 0)
                   Text(
                     l10n.collectionEmpty,
-                    style: TextStyle(color: Colors.white.withValues(alpha: 0.7)),
+                    style: TextStyle(
+                      color: Colors.white.withValues(alpha: 0.7),
+                    ),
                   )
                 else
                   Text(
@@ -534,7 +597,7 @@ class _GlassStatCard extends StatelessWidget {
 
 class _GamificationBanner extends StatelessWidget {
   final UserModel user;
-  
+
   const _GamificationBanner({required this.user});
 
   @override
@@ -556,7 +619,11 @@ class _GamificationBanner extends StatelessWidget {
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Icon(Icons.local_fire_department, color: Colors.orange, size: 28),
+                    const Icon(
+                      Icons.local_fire_department,
+                      color: Colors.orange,
+                      size: 28,
+                    ),
                     const SizedBox(width: DS.xs),
                     Text(
                       '${user.currentStreak}',
@@ -579,14 +646,14 @@ class _GamificationBanner extends StatelessWidget {
               ],
             ),
           ),
-          
+
           // Divider
           Container(
             height: 40,
             width: 1,
             color: Colors.white.withValues(alpha: 0.2),
           ),
-          
+
           // XP & Level
           Expanded(
             child: Column(
@@ -609,16 +676,16 @@ class _GamificationBanner extends StatelessWidget {
                     ),
                   ],
                 ),
-              Text(
-                'Niveau ${user.level}',
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.white.withValues(alpha: 0.7),
+                Text(
+                  'Niveau ${user.level}',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.white.withValues(alpha: 0.7),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-          )
         ],
       ),
     );

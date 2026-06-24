@@ -107,7 +107,9 @@ class _LocationPickerFieldState extends State<LocationPickerField> {
             height: MediaQuery.of(context).size.height * 0.8,
             decoration: BoxDecoration(
               color: theme.scaffoldBackgroundColor,
-              borderRadius: const BorderRadius.vertical(top: Radius.circular(DS.md)),
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(DS.md),
+              ),
             ),
             child: Column(
               children: [
@@ -119,7 +121,9 @@ class _LocationPickerFieldState extends State<LocationPickerField> {
                         child: TextField(
                           controller: _searchController,
                           decoration: InputDecoration(
-                            hintText: AppLocalizations.of(context).collectionSearch,
+                            hintText: AppLocalizations.of(
+                              context,
+                            ).collectionSearch,
                             prefixIcon: const Icon(Icons.search),
                             suffixIcon: _searchController.text.isNotEmpty
                                 ? IconButton(
@@ -141,7 +145,9 @@ class _LocationPickerFieldState extends State<LocationPickerField> {
                           onSubmitted: (val) async {
                             setModalState(() => _isSearching = true);
                             final mapsService = context.read<MapsService>();
-                            final results = await mapsService.searchLocation(val);
+                            final results = await mapsService.searchLocation(
+                              val,
+                            );
                             if (mounted) {
                               setModalState(() {
                                 _searchResults = results;
@@ -157,7 +163,9 @@ class _LocationPickerFieldState extends State<LocationPickerField> {
                       const SizedBox(width: DS.sm),
                       TextButton(
                         onPressed: () => Navigator.pop(context),
-                        child: Text(AppLocalizations.of(context).locationPickerClose),
+                        child: Text(
+                          AppLocalizations.of(context).locationPickerClose,
+                        ),
                       ),
                     ],
                   ),
@@ -167,10 +175,15 @@ class _LocationPickerFieldState extends State<LocationPickerField> {
                     padding: EdgeInsets.all(DS.lg),
                     child: Center(child: CircularProgressIndicator()),
                   )
-                else if (_searchResults.isEmpty && _searchController.text.isNotEmpty)
+                else if (_searchResults.isEmpty &&
+                    _searchController.text.isNotEmpty)
                   Padding(
                     padding: const EdgeInsets.all(DS.lg),
-                    child: Center(child: Text(AppLocalizations.of(context).locationPickerNoResults)),
+                    child: Center(
+                      child: Text(
+                        AppLocalizations.of(context).locationPickerNoResults,
+                      ),
+                    ),
                   )
                 else
                   Expanded(
@@ -179,9 +192,14 @@ class _LocationPickerFieldState extends State<LocationPickerField> {
                       itemBuilder: (context, index) {
                         final res = _searchResults[index];
                         return ListTile(
-                          leading: Icon(Icons.location_on, color: theme.colorScheme.primary),
+                          leading: Icon(
+                            Icons.location_on,
+                            color: theme.colorScheme.primary,
+                          ),
                           title: Text(res.locationName),
-                          subtitle: Text('${res.city.isNotEmpty ? '${res.city}, ' : ''}${res.country} (${res.countryCode})'),
+                          subtitle: Text(
+                            '${res.city.isNotEmpty ? '${res.city}, ' : ''}${res.country} (${res.countryCode})',
+                          ),
                           onTap: () {
                             setState(() {
                               _selectedLocation = res;
@@ -204,12 +222,14 @@ class _LocationPickerFieldState extends State<LocationPickerField> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    
+
     return Container(
       padding: const EdgeInsets.all(DS.md),
       decoration: BoxDecoration(
         color: theme.colorScheme.surface.withValues(alpha: 0.5),
-        border: Border.all(color: theme.colorScheme.primary.withValues(alpha: 0.2)),
+        border: Border.all(
+          color: theme.colorScheme.primary.withValues(alpha: 0.2),
+        ),
         borderRadius: BorderRadius.circular(DS.md),
       ),
       child: Column(
@@ -237,7 +257,11 @@ class _LocationPickerFieldState extends State<LocationPickerField> {
               ),
               child: Row(
                 children: [
-                  Icon(Icons.check_circle, color: theme.colorScheme.primary, size: 20),
+                  Icon(
+                    Icons.check_circle,
+                    color: theme.colorScheme.primary,
+                    size: 20,
+                  ),
                   const SizedBox(width: DS.sm),
                   Expanded(
                     child: Text(
@@ -268,8 +292,15 @@ class _LocationPickerFieldState extends State<LocationPickerField> {
               Expanded(
                 child: FilledButton.icon(
                   onPressed: _isLoading ? null : _fetchCurrentLocation,
-                  icon: _isLoading 
-                      ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
+                  icon: _isLoading
+                      ? const SizedBox(
+                          width: 16,
+                          height: 16,
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2,
+                            color: Colors.white,
+                          ),
+                        )
                       : const Icon(Icons.my_location, size: 18),
                   label: Text(AppLocalizations.of(context).locationPickerGps),
                   style: FilledButton.styleFrom(
@@ -282,7 +313,9 @@ class _LocationPickerFieldState extends State<LocationPickerField> {
                 child: OutlinedButton.icon(
                   onPressed: _isLoading ? null : _showSearchDialog,
                   icon: const Icon(Icons.search, size: 18),
-                  label: Text(AppLocalizations.of(context).locationPickerSearch),
+                  label: Text(
+                    AppLocalizations.of(context).locationPickerSearch,
+                  ),
                   style: OutlinedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: DS.sm),
                   ),

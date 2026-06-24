@@ -180,10 +180,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
         bannerUrl = await storageService.uploadUserBanner(
           imageBytes: _newBannerBytes!,
         );
-      } 
-      // If user clears the background but wants the gradient theme, we don't clear the banner anymore, 
+      }
+      // If user clears the background but wants the gradient theme, we don't clear the banner anymore,
       // banner and background are now distinct.
-      
+
       // 3. Upload new background if selected
       if (_newBackgroundBytes != null) {
         backgroundImageUrl = await storageService.uploadUserBackground(
@@ -201,7 +201,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
         avatarUrl: avatarUrl,
         bannerUrl: bannerUrl,
         backgroundImageUrl: backgroundImageUrl,
-        profileBackgroundTheme: _selectedBgTheme == 'none' ? '' : _selectedBgTheme,
+        profileBackgroundTheme: _selectedBgTheme == 'none'
+            ? ''
+            : _selectedBgTheme,
         isPublicProfile: _isPublicProfile,
         firestoreService: firestoreService,
       );
@@ -279,7 +281,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                               height: double.infinity,
                               fit: BoxFit.cover,
                             )
-                          else if (user?.bannerUrl != null && user!.bannerUrl!.isNotEmpty)
+                          else if (user?.bannerUrl != null &&
+                              user!.bannerUrl!.isNotEmpty)
                             Image.network(
                               user.bannerUrl!,
                               width: double.infinity,
@@ -355,7 +358,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
                               ),
                             ),
                             child: CircleAvatar(
-                              backgroundColor: ext.palette.primary.withValues(alpha: 0.15),
+                              backgroundColor: ext.palette.primary.withValues(
+                                alpha: 0.15,
+                              ),
                               backgroundImage: _newAvatarBytes != null
                                   ? MemoryImage(_newAvatarBytes!)
                                   : (user?.avatarUrl != null
@@ -460,21 +465,27 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     // Public Profile Toggle
                     Container(
                       decoration: BoxDecoration(
-                        color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
+                        color: theme.colorScheme.surfaceContainerHighest
+                            .withValues(alpha: 0.3),
                         borderRadius: DS.borderRadiusMd,
-                        border: Border.all(color: theme.colorScheme.outlineVariant),
+                        border: Border.all(
+                          color: theme.colorScheme.outlineVariant,
+                        ),
                       ),
                       child: SwitchListTile(
                         title: Text(
                           'Profil Public (Classement)',
-                          style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
+                          style: theme.textTheme.titleSmall?.copyWith(
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                         subtitle: Text(
                           'Participez au classement communautaire et comparez votre XP.',
                           style: theme.textTheme.bodySmall,
                         ),
                         value: _isPublicProfile,
-                        onChanged: (val) => setState(() => _isPublicProfile = val),
+                        onChanged: (val) =>
+                            setState(() => _isPublicProfile = val),
                         secondary: const Icon(Icons.public),
                       ),
                     ),
@@ -493,36 +504,47 @@ class _EditProfilePageState extends State<EditProfilePage> {
                         ),
                         TextButton.icon(
                           onPressed: () => _pickImage('background'),
-                          icon: const Icon(Icons.add_photo_alternate_outlined, size: 16),
+                          icon: const Icon(
+                            Icons.add_photo_alternate_outlined,
+                            size: 16,
+                          ),
                           label: Text(l10n.editProfileGallery),
                         ),
                       ],
                     ),
-                    if (_newBackgroundBytes != null || user?.backgroundImageUrl != null) ...[
+                    if (_newBackgroundBytes != null ||
+                        user?.backgroundImageUrl != null) ...[
                       const SizedBox(height: DS.sm),
                       Container(
                         height: 120,
                         width: double.infinity,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(DS.radiusMd),
-                          border: Border.all(color: theme.colorScheme.primary, width: 2.5),
+                          border: Border.all(
+                            color: theme.colorScheme.primary,
+                            width: 2.5,
+                          ),
                           image: _newBackgroundBytes != null
                               ? DecorationImage(
                                   image: MemoryImage(_newBackgroundBytes!),
                                   fit: BoxFit.cover,
                                 )
                               : (user?.backgroundImageUrl != null
-                                  ? DecorationImage(
-                                      image: NetworkImage(user!.backgroundImageUrl!),
-                                      fit: BoxFit.cover,
-                                    )
-                                  : null),
+                                    ? DecorationImage(
+                                        image: NetworkImage(
+                                          user!.backgroundImageUrl!,
+                                        ),
+                                        fit: BoxFit.cover,
+                                      )
+                                    : null),
                         ),
                         child: Align(
                           alignment: Alignment.topRight,
                           child: IconButton(
                             icon: const Icon(Icons.close, color: Colors.white),
-                            style: IconButton.styleFrom(backgroundColor: Colors.black45),
+                            style: IconButton.styleFrom(
+                              backgroundColor: Colors.black45,
+                            ),
                             onPressed: () {
                               setState(() {
                                 _newBackgroundBytes = null;

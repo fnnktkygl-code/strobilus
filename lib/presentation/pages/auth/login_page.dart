@@ -204,7 +204,10 @@ class _LoginPageState extends State<LoginPage> {
     final email = _emailController.text.trim();
     if (email.isNotEmpty) {
       context.read<AuthProvider>().sendPasswordResetEmail(email);
-      StrobilusSnackBar.success(context, AppLocalizations.of(context).authPasswordReset);
+      StrobilusSnackBar.success(
+        context,
+        AppLocalizations.of(context).authPasswordReset,
+      );
     }
   }
 

@@ -50,9 +50,11 @@ class _MainShellState extends State<MainShell>
         collectionProvider.loadCones(auth.firebaseUser!.uid);
         // Listen for collection loaded to decide coach mark
         collectionProvider.addListener(_checkCoachMark);
-        
+
         // Listen for achievements
-        _achievementSub = collectionProvider.onAchievementUnlocked.listen((achievementId) {
+        _achievementSub = collectionProvider.onAchievementUnlocked.listen((
+          achievementId,
+        ) {
           _showAchievementDialog(achievementId);
         });
       }
@@ -64,8 +66,10 @@ class _MainShellState extends State<MainShell>
       (a) => a.id == achievementId,
       orElse: () => AchievementModel.phase1Achievements.first,
     );
-    
-    final confettiController = ConfettiController(duration: const Duration(seconds: 3));
+
+    final confettiController = ConfettiController(
+      duration: const Duration(seconds: 3),
+    );
     confettiController.play();
 
     showDialog(
@@ -79,11 +83,17 @@ class _MainShellState extends State<MainShell>
               title: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(achievement.icon, size: 48, color: Theme.of(context).colorScheme.primary),
+                  Icon(
+                    achievement.icon,
+                    size: 48,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
                   const SizedBox(height: DS.md),
                   Text(
                     'Succès Déverrouillé !',
-                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
+                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ],
               ),
@@ -92,7 +102,9 @@ class _MainShellState extends State<MainShell>
                 children: [
                   Text(
                     'Nouveau succès (ID: \${achievement.id})',
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                   const SizedBox(height: DS.sm),
                   Text(
@@ -115,7 +127,13 @@ class _MainShellState extends State<MainShell>
                 confettiController: confettiController,
                 blastDirectionality: BlastDirectionality.explosive,
                 shouldLoop: false,
-                colors: const [Colors.green, Colors.blue, Colors.pink, Colors.orange, Colors.purple],
+                colors: const [
+                  Colors.green,
+                  Colors.blue,
+                  Colors.pink,
+                  Colors.orange,
+                  Colors.purple,
+                ],
               ),
             ),
           ],
@@ -162,80 +180,81 @@ class _MainShellState extends State<MainShell>
         Scaffold(
           body: widget.child,
           bottomNavigationBar: NavigationBar(
-        selectedIndex: currentIndex > 2 ? currentIndex - 1 : currentIndex,
-        onDestinationSelected: (index) {
-          // Map indices back to routes, skipping the FAB Add button
-          final route = index < 2 ? _tabs[index] : _tabs[index + 1];
-          context.go(route);
-        },
-        destinations: [
-          NavigationDestination(
-            icon: const Icon(Icons.map_outlined),
-            selectedIcon: const Icon(Icons.map),
-            label: l10n.navMap,
-          ),
-          NavigationDestination(
-            icon: const Icon(Icons.collections_outlined),
-            selectedIcon: const Icon(Icons.collections),
-            label: l10n.navCollection,
-          ),
-          NavigationDestination(
-            icon: const Icon(Icons.catching_pokemon_outlined),
-            selectedIcon: const Icon(Icons.catching_pokemon),
-            label: l10n.navSpecies,
-          ),
-          NavigationDestination(
-            icon: const Icon(Icons.person_outline),
-            selectedIcon: const Icon(Icons.person),
-            label: l10n.navProfile,
-          ),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        heroTag: 'add_cone_fab',
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        foregroundColor: Theme.of(context).colorScheme.onPrimary,
-        onPressed: () {
-          _dismissCoachMark();
-          showModalBottomSheet(
-            context: context,
-            builder: (ctx) => SafeArea(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  ListTile(
-                    leading: const Icon(
-                      Icons.auto_awesome,
-                      color: SemanticColors.warningOchre,
-                    ),
-                    title: Text(l10n.aiQuickCaptureTitle),
-                    subtitle: Text(l10n.aiQuickCaptureSubtitle),
-                    onTap: () {
-                      Navigator.pop(ctx);
-                      context.push('/add-cone');
-                    },
-                  ),
-                  ListTile(
-                    leading: const Icon(
-                      Icons.edit_note,
-                      color: SemanticColors.infoSky,
-                    ),
-                    title: Text(l10n.manualEntryTitle),
-                    subtitle: Text(l10n.manualEntrySubtitle),
-                    onTap: () {
-                      Navigator.pop(ctx);
-                      context.push('/manual-add-cone');
-                    },
-                  ),
-                ],
+            selectedIndex: currentIndex > 2 ? currentIndex - 1 : currentIndex,
+            onDestinationSelected: (index) {
+              // Map indices back to routes, skipping the FAB Add button
+              final route = index < 2 ? _tabs[index] : _tabs[index + 1];
+              context.go(route);
+            },
+            destinations: [
+              NavigationDestination(
+                icon: const Icon(Icons.map_outlined),
+                selectedIcon: const Icon(Icons.map),
+                label: l10n.navMap,
               ),
-            ),
-          );
-        },
-        icon: const Icon(Icons.add),
-        label: Text(l10n.navAdd),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+              NavigationDestination(
+                icon: const Icon(Icons.collections_outlined),
+                selectedIcon: const Icon(Icons.collections),
+                label: l10n.navCollection,
+              ),
+              NavigationDestination(
+                icon: const Icon(Icons.catching_pokemon_outlined),
+                selectedIcon: const Icon(Icons.catching_pokemon),
+                label: l10n.navSpecies,
+              ),
+              NavigationDestination(
+                icon: const Icon(Icons.person_outline),
+                selectedIcon: const Icon(Icons.person),
+                label: l10n.navProfile,
+              ),
+            ],
+          ),
+          floatingActionButton: FloatingActionButton.extended(
+            heroTag: 'add_cone_fab',
+            backgroundColor: Theme.of(context).colorScheme.primary,
+            foregroundColor: Theme.of(context).colorScheme.onPrimary,
+            onPressed: () {
+              _dismissCoachMark();
+              showModalBottomSheet(
+                context: context,
+                builder: (ctx) => SafeArea(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      ListTile(
+                        leading: const Icon(
+                          Icons.auto_awesome,
+                          color: SemanticColors.warningOchre,
+                        ),
+                        title: Text(l10n.aiQuickCaptureTitle),
+                        subtitle: Text(l10n.aiQuickCaptureSubtitle),
+                        onTap: () {
+                          Navigator.pop(ctx);
+                          context.push('/add-cone');
+                        },
+                      ),
+                      ListTile(
+                        leading: const Icon(
+                          Icons.edit_note,
+                          color: SemanticColors.infoSky,
+                        ),
+                        title: Text(l10n.manualEntryTitle),
+                        subtitle: Text(l10n.manualEntrySubtitle),
+                        onTap: () {
+                          Navigator.pop(ctx);
+                          context.push('/manual-add-cone');
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+            icon: const Icon(Icons.add),
+            label: Text(l10n.navAdd),
+          ),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerFloat,
         ),
 
         // Coach Mark Overlay
@@ -258,7 +277,9 @@ class _MainShellState extends State<MainShell>
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Container(
-                              margin: const EdgeInsets.symmetric(horizontal: DS.xl),
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: DS.xl,
+                              ),
                               padding: const EdgeInsets.all(DS.lg),
                               decoration: BoxDecoration(
                                 color: theme.colorScheme.surface,
@@ -269,9 +290,8 @@ class _MainShellState extends State<MainShell>
                                 children: [
                                   Text(
                                     l10n.coachMarkTitle,
-                                    style: theme.textTheme.titleMedium?.copyWith(
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                    style: theme.textTheme.titleMedium
+                                        ?.copyWith(fontWeight: FontWeight.bold),
                                     textAlign: TextAlign.center,
                                   ),
                                   const SizedBox(height: DS.xs),
@@ -310,7 +330,10 @@ class _MainShellState extends State<MainShell>
             left: DS.md,
             right: DS.md,
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: DS.md, vertical: DS.sm),
+              padding: const EdgeInsets.symmetric(
+                horizontal: DS.md,
+                vertical: DS.sm,
+              ),
               decoration: BoxDecoration(
                 color: theme.colorScheme.errorContainer.withValues(alpha: 0.9),
                 borderRadius: DS.borderRadiusMd,
@@ -318,7 +341,11 @@ class _MainShellState extends State<MainShell>
               ),
               child: Row(
                 children: [
-                  Icon(Icons.cloud_off, color: theme.colorScheme.onErrorContainer, size: 20),
+                  Icon(
+                    Icons.cloud_off,
+                    color: theme.colorScheme.onErrorContainer,
+                    size: 20,
+                  ),
                   const SizedBox(width: DS.sm),
                   Expanded(
                     child: Text(

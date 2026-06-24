@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:strobilus/l10n/app_localizations.dart';
@@ -76,7 +75,11 @@ class ConeDetailPage extends StatelessWidget {
                   : Container(
                       color: ext.palette.primary.withValues(alpha: 0.1),
                       child: Center(
-                        child: Image.asset('assets/images/logo_squared.png', width: 120, height: 120),
+                        child: Image.asset(
+                          'assets/images/logo_squared.png',
+                          width: 120,
+                          height: 120,
+                        ),
                       ),
                     ),
             ),
@@ -395,7 +398,9 @@ class ConeDetailPage extends StatelessWidget {
         final speciesList = context.read<SpeciesProvider>().allSpecies;
         for (final s in speciesList) {
           final sName = s.scientificName.toLowerCase();
-          if (sName == scientificName || sName.contains(scientificName) || scientificName.contains(sName)) {
+          if (sName == scientificName ||
+              sName.contains(scientificName) ||
+              scientificName.contains(sName)) {
             matchedCommonName = s.getCommonName(locale);
             break;
           }
@@ -404,7 +409,8 @@ class ConeDetailPage extends StatelessWidget {
 
       final updatedCone = cone.copyWith(
         isAiIdentified: true,
-        commonName: matchedCommonName ?? (topMatch?.commonName ?? cone.commonName),
+        commonName:
+            matchedCommonName ?? (topMatch?.commonName ?? cone.commonName),
         scientificName: topMatch?.scientificName,
         size: parsedSize,
         aiConfidence: topMatch?.confidencePercent.toDouble(),
@@ -414,12 +420,18 @@ class ConeDetailPage extends StatelessWidget {
 
       if (context.mounted) {
         Navigator.pop(context); // Close loading dialog
-        StrobilusSnackBar.success(context, AppLocalizations.of(context).aiIdentificationComplete);
+        StrobilusSnackBar.success(
+          context,
+          AppLocalizations.of(context).aiIdentificationComplete,
+        );
       }
     } catch (e) {
       if (context.mounted) {
         Navigator.pop(context); // Close loading dialog
-        StrobilusSnackBar.error(context, AppLocalizations.of(context).errorGeneric);
+        StrobilusSnackBar.error(
+          context,
+          AppLocalizations.of(context).errorGeneric,
+        );
       }
     }
   }
