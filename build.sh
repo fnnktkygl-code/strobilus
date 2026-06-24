@@ -6,7 +6,7 @@ if cd flutter; then
   git pull
   cd ..
 else
-  git clone https://github.com/flutter/flutter.git -b stable
+  git clone --depth 1 https://github.com/flutter/flutter.git -b stable
 fi
 ./flutter/bin/flutter config --no-analytics
 ./flutter/bin/flutter pub get
