@@ -169,7 +169,7 @@ class _MapPageState extends State<MapPage> {
             options: MapOptions(
               initialCenter: mapProvider.center,
               initialZoom: mapProvider.zoom,
-              minZoom: 3.0,
+              minZoom: 1.5,
               maxZoom: 18.0,
               interactionOptions: const InteractionOptions(
                 flags: InteractiveFlag.all & ~InteractiveFlag.rotate,
