@@ -190,14 +190,14 @@ class _WeeklyChallengeBanner extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  color: isCompleted ? Colors.white.withValues(alpha: 0.2) : theme.colorScheme.primary.withValues(alpha: 0.1),
+                  color: isCompleted ? Colors.white.withValues(alpha: 0.2) : theme.colorScheme.onPrimaryContainer.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
-                  '+\${challenge.xpReward} XP',
+                  '+${challenge.xpReward} XP',
                   style: theme.textTheme.labelMedium?.copyWith(
                     fontWeight: FontWeight.bold,
-                    color: isCompleted ? Colors.white : theme.colorScheme.primary,
+                    color: isCompleted ? Colors.white : theme.colorScheme.onPrimaryContainer,
                   ),
                 ),
               ),
@@ -207,7 +207,7 @@ class _WeeklyChallengeBanner extends StatelessWidget {
           Text(
             challenge.description,
             style: theme.textTheme.bodySmall?.copyWith(
-              color: isCompleted ? Colors.white.withValues(alpha: 0.9) : theme.colorScheme.onSurfaceVariant,
+              color: isCompleted ? Colors.white.withValues(alpha: 0.9) : theme.colorScheme.onPrimaryContainer.withValues(alpha: 0.8),
             ),
           ),
           const SizedBox(height: DS.sm),
@@ -219,19 +219,19 @@ class _WeeklyChallengeBanner extends StatelessWidget {
                   child: LinearProgressIndicator(
                     value: progressRatio,
                     minHeight: 8,
-                    backgroundColor: isCompleted ? Colors.white.withValues(alpha: 0.3) : theme.colorScheme.surface,
+                    backgroundColor: isCompleted ? Colors.white.withValues(alpha: 0.3) : theme.colorScheme.onPrimaryContainer.withValues(alpha: 0.2),
                     valueColor: AlwaysStoppedAnimation<Color>(
-                      isCompleted ? Colors.white : theme.colorScheme.primary,
+                      isCompleted ? Colors.white : theme.colorScheme.onPrimaryContainer,
                     ),
                   ),
                 ),
               ),
               const SizedBox(width: DS.sm),
               Text(
-                '\$progress / \${challenge.targetCount}',
+                '$progress / ${challenge.targetCount}',
                 style: theme.textTheme.labelMedium?.copyWith(
                   fontWeight: FontWeight.bold,
-                  color: isCompleted ? Colors.white : theme.colorScheme.onSurface,
+                  color: isCompleted ? Colors.white : theme.colorScheme.onPrimaryContainer,
                 ),
               ),
             ],
