@@ -21,63 +21,54 @@ class ChallengeModel {
     required this.expirationDate,
   });
 
-  /// Generates a deterministic daily challenge based on user level and history.
-  static ChallengeModel getCurrentDailyChallenge(dynamic user) {
+  /// Generates a deterministic monthly challenge based on user level and history.
+  static ChallengeModel getCurrentMonthlyChallenge(dynamic user) {
     final now = DateTime.now();
-    // Calculate day of the year
-    final dayOfYear = int.parse(
-      now.difference(DateTime(now.year, 1, 1)).inDays.toString(),
-    );
+    final month = now.month;
 
-    // End of the current day
-    final endOfDay = DateTime(
-      now.year,
-      now.month,
-      now.day,
-      23, 59, 59,
-    );
+    // End of the current month
+    final nextMonth = (month < 12) ? DateTime(now.year, month + 1, 1) : DateTime(now.year + 1, 1, 1);
+    final endOfMonth = nextMonth.subtract(const Duration(seconds: 1));
 
-    final challengeType = dayOfYear % 4;
-    final id = 'daily_${now.year}_$dayOfYear';
+    final challengeType = month % 4;
+    final id = 'monthly_${now.year}_$month';
 
-    // Beginners (Level 1-3) get very simple challenges
+    // Beginners (Level 1-3) get simple challenges
     if (user.level <= 3) {
       if (challengeType == 0 || challengeType == 2) {
         return ChallengeModel(
           id: id,
-          title: 'Découverte du jour',
-          description: "Ajoutez 1 pomme de pin à votre collection aujourd'hui.",
-          targetCount: 1,
-          xpReward: 100,
-          expirationDate: endOfDay,
+          title: 'Découverte du mois',
+          description: "Ajoutez 3 pommes de pin à votre collection ce mois-ci.",
+          targetCount: 3,
+          xpReward: 300,
+          expirationDate: endOfMonth,
         );
       } else {
         return ChallengeModel(
           id: id,
           title: 'Pas à pas',
-          description: "Photographiez 2 pommes de pin pour bien commencer.",
-          targetCount: 2,
-          xpReward: 150,
-          expirationDate: endOfDay,
+          description: "Photographiez 5 pommes de pin pour bien commencer.",
+          targetCount: 5,
+          xpReward: 500,
+          expirationDate: endOfMonth,
         );
       }
     }
 
     // Intermediary/Advanced (Level 4+)
-    // If they have already discovered species, we can ask them to find one again
-    // This guarantees the challenge is logical for their location!
     if (user.customSpeciesPhotos.isNotEmpty && challengeType == 3) {
       final speciesIds = user.customSpeciesPhotos.keys.toList();
-      // Deterministic selection based on the day of the year
-      final selectedSpeciesId = speciesIds[dayOfYear % speciesIds.length];
+      // Deterministic selection based on the month
+      final selectedSpeciesId = speciesIds[month % speciesIds.length];
       return ChallengeModel(
         id: id,
         title: 'Retour aux sources',
-        description: "Trouvez une nouvelle pomme de pin d'une espèce que vous avez déjà identifiée.",
-        targetCount: 1,
-        xpReward: 250,
+        description: "Trouvez 3 nouvelles pommes de pin d'une espèce que vous avez déjà identifiée.",
+        targetCount: 3,
+        xpReward: 750,
         requiredSpeciesId: selectedSpeciesId,
-        expirationDate: endOfDay,
+        expirationDate: endOfMonth,
       );
     }
 
@@ -86,40 +77,40 @@ class ChallengeModel {
       case 0:
         return ChallengeModel(
           id: id,
-          title: 'Explorateur Quotidien',
-          description: "Trouvez 3 pommes de pin, peu importe l'espèce.",
-          targetCount: 3,
-          xpReward: 150,
-          expirationDate: endOfDay,
+          title: 'Explorateur du Mois',
+          description: "Trouvez 10 pommes de pin, peu importe l'espèce.",
+          targetCount: 10,
+          xpReward: 1000,
+          expirationDate: endOfMonth,
         );
       case 1:
         return ChallengeModel(
           id: id,
           title: 'Spécialiste Pinaceae',
-          description: "Trouvez 2 pommes de pin de la famille Pinaceae (Pins, Sapins, Cèdres...).",
-          targetCount: 2,
-          xpReward: 200,
+          description: "Trouvez 5 pommes de pin de la famille Pinaceae (Pins, Sapins, Cèdres...).",
+          targetCount: 5,
+          xpReward: 800,
           requiredFamily: 'Pinaceae',
-          expirationDate: endOfDay,
+          expirationDate: endOfMonth,
         );
       case 2:
         return ChallengeModel(
           id: id,
           title: 'Grand Marcheur',
-          description: "Ajoutez 4 nouvelles trouvailles à votre collection aujourd'hui.",
-          targetCount: 4,
-          xpReward: 300,
-          expirationDate: endOfDay,
+          description: "Ajoutez 15 nouvelles trouvailles à votre collection ce mois-ci.",
+          targetCount: 15,
+          xpReward: 1500,
+          expirationDate: endOfMonth,
         );
       case 3:
       default:
         return ChallengeModel(
           id: id,
           title: 'Le compte est bon',
-          description: "Identifiez 2 pommes de pin différentes aujourd'hui.",
-          targetCount: 2,
-          xpReward: 200,
-          expirationDate: endOfDay,
+          description: "Identifiez 8 pommes de pin différentes ce mois-ci.",
+          targetCount: 8,
+          xpReward: 800,
+          expirationDate: endOfMonth,
         );
     }
   }

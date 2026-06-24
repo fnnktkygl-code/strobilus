@@ -146,7 +146,7 @@ class _WeeklyChallengeBanner extends StatelessWidget {
     final user = context.watch<AuthProvider>().userModel;
     if (user == null) return const SizedBox.shrink();
 
-    final challenge = ChallengeModel.getCurrentDailyChallenge(user);
+    final challenge = ChallengeModel.getCurrentMonthlyChallenge(user);
     // Validate if the user is on the current challenge, otherwise assume 0
     final progress = user.currentWeeklyChallengeId == challenge.id
         ? user.weeklyChallengeProgress
