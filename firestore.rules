@@ -2,9 +2,9 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // User can only read/write their own document
+    // User can only read/write their own document, or anyone can read if public
     match /users/{userId} {
-      allow read: if request.auth != null && request.auth.uid == userId;
+      allow read: if request.auth != null && (request.auth.uid == userId || resource.data.isPublicProfile == true);
       allow write: if request.auth != null && request.auth.uid == userId;
     }
 
