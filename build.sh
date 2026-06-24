@@ -4,8 +4,7 @@ set -e
 # Disable root warning
 export FLUTTER_ALLOW_ROOT=true
 
-# Limite la mémoire de la VM Dart à 2GB pour éviter les crash internes lors de la compilation Web
-export DART_VM_OPTIONS="--old_gen_heap_size=2048"
+# Let Dart manage its own memory; hardcoding old_gen_heap_size can cause internal crashes.
 
 # Clone or pull Flutter
 if [ -d "flutter" ]; then
