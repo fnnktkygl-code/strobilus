@@ -4,8 +4,8 @@ set -e
 # Disable root warning
 export FLUTTER_ALLOW_ROOT=true
 
-# Limite la mémoire de la VM Dart pour éviter l'erreur "Out of Memory" (exit code -9) sur Vercel
-export DART_VM_OPTIONS="--old_gen_heap_size=512"
+# Limite la mémoire de la VM Dart à 2GB pour éviter les crash internes lors de la compilation Web
+export DART_VM_OPTIONS="--old_gen_heap_size=2048"
 
 # Clone or pull Flutter
 if [ -d "flutter" ]; then
