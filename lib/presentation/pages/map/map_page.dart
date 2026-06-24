@@ -18,6 +18,7 @@ import '../../../presentation/providers/collection_provider.dart';
 import '../../../presentation/providers/map_provider.dart';
 import '../../../presentation/providers/species_provider.dart';
 import '../../widgets/common/strobilus_image.dart';
+import '../../../core/utils/geo_utils.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({super.key});
@@ -130,16 +131,51 @@ class _MapPageState extends State<MapPage> {
         }
       }
     } else if (mapProvider.viewMode == MapViewMode.collection) {
-      // Add circles for all user's findings
-      for (var cone in collectionProvider.allCones) {
-        circles.add(CircleMarker(
-          point: LatLng(cone.latitude, cone.longitude),
-          color: ext.palette.primary.withValues(alpha: 0.2),
-          borderColor: ext.palette.primary.withValues(alpha: 0.5),
-          borderStrokeWidth: 1.5,
-          radius: 15000,
-          useRadiusInMeter: true,
+      if (mapProvider.isFogOfWarEnabled) {
+        final List<List<LatLng>> fogHoles = [];
+        for (var cone in collectionProvider.allCones) {
+          // Add a hole for each cone
+          fogHoles.add(GeoUtils.createCirclePoints(
+            LatLng(cone.latitude, cone.longitude),
+            15000, // 15km radius
+          ));
+
+          // Draw the border of the revealed area
+          circles.add(CircleMarker(
+            point: LatLng(cone.latitude, cone.longitude),
+            color: Colors.transparent, 
+            borderColor: ext.palette.primary.withValues(alpha: 0.8),
+            borderStrokeWidth: 2,
+            radius: 15000,
+            useRadiusInMeter: true,
+          ));
+        }
+
+        // The Fog covering the whole world
+        polygons.add(Polygon(
+          points: const [
+            LatLng(90, -180),
+            LatLng(90, 180),
+            LatLng(-90, 180),
+            LatLng(-90, -180),
+          ],
+          holePointsList: fogHoles,
+          color: Colors.black.withValues(alpha: 0.65),
+          borderStrokeWidth: 0,
+          borderColor: Colors.transparent,
         ));
+      } else {
+        // Add circles for all user's findings (normal mode)
+        for (var cone in collectionProvider.allCones) {
+          circles.add(CircleMarker(
+            point: LatLng(cone.latitude, cone.longitude),
+            color: ext.palette.primary.withValues(alpha: 0.2),
+            borderColor: ext.palette.primary.withValues(alpha: 0.5),
+            borderStrokeWidth: 1.5,
+            radius: 15000,
+            useRadiusInMeter: true,
+          ));
+        }
       }
     }
 
@@ -157,6 +193,11 @@ class _MapPageState extends State<MapPage> {
             options: MapOptions(
               initialCenter: mapProvider.center,
               initialZoom: mapProvider.zoom,
+              minZoom: 3.0,
+              maxZoom: 18.0,
+              interactionOptions: const InteractionOptions(
+                flags: InteractiveFlag.all & ~InteractiveFlag.rotate,
+              ),
               backgroundColor: isDark ? const Color(0xFF0F172A) : Colors.white,
               onPositionChanged: (position, hasGesture) {
                 if (hasGesture) {
@@ -250,6 +291,11 @@ class _MapPageState extends State<MapPage> {
                     icon: Icons.filter_list,
                     onTap: () => _showFilterSheet(context),
                     badge: mapProvider.hasFilters,
+                  ),
+                  const SizedBox(height: DS.sm),
+                  _GlassButton(
+                    icon: mapProvider.isFogOfWarEnabled ? Icons.visibility_off : Icons.visibility,
+                    onTap: () => context.read<MapProvider>().toggleFogOfWar(),
                   ),
                 ],
               ],

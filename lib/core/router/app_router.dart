@@ -17,6 +17,7 @@ import '../../presentation/pages/onboarding/splash_page.dart';
 import '../../presentation/pages/profile/achievements_board_page.dart';
 import '../../presentation/pages/profile/edit_profile_page.dart';
 import '../../presentation/pages/profile/profile_page.dart';
+import '../../presentation/pages/profile/leaderboard_page.dart';
 import '../../presentation/pages/settings/settings_page.dart';
 import '../../presentation/pages/species/species_detail_page.dart';
 import '../../presentation/pages/species/species_library_page.dart';
@@ -164,6 +165,12 @@ final appRouter = GoRouter(
       name: 'editProfile',
       parentNavigatorKey: _rootNavigatorKey,
       builder: (_, __) => const EditProfilePage(),
+    ),
+    GoRoute(
+      path: '/leaderboard',
+      name: RouteNames.leaderboard,
+      parentNavigatorKey: _rootNavigatorKey,
+      builder: (_, __) => const LeaderboardPage(),
     ),
   ],
 );

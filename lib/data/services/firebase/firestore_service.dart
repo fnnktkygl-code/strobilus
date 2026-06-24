@@ -27,6 +27,19 @@ class FirestoreService {
     await _db.collection('users').doc(userId).delete();
   }
 
+  Future<List<UserModel>> getLeaderboard({int limit = 50}) async {
+    final snapshot = await _db
+        .collection('users')
+        .where('isPublicProfile', isEqualTo: true)
+        .orderBy('xpPoints', descending: true)
+        .limit(limit)
+        .get();
+
+    return snapshot.docs
+        .map((doc) => UserModel.fromFirestore(doc.data(), doc.id))
+        .toList();
+  }
+
   // === PINE CONES ===
 
   Future<List<PineConeModel>> getUserCones(String userId) async {

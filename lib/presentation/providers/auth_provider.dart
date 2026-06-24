@@ -185,6 +185,7 @@ class AuthProvider extends ChangeNotifier {
     String? bannerUrl,
     String? backgroundImageUrl,
     String? profileBackgroundTheme,
+    bool? isPublicProfile,
     required FirestoreService firestoreService,
   }) async {
     if (_firebaseUser == null || _userModel == null) {
@@ -216,6 +217,7 @@ class AuthProvider extends ChangeNotifier {
         bannerUrl: bannerUrl == '' ? null : bannerUrl,
         backgroundImageUrl: backgroundImageUrl == '' ? null : backgroundImageUrl,
         profileBackgroundTheme: profileBackgroundTheme == '' ? null : profileBackgroundTheme,
+        isPublicProfile: isPublicProfile,
       );
 
       // Force bannerUrl and profileBackgroundTheme to clear if requested
@@ -240,12 +242,15 @@ class AuthProvider extends ChangeNotifier {
         xpPoints: updatedUser.xpPoints,
         level: updatedUser.level,
         currentStreak: updatedUser.currentStreak,
+        longestStreak: updatedUser.longestStreak,
         lastActivityAt: updatedUser.lastActivityAt,
         joinedAt: updatedUser.joinedAt,
         preferredLanguage: updatedUser.preferredLanguage,
         unitSystem: updatedUser.unitSystem,
         isPublicProfile: updatedUser.isPublicProfile,
         privacyConsent: updatedUser.privacyConsent,
+        currentWeeklyChallengeId: updatedUser.currentWeeklyChallengeId,
+        weeklyChallengeProgress: updatedUser.weeklyChallengeProgress,
       );
 
       await firestoreService.updateUser(finalUser);
@@ -266,6 +271,9 @@ class AuthProvider extends ChangeNotifier {
     required int countriesCount,
     required List<String> newAchievementIds,
     required FirestoreService firestoreService,
+    int? xpPointsToAdd,
+    String? currentWeeklyChallengeId,
+    int? weeklyChallengeProgress,
   }) async {
     if (_firebaseUser == null || _userModel == null) return;
 
@@ -296,14 +304,24 @@ class AuthProvider extends ChangeNotifier {
       newLongestStreak = newStreak;
     }
 
+    final int xpToAdd = (xpPointsToAdd ?? 0) + (newAchievementIds.length * 100);
+    int newXp = _userModel!.xpPoints + xpToAdd;
+    
+    // Simple level calculation: Level 1 + 1 level per 500 XP
+    int newLevel = 1 + (newXp ~/ 500);
+
     final updatedUser = _userModel!.copyWith(
       totalCones: totalCones,
       uniqueSpeciesCount: uniqueSpeciesCount,
       countriesCount: countriesCount,
       claimableAchievementIds: updatedAchievementIds,
+      xpPoints: newXp,
+      level: newLevel,
       currentStreak: newStreak,
       longestStreak: newLongestStreak,
       lastActivityAt: now,
+      currentWeeklyChallengeId: currentWeeklyChallengeId,
+      weeklyChallengeProgress: weeklyChallengeProgress,
     );
 
     try {

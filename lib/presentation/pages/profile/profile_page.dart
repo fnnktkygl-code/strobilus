@@ -216,22 +216,44 @@ class ProfilePage extends StatelessWidget {
 
                   const SizedBox(height: DS.md),
 
-                  // Quick edit button (Glassmorphism)
-                  OutlinedButton.icon(
-                    onPressed: () => context.push('/profile/edit'),
-                    icon: const Icon(Icons.edit_outlined, size: 16, color: Colors.white),
-                    label: Text(l10n.profileEditProfile, style: const TextStyle(color: Colors.white)),
-                    style: OutlinedButton.styleFrom(
-                      side: BorderSide(color: Colors.white.withValues(alpha: 0.3)),
-                      backgroundColor: Colors.white.withValues(alpha: 0.1),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: DS.lg,
-                        vertical: DS.sm,
+                  // Action Buttons (Glassmorphism)
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      OutlinedButton.icon(
+                        onPressed: () => context.push('/profile/edit'),
+                        icon: const Icon(Icons.edit_outlined, size: 16, color: Colors.white),
+                        label: Text(l10n.profileEditProfile, style: const TextStyle(color: Colors.white)),
+                        style: OutlinedButton.styleFrom(
+                          side: BorderSide(color: Colors.white.withValues(alpha: 0.3)),
+                          backgroundColor: Colors.white.withValues(alpha: 0.1),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: DS.lg,
+                            vertical: DS.sm,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: DS.borderRadiusFull,
+                          ),
+                        ),
                       ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: DS.borderRadiusFull,
+                      const SizedBox(width: DS.sm),
+                      OutlinedButton.icon(
+                        onPressed: () => context.push('/leaderboard'),
+                        icon: const Icon(Icons.leaderboard, size: 16, color: Colors.white),
+                        label: const Text('Classement', style: TextStyle(color: Colors.white)),
+                        style: OutlinedButton.styleFrom(
+                          side: BorderSide(color: Colors.white.withValues(alpha: 0.3)),
+                          backgroundColor: Colors.white.withValues(alpha: 0.1),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: DS.lg,
+                            vertical: DS.sm,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: DS.borderRadiusFull,
+                          ),
+                        ),
                       ),
-                    ),
+                    ],
                   ),
 
                   const SizedBox(height: DS.xl),

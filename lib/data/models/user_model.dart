@@ -28,6 +28,8 @@ class UserModel {
   final String unitSystem;
   final bool isPublicProfile;
   final PrivacyConsent privacyConsent;
+  final String? currentWeeklyChallengeId;
+  final int weeklyChallengeProgress;
 
   const UserModel({
     required this.id,
@@ -56,6 +58,8 @@ class UserModel {
     this.unitSystem = 'metric',
     this.isPublicProfile = false,
     required this.privacyConsent,
+    this.currentWeeklyChallengeId,
+    this.weeklyChallengeProgress = 0,
   });
 
   factory UserModel.fromFirestore(Map<String, dynamic> data, String id) {
@@ -95,6 +99,8 @@ class UserModel {
       privacyConsent: data['privacyConsent'] != null
           ? PrivacyConsent.fromMap(data['privacyConsent'])
           : PrivacyConsent(consentedAt: DateTime.now()),
+      currentWeeklyChallengeId: data['currentWeeklyChallengeId'] as String?,
+      weeklyChallengeProgress: data['weeklyChallengeProgress'] as int? ?? 0,
     );
   }
 
@@ -129,6 +135,8 @@ class UserModel {
       'unitSystem': unitSystem,
       'isPublicProfile': isPublicProfile,
       'privacyConsent': privacyConsent.toMap(),
+      'currentWeeklyChallengeId': currentWeeklyChallengeId,
+      'weeklyChallengeProgress': weeklyChallengeProgress,
     };
   }
 
@@ -177,6 +185,8 @@ class UserModel {
     String? unitSystem,
     bool? isPublicProfile,
     PrivacyConsent? privacyConsent,
+    String? currentWeeklyChallengeId,
+    int? weeklyChallengeProgress,
   }) {
     return UserModel(
       id: id,
@@ -209,6 +219,8 @@ class UserModel {
       unitSystem: unitSystem ?? this.unitSystem,
       isPublicProfile: isPublicProfile ?? this.isPublicProfile,
       privacyConsent: privacyConsent ?? this.privacyConsent,
+      currentWeeklyChallengeId: currentWeeklyChallengeId ?? this.currentWeeklyChallengeId,
+      weeklyChallengeProgress: weeklyChallengeProgress ?? this.weeklyChallengeProgress,
     );
   }
 }

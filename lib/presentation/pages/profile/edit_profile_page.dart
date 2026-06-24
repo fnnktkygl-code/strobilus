@@ -30,6 +30,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   Uint8List? _newBannerBytes;
   Uint8List? _newBackgroundBytes;
   String? _selectedBgTheme;
+  bool _isPublicProfile = false;
   bool _isSaving = false;
 
   final _imagePicker = ImagePicker();
@@ -45,6 +46,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
     );
     _bioController = TextEditingController(text: user?.bio ?? '');
     _selectedBgTheme = user?.profileBackgroundTheme ?? 'none';
+    _isPublicProfile = user?.isPublicProfile ?? false;
   }
 
   @override
@@ -200,6 +202,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
         bannerUrl: bannerUrl,
         backgroundImageUrl: backgroundImageUrl,
         profileBackgroundTheme: _selectedBgTheme == 'none' ? '' : _selectedBgTheme,
+        isPublicProfile: _isPublicProfile,
         firestoreService: firestoreService,
       );
 
@@ -449,6 +452,30 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       decoration: InputDecoration(
                         hintText: l10n.editProfileBio,
                         contentPadding: const EdgeInsets.all(DS.md),
+                      ),
+                    ),
+
+                    const SizedBox(height: DS.lg),
+
+                    // Public Profile Toggle
+                    Container(
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
+                        borderRadius: DS.borderRadiusMd,
+                        border: Border.all(color: theme.colorScheme.outlineVariant),
+                      ),
+                      child: SwitchListTile(
+                        title: Text(
+                          'Profil Public (Classement)',
+                          style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
+                        ),
+                        subtitle: Text(
+                          'Participez au classement communautaire et comparez votre XP.',
+                          style: theme.textTheme.bodySmall,
+                        ),
+                        value: _isPublicProfile,
+                        onChanged: (val) => setState(() => _isPublicProfile = val),
+                        secondary: const Icon(Icons.public),
                       ),
                     ),
 

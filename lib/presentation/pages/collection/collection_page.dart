@@ -11,8 +11,10 @@ import '../../../core/theme/design_system.dart';
 import '../../../core/theme/app_color_palettes.dart';
 import '../../../core/theme/rarity_colors.dart';
 import '../../../core/router/route_names.dart';
+import '../../../data/models/challenge_model.dart';
 import '../../../data/models/pine_cone_model.dart';
 import '../../../presentation/providers/collection_provider.dart';
+import '../../../presentation/providers/auth_provider.dart';
 import '../../widgets/common/strobilus_image.dart';
 
 /// Grid/list collection view with search, sort, and filter.
@@ -77,6 +79,8 @@ class _CollectionPageState extends State<CollectionPage> {
       ),
       body: Column(
         children: [
+          const _WeeklyChallengeBanner(),
+          
           // Search bar
           Padding(
             padding: const EdgeInsets.symmetric(
@@ -127,6 +131,110 @@ class _CollectionPageState extends State<CollectionPage> {
                 : _isGridView
                 ? _GridView(cones: cones)
                 : _ListView(cones: cones),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _WeeklyChallengeBanner extends StatelessWidget {
+  const _WeeklyChallengeBanner();
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final user = context.watch<AuthProvider>().userModel;
+    if (user == null) return const SizedBox.shrink();
+
+    final challenge = ChallengeModel.getCurrentWeeklyChallenge();
+    // Validate if the user is on the current challenge, otherwise assume 0
+    final progress = user.currentWeeklyChallengeId == challenge.id 
+      ? user.weeklyChallengeProgress 
+      : 0;
+    
+    final isCompleted = progress >= challenge.targetCount;
+    final progressRatio = (progress / challenge.targetCount).clamp(0.0, 1.0);
+
+    return Container(
+      margin: const EdgeInsets.fromLTRB(DS.md, DS.sm, DS.md, DS.xs),
+      padding: const EdgeInsets.all(DS.md),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: isCompleted 
+            ? [Colors.amber.shade700, Colors.amber.shade900]
+            : [theme.colorScheme.primaryContainer, theme.colorScheme.secondaryContainer],
+        ),
+        borderRadius: DS.borderRadiusLg,
+        boxShadow: DS.shadowCard(theme),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(
+                isCompleted ? Icons.star : Icons.calendar_month, 
+                color: isCompleted ? Colors.white : theme.colorScheme.primary,
+              ),
+              const SizedBox(width: DS.sm),
+              Expanded(
+                child: Text(
+                  challenge.title,
+                  style: theme.textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: isCompleted ? Colors.white : theme.colorScheme.onPrimaryContainer,
+                  ),
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                decoration: BoxDecoration(
+                  color: isCompleted ? Colors.white.withValues(alpha: 0.2) : theme.colorScheme.primary.withValues(alpha: 0.1),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Text(
+                  '+\${challenge.xpReward} XP',
+                  style: theme.textTheme.labelMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: isCompleted ? Colors.white : theme.colorScheme.primary,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: DS.xs),
+          Text(
+            challenge.description,
+            style: theme.textTheme.bodySmall?.copyWith(
+              color: isCompleted ? Colors.white.withValues(alpha: 0.9) : theme.colorScheme.onSurfaceVariant,
+            ),
+          ),
+          const SizedBox(height: DS.sm),
+          Row(
+            children: [
+              Expanded(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(4),
+                  child: LinearProgressIndicator(
+                    value: progressRatio,
+                    minHeight: 8,
+                    backgroundColor: isCompleted ? Colors.white.withValues(alpha: 0.3) : theme.colorScheme.surface,
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      isCompleted ? Colors.white : theme.colorScheme.primary,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(width: DS.sm),
+              Text(
+                '\$progress / \${challenge.targetCount}',
+                style: theme.textTheme.labelMedium?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: isCompleted ? Colors.white : theme.colorScheme.onSurface,
+                ),
+              ),
+            ],
           ),
         ],
       ),

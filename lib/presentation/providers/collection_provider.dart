@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../data/models/achievement_model.dart';
 import '../../data/models/pine_cone_model.dart';
+import '../../data/models/challenge_model.dart';
 import '../../data/services/firebase/firestore_service.dart';
 import '../../data/services/firebase/storage_service.dart';
 import '../../data/services/local/hive_service.dart';
@@ -190,7 +191,7 @@ class CollectionProvider extends ChangeNotifier {
       await hiveService.saveCone(updatedCone);
       _cones.insert(0, updatedCone);
 
-      await _syncGamificationStats();
+      await _syncGamificationStats(newCone: updatedCone);
 
       _error = null;
       _isLoading = false;
@@ -267,11 +268,13 @@ class CollectionProvider extends ChangeNotifier {
 
   // === PRIVATE ===
 
-  Future<void> _syncGamificationStats() async {
+  Future<void> _syncGamificationStats({PineConeModel? newCone}) async {
     if (_authProvider?.userModel == null) return;
+    
+    final user = _authProvider!.userModel!;
 
-    final currentUnlocked = _authProvider!.userModel!.unlockedAchievementIds;
-    final currentClaimable = _authProvider!.userModel!.claimableAchievementIds;
+    final currentUnlocked = user.unlockedAchievementIds;
+    final currentClaimable = user.claimableAchievementIds;
     final allKnown = [...currentUnlocked, ...currentClaimable];
 
     final newlyUnlocked = AchievementModel.evaluateNewlyUnlocked(
@@ -281,12 +284,44 @@ class CollectionProvider extends ChangeNotifier {
       countriesCount,
     );
 
+    // Weekly Challenge logic
+    final currentChallenge = ChallengeModel.getCurrentWeeklyChallenge();
+    String currentChallengeId = user.currentWeeklyChallengeId ?? currentChallenge.id;
+    int progress = user.weeklyChallengeProgress;
+    int xpBonus = 0;
+
+    // Reset progress if the week changed
+    if (currentChallengeId != currentChallenge.id) {
+      currentChallengeId = currentChallenge.id;
+      progress = 0;
+    }
+
+    if (newCone != null && progress < currentChallenge.targetCount) {
+      // Evaluate if newCone matches challenge criteria
+      bool matches = true;
+      if (currentChallenge.requiredSpeciesId != null && newCone.speciesId != currentChallenge.requiredSpeciesId) {
+        matches = false;
+      }
+      // Simple family check based on name text or other logic (can be expanded)
+      // Since we don't have family on PineConeModel, we assume generic ones.
+      
+      if (matches) {
+        progress += 1;
+        if (progress == currentChallenge.targetCount) {
+          xpBonus += currentChallenge.xpReward;
+        }
+      }
+    }
+
     await _authProvider!.updateUserStats(
       totalCones: totalCones,
       uniqueSpeciesCount: uniqueSpeciesCount,
       countriesCount: countriesCount,
       newAchievementIds: newlyUnlocked,
       firestoreService: firestoreService,
+      xpPointsToAdd: xpBonus,
+      currentWeeklyChallengeId: currentChallengeId,
+      weeklyChallengeProgress: progress,
     );
     
     for (final achievementId in newlyUnlocked) {

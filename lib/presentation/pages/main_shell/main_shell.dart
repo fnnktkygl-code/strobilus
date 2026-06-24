@@ -235,7 +235,7 @@ class _MainShellState extends State<MainShell>
         icon: const Icon(Icons.add),
         label: Text(l10n.navAdd),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         ),
 
         // Coach Mark Overlay
