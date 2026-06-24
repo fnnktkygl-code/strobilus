@@ -559,7 +559,7 @@ class _GamificationBanner extends StatelessWidget {
                     const Icon(Icons.local_fire_department, color: Colors.orange, size: 28),
                     const SizedBox(width: DS.xs),
                     Text(
-                      '\${user.currentStreak}',
+                      '${user.currentStreak}',
                       style: const TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -598,7 +598,7 @@ class _GamificationBanner extends StatelessWidget {
                     const SizedBox(width: DS.xs),
                     Flexible(
                       child: Text(
-                        '\${user.xpPoints} XP',
+                        '${user.xpPoints} XP',
                         style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -610,7 +610,7 @@ class _GamificationBanner extends StatelessWidget {
                   ],
                 ),
               Text(
-                'Niveau \${user.level}',
+                'Niveau ${user.level}',
                 style: TextStyle(
                   fontSize: 12,
                   color: Colors.white.withValues(alpha: 0.7),
