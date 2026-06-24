@@ -138,14 +138,21 @@ class FirestoreService {
 
   Future<void> deleteAllUserData(String userId) async {
     // Delete all pine cones
-    final cones = await _db
-        .collection('pine_cones')
-        .where('userId', isEqualTo: userId)
-        .get();
-    for (final doc in cones.docs) {
-      await deleteCone(doc.id);
-    }
+    try {
+      final cones = await _db
+          .collection('pine_cones')
+          .where('userId', isEqualTo: userId)
+          .get();
+      for (final doc in cones.docs) {
+        try {
+          await deleteCone(doc.id);
+        } catch (_) {} // Ignore individual cone deletion errors
+      }
+    } catch (_) {}
+
     // Delete user document
-    await deleteUser(userId);
+    try {
+      await deleteUser(userId);
+    } catch (_) {}
   }
 }

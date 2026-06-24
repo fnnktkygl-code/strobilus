@@ -225,15 +225,26 @@ class SettingsPage extends StatelessWidget {
     if (confirmed == true && context.mounted) {
       final firestoreService = context.read<FirestoreService>();
       final storageService = context.read<StorageService>();
+      final authProvider = context.read<AuthProvider>();
+      
       context.read<CollectionProvider>().clear();
 
-      await context.read<AuthProvider>().deleteAccount(
+      await authProvider.deleteAccount(
         firestoreService,
         storageService,
       );
 
       if (context.mounted) {
-        context.go('/auth/login');
+        if (authProvider.error != null) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Error: ${authProvider.error} - Please log in again to delete your account.'),
+              backgroundColor: theme.colorScheme.error,
+            ),
+          );
+        } else {
+          context.go('/auth/login');
+        }
       }
     }
   }
