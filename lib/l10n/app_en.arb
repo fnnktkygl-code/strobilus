@@ -4,7 +4,7 @@
   "navMap": "Map",
   "navCollection": "Collection",
   "navAdd": "Add",
-  "navSpecies": "Species",
+  "navSpecies": "Strobilodex",
   "navProfile": "Profile",
   "collectionEmpty": "Your collection is empty",
   "collectionEmptySubtitle": "Go outside and find your first pine cone!",
@@ -118,6 +118,27 @@
   "errorNoPhoto": "Please add at least one photo.",
   "errorGeneric": "Something went wrong. Please try again.",
   "errorNetworkOffline": "You're offline. Changes will sync when you reconnect.",
+  "speciesTypeLabel": "Species (optional)",
+  "speciesTypeHint": "Search or select a species...",
+  "coneDeletedSuccess": "Pine cone deleted from your collection.",
+  "deleteConeConfirmation": "Are you sure you want to delete this pine cone? This action cannot be undone.",
+  "coneAddedToSpecies": "Pine cone added to {speciesName} collection!",
+  "@coneAddedToSpecies": {
+    "placeholders": {
+      "speciesName": {
+        "type": "String"
+      }
+    }
+  },
+  "aiIdentifiedAs": "Identified as {speciesName}",
+  "@aiIdentifiedAs": {
+    "placeholders": {
+      "speciesName": {
+        "type": "String"
+      }
+    }
+  },
+  "coneSavedSuccess": "Pine cone saved successfully!",
   "errorWeakPassword": "Password is too weak. Use at least 6 characters.",
   "errorEmailInUse": "This email is already registered.",
   "errorInvalidEmail": "Please enter a valid email address.",

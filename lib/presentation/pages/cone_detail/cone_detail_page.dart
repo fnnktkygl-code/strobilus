@@ -19,6 +19,8 @@ import '../../widgets/voice_note_recorder.dart';
 import '../../widgets/voice_note_player.dart';
 import '../../widgets/common/strobilus_image.dart';
 import '../../widgets/common/full_screen_image_viewer.dart';
+import '../../widgets/common/strobilus_snack_bar.dart';
+import '../../../presentation/providers/species_provider.dart';
 
 /// Full cone detail page with photo, location, species info, and notes.
 class ConeDetailPage extends StatelessWidget {
@@ -325,7 +327,7 @@ class ConeDetailPage extends StatelessWidget {
       context: context,
       builder: (ctx) => AlertDialog(
         title: Text(l10n.delete),
-        content: Text(l10n.deleteAccountWarning),
+        content: Text(l10n.deleteConeConfirmation),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx),
@@ -336,6 +338,7 @@ class ConeDetailPage extends StatelessWidget {
               collection.deleteCone(coneId);
               Navigator.pop(ctx);
               context.pop();
+              StrobilusSnackBar.success(context, l10n.coneDeletedSuccess);
             },
             child: Text(
               l10n.delete,
@@ -364,11 +367,13 @@ class ConeDetailPage extends StatelessWidget {
     );
 
     try {
+      final locale = Localizations.localeOf(context).languageCode;
       final result = await gemini.identifyCone(
         cone.photoUrls.first,
         lat: cone.latitude,
         lon: cone.longitude,
         locationContext: cone.locationName,
+        languageCode: locale,
       );
 
       final topMatch = result.topMatches.isNotEmpty
@@ -384,9 +389,22 @@ class ConeDetailPage extends StatelessWidget {
         );
       }
 
+      String? matchedCommonName;
+      if (topMatch != null) {
+        final scientificName = topMatch.scientificName.toLowerCase();
+        final speciesList = context.read<SpeciesProvider>().allSpecies;
+        for (final s in speciesList) {
+          final sName = s.scientificName.toLowerCase();
+          if (sName == scientificName || sName.contains(scientificName) || scientificName.contains(sName)) {
+            matchedCommonName = s.getCommonName(locale);
+            break;
+          }
+        }
+      }
+
       final updatedCone = cone.copyWith(
         isAiIdentified: true,
-        commonName: topMatch?.commonName ?? cone.commonName,
+        commonName: matchedCommonName ?? (topMatch?.commonName ?? cone.commonName),
         scientificName: topMatch?.scientificName,
         size: parsedSize,
         aiConfidence: topMatch?.confidencePercent.toDouble(),
@@ -396,20 +414,12 @@ class ConeDetailPage extends StatelessWidget {
 
       if (context.mounted) {
         Navigator.pop(context); // Close loading dialog
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              AppLocalizations.of(context).aiIdentificationComplete,
-            ),
-          ),
-        );
+        StrobilusSnackBar.success(context, AppLocalizations.of(context).aiIdentificationComplete);
       }
     } catch (e) {
       if (context.mounted) {
         Navigator.pop(context); // Close loading dialog
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context).errorGeneric)),
-        );
+        StrobilusSnackBar.error(context, AppLocalizations.of(context).errorGeneric);
       }
     }
   }

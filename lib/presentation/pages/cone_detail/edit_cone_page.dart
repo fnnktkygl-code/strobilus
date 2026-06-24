@@ -7,6 +7,7 @@ import '../../../core/theme/design_system.dart';
 import 'package:strobilus/l10n/app_localizations.dart';
 import '../../../data/models/pine_cone_model.dart';
 import '../../../presentation/providers/collection_provider.dart';
+import '../../widgets/common/strobilus_snack_bar.dart';
 
 class EditConePage extends StatefulWidget {
   final String coneId;
@@ -92,17 +93,11 @@ class _EditConePageState extends State<EditConePage> {
       await context.read<CollectionProvider>().updateCone(updatedCone);
       if (mounted) {
         context.pop();
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(AppLocalizations.of(context).coneUpdatedSuccess),
-          ),
-        );
+        StrobilusSnackBar.success(context, AppLocalizations.of(context).coneUpdatedSuccess);
       }
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context).errorGeneric)),
-        );
+        StrobilusSnackBar.error(context, AppLocalizations.of(context).errorGeneric);
       }
     } finally {
       if (mounted) {

@@ -20,6 +20,7 @@ import '../../../presentation/providers/collection_provider.dart';
 import '../../../presentation/providers/species_provider.dart';
 import '../../widgets/common/full_screen_image_viewer.dart';
 import '../../widgets/common/location_picker_field.dart';
+import '../../widgets/common/strobilus_snack_bar.dart';
 
 /// Single-screen "Quick Capture" flow using AI and progressive location.
 class QuickCapturePage extends StatefulWidget {
@@ -98,13 +99,6 @@ class _QuickCapturePageState extends State<QuickCapturePage> {
 
     if (position == null) {
       if (mounted) {
-        final l10n = AppLocalizations.of(context);
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(l10n.gpsUnavailable),
-            duration: const Duration(seconds: 4),
-          ),
-        );
         setState(() {
           _locationStatusKey = 'gpsUnavailableShort';
         });
@@ -155,9 +149,7 @@ class _QuickCapturePageState extends State<QuickCapturePage> {
       }
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context).cameraError)),
-        );
+        StrobilusSnackBar.error(context, AppLocalizations.of(context).cameraError);
         setState(() => _state = CaptureState.viewfinder);
       }
     }
@@ -169,12 +161,14 @@ class _QuickCapturePageState extends State<QuickCapturePage> {
     setState(() => _state = CaptureState.processing);
 
     try {
+      final locale = Localizations.localeOf(context).languageCode;
       final geminiService = context.read<GeminiService>();
       final aiResult = await geminiService.identifyCone(
         _capturedImage!.path,
         lat: _currentPosition?.latitude,
         lon: _currentPosition?.longitude,
         locationContext: _resolvedLocation?.locationName,
+        languageCode: locale,
       );
 
       if (mounted) {
@@ -189,11 +183,7 @@ class _QuickCapturePageState extends State<QuickCapturePage> {
           _aiResult = null;
           _state = CaptureState.review;
         });
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(AppLocalizations.of(context).aiIdentificationFailed),
-          ),
-        );
+        StrobilusSnackBar.error(context, AppLocalizations.of(context).aiIdentificationFailed);
       }
     }
   }
@@ -225,12 +215,16 @@ class _QuickCapturePageState extends State<QuickCapturePage> {
     }
 
     String? matchedSpeciesId;
+    String? matchedCommonName;
     if (_aiResult?.topMatches.isNotEmpty == true) {
-      final scientificName = _aiResult!.topMatches.first.scientificName;
+      final scientificName = _aiResult!.topMatches.first.scientificName.toLowerCase();
       final speciesList = context.read<SpeciesProvider>().allSpecies;
       for (final s in speciesList) {
-        if (s.scientificName.toLowerCase() == scientificName.toLowerCase()) {
+        final sName = s.scientificName.toLowerCase();
+        if (sName == scientificName || sName.contains(scientificName) || scientificName.contains(sName)) {
           matchedSpeciesId = s.id;
+          final locale = Localizations.localeOf(context).languageCode;
+          matchedCommonName = s.getCommonName(locale);
           break;
         }
       }
@@ -239,9 +233,10 @@ class _QuickCapturePageState extends State<QuickCapturePage> {
     final cone = PineConeModel(
       id: const Uuid().v4(),
       userId: currentUserId,
-      commonName: _aiResult?.topMatches.isNotEmpty == true
-          ? _aiResult!.topMatches.first.commonName
-          : AppLocalizations.of(context).unknownCone,
+      commonName: matchedCommonName ??
+          (_aiResult?.topMatches.isNotEmpty == true
+              ? _aiResult!.topMatches.first.commonName
+              : AppLocalizations.of(context).unknownCone),
       scientificName: _aiResult?.topMatches.isNotEmpty == true
           ? _aiResult!.topMatches.first.scientificName
           : null,
@@ -269,6 +264,7 @@ class _QuickCapturePageState extends State<QuickCapturePage> {
     try {
       await collection.addCone(cone, photos: [_capturedImage!]);
       if (mounted) {
+        StrobilusSnackBar.success(context, AppLocalizations.of(context).coneSavedSuccess);
         if (navigateToEdit) {
           context.pushReplacementNamed(
             RouteNames.editCone,
@@ -280,9 +276,7 @@ class _QuickCapturePageState extends State<QuickCapturePage> {
       }
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context).errorGeneric)),
-        );
+        StrobilusSnackBar.error(context, AppLocalizations.of(context).errorGeneric);
         setState(() => _state = CaptureState.review); // Revert state on error
       }
     }

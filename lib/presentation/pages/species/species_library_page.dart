@@ -8,6 +8,7 @@ import '../../../core/theme/design_system.dart';
 import '../../../core/theme/rarity_colors.dart';
 import '../../../data/models/pine_cone_model.dart';
 import '../../../data/models/species_model.dart';
+import '../../../presentation/providers/auth_provider.dart';
 import '../../../presentation/providers/collection_provider.dart';
 import '../../../presentation/providers/species_provider.dart';
 
@@ -22,6 +23,8 @@ class SpeciesLibraryPage extends StatelessWidget {
     final isDark = theme.brightness == Brightness.dark;
     final speciesProvider = context.watch<SpeciesProvider>();
     final collectionProvider = context.watch<CollectionProvider>();
+    final authProvider = context.watch<AuthProvider>();
+    final user = authProvider.userModel;
     final locale = Localizations.localeOf(context).languageCode;
 
     // Compute discovered species from user collection
@@ -46,23 +49,30 @@ class SpeciesLibraryPage extends StatelessWidget {
                 l10n.speciesLibrary,
                 style: const TextStyle(fontWeight: FontWeight.w700),
               ),
-              background: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: isDark
-                        ? [
-                            theme.colorScheme.primary.withValues(alpha: 0.3),
-                            theme.colorScheme.surface,
-                          ]
-                        : [
-                            theme.colorScheme.primary.withValues(alpha: 0.15),
-                            theme.colorScheme.surface,
-                          ],
-                  ),
-                ),
-              ),
+              background: (user?.bannerUrl != null || user?.backgroundImageUrl != null)
+                  ? Image.network(
+                      user?.bannerUrl ?? user!.backgroundImageUrl!,
+                      fit: BoxFit.cover,
+                      color: Colors.black.withValues(alpha: 0.4),
+                      colorBlendMode: BlendMode.darken,
+                    )
+                  : Container(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: isDark
+                              ? [
+                                  theme.colorScheme.primary.withValues(alpha: 0.3),
+                                  theme.colorScheme.surface,
+                                ]
+                              : [
+                                  theme.colorScheme.primary.withValues(alpha: 0.15),
+                                  theme.colorScheme.surface,
+                                ],
+                        ),
+                      ),
+                    ),
             ),
           ),
 

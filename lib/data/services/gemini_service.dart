@@ -145,6 +145,7 @@ class GeminiService {
     double? lat,
     double? lon,
     String? locationContext,
+    String languageCode = 'en',
   }) async {
     if (!await canMakeCall()) {
       throw const RateLimitException('Daily AI identification limit reached.');
@@ -185,6 +186,7 @@ class GeminiService {
                     lat: lat,
                     lon: lon,
                     locationContext: locationContext,
+                    languageCode: languageCode,
                   ),
                 },
               ],
@@ -210,7 +212,7 @@ class GeminiService {
     }
   }
 
-  String _buildPrompt({double? lat, double? lon, String? locationContext}) {
+  String _buildPrompt({double? lat, double? lon, String? locationContext, String languageCode = 'en'}) {
     String contextString = '';
     if (lat != null && lon != null) {
       contextString =
@@ -220,8 +222,15 @@ Location: latitude $lat, longitude $lon${locationContext != null && locationCont
 CRITICAL: Heavily weight native species for this floristic zone. If the cone morphology is ambiguous, use geography to break ties. However, remember that many species (P. nigra, P. pinea, P. radiata, etc.) are widely planted as ornamentals outside their native range.''';
     }
 
+    final languageInstruction = languageCode == 'fr'
+        ? "IMPORTANT: Return all commonName values in FRENCH (e.g. 'Pin sylvestre' not 'Scots Pine')."
+        : "IMPORTANT: Return all commonName values in ENGLISH.";
+
     return '''You are an expert conifer taxonomist and morphologist specializing in Pinaceae identification from cone morphology.
 $contextString
+
+LANGUAGE INSTRUCTION:
+$languageInstruction
 
 KNOWN SPECIES DATABASE (42 species):
 Pinus: P. sylvestris, P. pinea, P. nigra, P. halepensis, P. pinaster, P. cembra, P. mugo, P. strobus, P. lambertiana, P. canariensis, P. coulteri, P. ponderosa, P. contorta, P. banksiana, P. radiata, P. taeda, P. palustris, P. albicaulis, P. aristata, P. longaeva, P. edulis, P. resinosa, P. rigida, P. echinata, P. attenuata, P. maximartinezii, P. brutia, P. wallichiana, P. jeffreyi, P. densiflora, P. koraiensis, P. cembroides, P. monticola, P. virginiana, P. caribaea, P. pumila.

@@ -21,7 +21,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get navAdd => 'Ajouter';
 
   @override
-  String get navSpecies => 'Espèces';
+  String get navSpecies => 'Strobilodex';
 
   @override
   String get navProfile => 'Profil';
@@ -309,6 +309,33 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get errorNetworkOffline =>
       'Hors ligne. Les modifications seront synchronisées à la reconnexion.';
+
+  @override
+  String get speciesTypeLabel => 'Espèce (facultatif)';
+
+  @override
+  String get speciesTypeHint => 'Rechercher ou sélectionner une espèce...';
+
+  @override
+  String get coneDeletedSuccess =>
+      'Pomme de pin supprimée de votre collection.';
+
+  @override
+  String get deleteConeConfirmation =>
+      'Êtes-vous sûr de vouloir supprimer cette pomme de pin ? Cette action est irréversible.';
+
+  @override
+  String coneAddedToSpecies(String speciesName) {
+    return 'Pomme de pin ajoutée à la collection $speciesName !';
+  }
+
+  @override
+  String aiIdentifiedAs(String speciesName) {
+    return 'Identifié comme $speciesName';
+  }
+
+  @override
+  String get coneSavedSuccess => 'Pomme de pin enregistrée avec succès !';
 
   @override
   String get errorWeakPassword =>

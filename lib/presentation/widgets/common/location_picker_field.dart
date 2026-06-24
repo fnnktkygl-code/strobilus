@@ -6,6 +6,7 @@ import 'package:strobilus/l10n/app_localizations.dart';
 import '../../../core/theme/design_system.dart';
 import '../../../data/models/location_model.dart';
 import '../../../data/services/maps_service.dart';
+import 'strobilus_snack_bar.dart';
 
 class LocationPickerField extends StatefulWidget {
   final LocationModel? initialLocation;
@@ -80,9 +81,7 @@ class _LocationPickerFieldState extends State<LocationPickerField> {
       }
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context).gpsUnavailable)),
-        );
+        StrobilusSnackBar.warning(context, AppLocalizations.of(context).gpsUnavailable);
       }
     } finally {
       if (mounted) {

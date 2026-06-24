@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/theme/design_system.dart';
+import '../../widgets/common/strobilus_snack_bar.dart';
 import '../../../presentation/providers/auth_provider.dart';
 
 /// Email + password login page.
@@ -203,9 +204,7 @@ class _LoginPageState extends State<LoginPage> {
     final email = _emailController.text.trim();
     if (email.isNotEmpty) {
       context.read<AuthProvider>().sendPasswordResetEmail(email);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context).authPasswordReset)),
-      );
+      StrobilusSnackBar.success(context, AppLocalizations.of(context).authPasswordReset);
     }
   }
 

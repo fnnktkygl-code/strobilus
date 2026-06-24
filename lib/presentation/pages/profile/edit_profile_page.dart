@@ -11,6 +11,7 @@ import '../../../core/theme/design_system.dart';
 import '../../../data/services/firebase/firestore_service.dart';
 import '../../../data/services/firebase/storage_service.dart';
 import '../../../presentation/providers/auth_provider.dart';
+import '../../widgets/common/strobilus_snack_bar.dart';
 
 /// Premium profile editing page with live preview of avatar and banner customisation.
 class EditProfilePage extends StatefulWidget {
@@ -202,23 +203,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
         firestoreService: firestoreService,
       );
 
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(l10n.editProfileSaveSuccess),
-            backgroundColor: Theme.of(context).colorScheme.primary,
-          ),
-        );
-        context.pop();
-      }
+      if (!context.mounted) return;
+      StrobilusSnackBar.success(context, l10n.editProfileSaveSuccess);
+      context.pop();
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('${l10n.editProfileSaveError}: $e'),
-            backgroundColor: Theme.of(context).colorScheme.error,
-          ),
-        );
+        StrobilusSnackBar.error(context, '${l10n.editProfileSaveError}: $e');
       }
     } finally {
       if (mounted) {

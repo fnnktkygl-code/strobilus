@@ -125,7 +125,7 @@ abstract class AppLocalizations {
   /// No description provided for @navSpecies.
   ///
   /// In en, this message translates to:
-  /// **'Species'**
+  /// **'Strobilodex'**
   String get navSpecies;
 
   /// No description provided for @navProfile.
@@ -637,6 +637,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'You\'re offline. Changes will sync when you reconnect.'**
   String get errorNetworkOffline;
+
+  /// No description provided for @speciesTypeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Species (optional)'**
+  String get speciesTypeLabel;
+
+  /// No description provided for @speciesTypeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search or select a species...'**
+  String get speciesTypeHint;
+
+  /// No description provided for @coneDeletedSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Pine cone deleted from your collection.'**
+  String get coneDeletedSuccess;
+
+  /// No description provided for @deleteConeConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this pine cone? This action cannot be undone.'**
+  String get deleteConeConfirmation;
+
+  /// No description provided for @coneAddedToSpecies.
+  ///
+  /// In en, this message translates to:
+  /// **'Pine cone added to {speciesName} collection!'**
+  String coneAddedToSpecies(String speciesName);
+
+  /// No description provided for @aiIdentifiedAs.
+  ///
+  /// In en, this message translates to:
+  /// **'Identified as {speciesName}'**
+  String aiIdentifiedAs(String speciesName);
+
+  /// No description provided for @coneSavedSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Pine cone saved successfully!'**
+  String get coneSavedSuccess;
 
   /// No description provided for @errorWeakPassword.
   ///

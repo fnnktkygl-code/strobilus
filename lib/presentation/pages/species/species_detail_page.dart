@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:strobilus/l10n/app_localizations.dart';
@@ -19,6 +18,7 @@ import '../../../presentation/providers/map_provider.dart';
 import '../../../presentation/providers/species_provider.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../widgets/common/strobilus_image.dart';
+import '../../widgets/common/strobilus_snack_bar.dart';
 
 /// Premium species detail page with taxonomy, morphology, distribution, and collection tracking.
 class SpeciesDetailPage extends StatelessWidget {
@@ -972,20 +972,10 @@ class _SpeciesInteractiveHeaderState extends State<_SpeciesInteractiveHeader> {
       );
       
       if (!context.mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(l10n.editProfileSaveSuccess),
-          backgroundColor: Colors.green,
-        ),
-      );
+      StrobilusSnackBar.success(context, l10n.editProfileSaveSuccess);
     } catch (e) {
       if (!context.mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(l10n.errorGeneric),
-          backgroundColor: theme.colorScheme.error,
-        ),
-      );
+      StrobilusSnackBar.error(context, l10n.errorGeneric);
     } finally {
       if (mounted) {
         setState(() {

@@ -4,7 +4,7 @@
   "navMap": "Carte",
   "navCollection": "Collection",
   "navAdd": "Ajouter",
-  "navSpecies": "Espèces",
+  "navSpecies": "Strobilodex",
   "navProfile": "Profil",
   "collectionEmpty": "Votre collection est vide",
   "collectionEmptySubtitle": "Sortez et trouvez votre première pomme de pin !",
@@ -118,6 +118,27 @@
   "errorNoPhoto": "Veuillez ajouter au moins une photo.",
   "errorGeneric": "Une erreur est survenue. Veuillez réessayer.",
   "errorNetworkOffline": "Hors ligne. Les modifications seront synchronisées à la reconnexion.",
+  "speciesTypeLabel": "Espèce (facultatif)",
+  "speciesTypeHint": "Rechercher ou sélectionner une espèce...",
+  "coneDeletedSuccess": "Pomme de pin supprimée de votre collection.",
+  "deleteConeConfirmation": "Êtes-vous sûr de vouloir supprimer cette pomme de pin ? Cette action est irréversible.",
+  "coneAddedToSpecies": "Pomme de pin ajoutée à la collection {speciesName} !",
+  "@coneAddedToSpecies": {
+    "placeholders": {
+      "speciesName": {
+        "type": "String"
+      }
+    }
+  },
+  "aiIdentifiedAs": "Identifié comme {speciesName}",
+  "@aiIdentifiedAs": {
+    "placeholders": {
+      "speciesName": {
+        "type": "String"
+      }
+    }
+  },
+  "coneSavedSuccess": "Pomme de pin enregistrée avec succès !",
   "errorWeakPassword": "Mot de passe trop faible. Utilisez au moins 6 caractères.",
   "errorEmailInUse": "Cet email est déjà utilisé.",
   "errorInvalidEmail": "Veuillez entrer une adresse email valide.",

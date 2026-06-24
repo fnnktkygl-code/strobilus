@@ -21,7 +21,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get navAdd => 'Add';
 
   @override
-  String get navSpecies => 'Species';
+  String get navSpecies => 'Strobilodex';
 
   @override
   String get navProfile => 'Profile';
@@ -305,6 +305,32 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get errorNetworkOffline =>
       'You\'re offline. Changes will sync when you reconnect.';
+
+  @override
+  String get speciesTypeLabel => 'Species (optional)';
+
+  @override
+  String get speciesTypeHint => 'Search or select a species...';
+
+  @override
+  String get coneDeletedSuccess => 'Pine cone deleted from your collection.';
+
+  @override
+  String get deleteConeConfirmation =>
+      'Are you sure you want to delete this pine cone? This action cannot be undone.';
+
+  @override
+  String coneAddedToSpecies(String speciesName) {
+    return 'Pine cone added to $speciesName collection!';
+  }
+
+  @override
+  String aiIdentifiedAs(String speciesName) {
+    return 'Identified as $speciesName';
+  }
+
+  @override
+  String get coneSavedSuccess => 'Pine cone saved successfully!';
 
   @override
   String get errorWeakPassword =>

@@ -21,6 +21,8 @@ import '../../../data/models/location_model.dart';
 import '../../widgets/common/full_screen_image_viewer.dart';
 import '../../widgets/common/strobilus_image.dart';
 import '../../widgets/common/location_picker_field.dart';
+import '../../widgets/common/strobilus_snack_bar.dart';
+import '../../../data/models/species_model.dart';
 
 class ManualAddPage extends StatefulWidget {
   const ManualAddPage({super.key});
@@ -41,6 +43,7 @@ class _ManualAddPageState extends State<ManualAddPage> {
   final _scientificNameController = TextEditingController();
   final _personalNotesController = TextEditingController();
   LocationModel? _selectedLocation;
+  SpeciesModel? _selectedSpecies;
 
   ConeSize _selectedSize = ConeSize.m;
   ConeCondition _selectedCondition = ConeCondition.good;
@@ -88,13 +91,7 @@ class _ManualAddPageState extends State<ManualAddPage> {
       }
     } catch (_) {}
 
-    if (position == null) {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context).gpsUnavailable)),
-        );
-      }
-    } else {
+    if (position != null) {
       if (mounted) {
         setState(() => _location = position);
         // Automatically resolve current location on mount if available
@@ -123,20 +120,14 @@ class _ManualAddPageState extends State<ManualAddPage> {
       }
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('${AppLocalizations.of(context).errorGeneric}: $e'),
-          ),
-        );
+        StrobilusSnackBar.error(context, '${AppLocalizations.of(context).errorGeneric}: $e');
       }
     }
   }
 
   Future<void> _saveCone() async {
     if (_imageFile == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context).errorNoPhoto)),
-      );
+      StrobilusSnackBar.error(context, AppLocalizations.of(context).errorNoPhoto);
       return;
     }
 
@@ -167,7 +158,7 @@ class _ManualAddPageState extends State<ManualAddPage> {
         scientificName: scientificNameInput.isNotEmpty
             ? scientificNameInput
             : null,
-        speciesId: matchedSpeciesId,
+        speciesId: _selectedSpecies?.id ?? matchedSpeciesId,
         photoUrls: [
           _imageFile!.path,
         ], // Local path; CollectionProvider uploads it
@@ -197,17 +188,11 @@ class _ManualAddPageState extends State<ManualAddPage> {
 
       if (mounted) {
         context.pop();
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(AppLocalizations.of(context).coneAddedSuccess),
-          ),
-        );
+        StrobilusSnackBar.success(context, AppLocalizations.of(context).coneAddedSuccess);
       }
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context).errorGeneric)),
-        );
+        StrobilusSnackBar.error(context, AppLocalizations.of(context).errorGeneric);
       }
     } finally {
       if (mounted) {
@@ -338,6 +323,72 @@ class _ManualAddPageState extends State<ManualAddPage> {
                       ),
                     ),
                     const SizedBox(height: DS.xl),
+
+                    // Species Autocomplete
+                    Autocomplete<SpeciesModel>(
+                      displayStringForOption: (SpeciesModel option) => option.getCommonName(Localizations.localeOf(context).languageCode),
+                      optionsBuilder: (TextEditingValue textEditingValue) {
+                        if (textEditingValue.text == '') {
+                          return const Iterable<SpeciesModel>.empty();
+                        }
+                        return context.read<SpeciesProvider>().allSpecies.where((SpeciesModel option) {
+                          return option.getCommonName(Localizations.localeOf(context).languageCode).toLowerCase().contains(textEditingValue.text.toLowerCase()) ||
+                                 option.scientificName.toLowerCase().contains(textEditingValue.text.toLowerCase());
+                        });
+                      },
+                      onSelected: (SpeciesModel selection) {
+                        setState(() {
+                          _selectedSpecies = selection;
+                          _commonNameController.text = selection.getCommonName(Localizations.localeOf(context).languageCode);
+                          _scientificNameController.text = selection.scientificName;
+                        });
+                      },
+                      fieldViewBuilder: (context, controller, focusNode, onFieldSubmitted) {
+                        return TextFormField(
+                          controller: controller,
+                          focusNode: focusNode,
+                          decoration: InputDecoration(
+                            labelText: l10n.speciesTypeLabel,
+                            hintText: l10n.speciesTypeHint,
+                            border: const OutlineInputBorder(),
+                            suffixIcon: const Icon(Icons.arrow_drop_down),
+                          ),
+                          onFieldSubmitted: (String value) {
+                            onFieldSubmitted();
+                          },
+                        );
+                      },
+                      optionsViewBuilder: (context, onSelected, options) {
+                        return Align(
+                          alignment: Alignment.topLeft,
+                          child: Material(
+                            elevation: 4.0,
+                            borderRadius: BorderRadius.circular(8),
+                            child: SizedBox(
+                              height: 200.0,
+                              width: MediaQuery.of(context).size.width - DS.lg * 2,
+                              child: ListView.builder(
+                                padding: const EdgeInsets.all(8.0),
+                                itemCount: options.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  final option = options.elementAt(index);
+                                  return GestureDetector(
+                                    onTap: () {
+                                      onSelected(option);
+                                    },
+                                    child: ListTile(
+                                      title: Text(option.getCommonName(Localizations.localeOf(context).languageCode)),
+                                      subtitle: Text(option.scientificName, style: const TextStyle(fontStyle: FontStyle.italic)),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                    const SizedBox(height: DS.md),
 
                     // Form Fields
                     TextFormField(
