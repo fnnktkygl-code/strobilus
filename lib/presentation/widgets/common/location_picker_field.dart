@@ -6,7 +6,6 @@ import 'package:strobilus/l10n/app_localizations.dart';
 import '../../../core/theme/design_system.dart';
 import '../../../data/models/location_model.dart';
 import '../../../data/services/maps_service.dart';
-import 'strobilus_snack_bar.dart';
 
 class LocationPickerField extends StatefulWidget {
   final LocationModel? initialLocation;
@@ -57,12 +56,18 @@ class _LocationPickerFieldState extends State<LocationPickerField> {
 
         if (permission != LocationPermission.denied &&
             permission != LocationPermission.deniedForever) {
-          final position = await Geolocator.getCurrentPosition(
-            locationSettings: const LocationSettings(
-              accuracy: LocationAccuracy.medium,
-              timeLimit: Duration(seconds: 10),
-            ),
-          );
+          Position? position;
+          try {
+            position = await Geolocator.getCurrentPosition(
+              locationSettings: const LocationSettings(
+                accuracy: LocationAccuracy.medium,
+                timeLimit: Duration(seconds: 5),
+              ),
+            );
+          } catch (e) {
+            position = await Geolocator.getLastKnownPosition();
+            if (position == null) rethrow;
+          }
 
           if (mounted) {
             final mapsService = context.read<MapsService>();
@@ -80,9 +85,7 @@ class _LocationPickerFieldState extends State<LocationPickerField> {
         }
       }
     } catch (e) {
-      if (mounted) {
-        StrobilusSnackBar.warning(context, AppLocalizations.of(context).gpsUnavailable);
-      }
+      // Silently fail if location cannot be determined, allowing manual selection
     } finally {
       if (mounted) {
         setState(() => _isLoading = false);

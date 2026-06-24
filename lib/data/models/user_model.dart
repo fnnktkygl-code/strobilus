@@ -21,6 +21,7 @@ class UserModel {
   final int xpPoints;
   final int level;
   final int currentStreak;
+  final int longestStreak;
   final DateTime? lastActivityAt;
   final DateTime joinedAt;
   final String preferredLanguage;
@@ -48,6 +49,7 @@ class UserModel {
     this.xpPoints = 0,
     this.level = 1,
     this.currentStreak = 0,
+    this.longestStreak = 0,
     this.lastActivityAt,
     required this.joinedAt,
     this.preferredLanguage = 'en',
@@ -84,6 +86,7 @@ class UserModel {
       xpPoints: data['xpPoints'] as int? ?? 0,
       level: data['level'] as int? ?? 1,
       currentStreak: data['currentStreak'] as int? ?? 0,
+      longestStreak: data['longestStreak'] as int? ?? data['currentStreak'] as int? ?? 0,
       lastActivityAt: (data['lastActivityAt'] as Timestamp?)?.toDate(),
       joinedAt: (data['joinedAt'] as Timestamp?)?.toDate() ?? DateTime.now(),
       preferredLanguage: data['preferredLanguage'] ?? 'en',
@@ -117,6 +120,7 @@ class UserModel {
       'xpPoints': xpPoints,
       'level': level,
       'currentStreak': currentStreak,
+      'longestStreak': longestStreak,
       'lastActivityAt': lastActivityAt != null
           ? Timestamp.fromDate(lastActivityAt!)
           : null,
@@ -167,6 +171,7 @@ class UserModel {
     int? xpPoints,
     int? level,
     int? currentStreak,
+    int? longestStreak,
     DateTime? lastActivityAt,
     String? preferredLanguage,
     String? unitSystem,
@@ -197,6 +202,7 @@ class UserModel {
       xpPoints: xpPoints ?? this.xpPoints,
       level: level ?? this.level,
       currentStreak: currentStreak ?? this.currentStreak,
+      longestStreak: longestStreak ?? this.longestStreak,
       lastActivityAt: lastActivityAt ?? this.lastActivityAt,
       joinedAt: joinedAt,
       preferredLanguage: preferredLanguage ?? this.preferredLanguage,

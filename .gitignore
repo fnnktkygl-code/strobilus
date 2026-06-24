@@ -31,8 +31,6 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-*.g.dart
-*.freezed.dart
 
 # Web related
 
@@ -54,7 +52,6 @@ app.*.map.json
 google-services.json
 GoogleService-Info.plist
 firebase_app_id_file.json
-**/firebase_options.dart
 
 # Node modules (Cloud Functions)
 functions/node_modules/
@@ -69,3 +66,4 @@ android/local.properties
 
 # Coverage
 coverage/
+flutter/

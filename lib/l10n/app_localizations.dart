@@ -1100,6 +1100,12 @@ abstract class AppLocalizations {
   /// **'in your collection'**
   String get speciesInCollection;
 
+  /// No description provided for @speciesFoundCTA.
+  ///
+  /// In en, this message translates to:
+  /// **'I found one!'**
+  String get speciesFoundCTA;
+
   /// No description provided for @speciesNotInCollection.
   ///
   /// In en, this message translates to:
@@ -2341,6 +2347,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Absolute precision. 50 cones with 100% metadata filled.'**
   String get achTaxonomistDesc;
+
+  /// No description provided for @scanStep1.
+  ///
+  /// In en, this message translates to:
+  /// **'Analyzing the scales...'**
+  String get scanStep1;
+
+  /// No description provided for @scanStep2.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifying the species...'**
+  String get scanStep2;
+
+  /// No description provided for @scanStep3.
+  ///
+  /// In en, this message translates to:
+  /// **'Estimating the size...'**
+  String get scanStep3;
+
+  /// No description provided for @scanStep4.
+  ///
+  /// In en, this message translates to:
+  /// **'Almost there...'**
+  String get scanStep4;
+
+  /// No description provided for @emptyCollectionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your adventure starts here'**
+  String get emptyCollectionTitle;
+
+  /// No description provided for @emptyCollectionSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Go explore and add your first pine cone to your collection!'**
+  String get emptyCollectionSubtitle;
+
+  /// No description provided for @emptyCollectionCta.
+  ///
+  /// In en, this message translates to:
+  /// **'Start the adventure'**
+  String get emptyCollectionCta;
+
+  /// No description provided for @emptyMapTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore the world'**
+  String get emptyMapTitle;
+
+  /// No description provided for @emptyMapSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your finds will appear here on the map. Go collect!'**
+  String get emptyMapSubtitle;
+
+  /// No description provided for @coachMarkTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your first find!'**
+  String get coachMarkTitle;
+
+  /// No description provided for @coachMarkBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap here to capture your first pine cone'**
+  String get coachMarkBody;
 }
 
 class _AppLocalizationsDelegate

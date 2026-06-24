@@ -379,6 +379,18 @@ class SpeciesDetailPage extends StatelessWidget {
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          context.push('/add-cone', extra: {'speciesId': speciesId});
+        },
+        backgroundColor: theme.colorScheme.primary,
+        foregroundColor: theme.colorScheme.onPrimary,
+        icon: const Icon(Icons.add_a_photo),
+        label: Text(
+          l10n.speciesFoundCTA,
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
+      ),
     );
   }
 }

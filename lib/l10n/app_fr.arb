@@ -209,6 +209,7 @@
   "speciesInterestingFacts": "Le saviez-vous ?",
   "speciesDescription": "Description",
   "speciesInCollection": "dans votre collection",
+  "speciesFoundCTA": "J'en ai trouvé une !",
   "speciesNotInCollection": "Pas encore découvert",
   "speciesTotalCount": "{count, plural, =1{1 espèce} other{{count} espèces}}",
   "@speciesTotalCount": {
@@ -453,5 +454,16 @@
   "achCrystalCone": "Le Conifère de Cristal",
   "achCrystalConeDesc": "Vous avez identifié 15 espèces de rareté 'Légendaire'.",
   "achTaxonomist": "Le Taxinomiste",
-  "achTaxonomistDesc": "Précision absolue. 50 pommes de pin avec 100% de métadonnées remplies."
+  "achTaxonomistDesc": "Précision absolue. 50 pommes de pin avec 100% de métadonnées remplies.",
+  "scanStep1": "Analyse des écailles...",
+  "scanStep2": "Identification de l'espèce...",
+  "scanStep3": "Estimation de la taille...",
+  "scanStep4": "Presque terminé...",
+  "emptyCollectionTitle": "Votre aventure commence ici",
+  "emptyCollectionSubtitle": "Partez à la découverte et ajoutez votre première pomme de pin à votre collection !",
+  "emptyCollectionCta": "Commencer l'aventure",
+  "emptyMapTitle": "Explorez le monde",
+  "emptyMapSubtitle": "Vos trouvailles apparaîtront ici sur la carte. Sortez collecter !",
+  "coachMarkTitle": "Votre première trouvaille !",
+  "coachMarkBody": "Appuyez ici pour capturer votre première pomme de pin"
 }

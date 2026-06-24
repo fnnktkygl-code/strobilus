@@ -74,11 +74,12 @@ class _MapPageState extends State<MapPage> {
 
   @override
   Widget build(BuildContext context) {
-    final ext = Theme.of(context).extension<StrobilusExtension>()!;
+    final theme = Theme.of(context);
+    final ext = theme.extension<StrobilusExtension>()!;
     final mapProvider = context.watch<MapProvider>();
     final collectionProvider = context.watch<CollectionProvider>();
     final speciesProvider = context.watch<SpeciesProvider>();
-    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final isDark = theme.brightness == Brightness.dark;
 
     final cones = mapProvider.filterCones(collectionProvider.allCones);
 
@@ -254,6 +255,64 @@ class _MapPageState extends State<MapPage> {
               ],
             ),
           ),
+
+          // Empty State Overlay
+          if (mapProvider.viewMode == MapViewMode.collection && cones.isEmpty)
+            Positioned(
+              bottom: 120 + MediaQuery.of(context).padding.bottom,
+              left: DS.xl,
+              right: DS.xl,
+              child: Container(
+                padding: const EdgeInsets.all(DS.xl),
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.surface.withValues(alpha: 0.9),
+                  borderRadius: DS.borderRadiusLg,
+                  boxShadow: DS.shadowElevated(theme),
+                  border: Border.all(
+                    color: theme.colorScheme.primary.withValues(alpha: 0.2),
+                  ),
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(DS.md),
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.primary.withValues(alpha: 0.1),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        Icons.explore,
+                        size: 48,
+                        color: theme.colorScheme.primary,
+                      ),
+                    ),
+                    const SizedBox(height: DS.md),
+                    Text(
+                      AppLocalizations.of(context).emptyMapTitle,
+                      style: theme.textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: DS.sm),
+                    Text(
+                      AppLocalizations.of(context).emptyMapSubtitle,
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        color: theme.colorScheme.onSurfaceVariant,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: DS.lg),
+                    FilledButton.icon(
+                      onPressed: () => context.push('/add-cone'),
+                      icon: const Icon(Icons.add),
+                      label: Text(AppLocalizations.of(context).emptyCollectionCta),
+                    ),
+                  ],
+                ),
+              ),
+            ),
 
           // Bottom Info Card (Cone or Species)
           Positioned(

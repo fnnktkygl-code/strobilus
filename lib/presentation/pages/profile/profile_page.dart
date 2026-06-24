@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 
 import '../../../core/theme/design_system.dart';
 import '../../../data/models/achievement_model.dart';
+import '../../../data/models/user_model.dart';
 import '../../../presentation/providers/auth_provider.dart';
 import '../../../presentation/providers/collection_provider.dart';
 
@@ -233,7 +234,9 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
 
-                  const SizedBox(height: DS.xxxl),
+                  const SizedBox(height: DS.xl),
+                  if (user != null) _GamificationBanner(user: user),
+                  const SizedBox(height: DS.xl),
 
                   // ── Stats Row (Glassmorphism) ──
                   Row(
@@ -502,6 +505,99 @@ class _GlassStatCard extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class _GamificationBanner extends StatelessWidget {
+  final UserModel user;
+  
+  const _GamificationBanner({required this.user});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(DS.md),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.1),
+        borderRadius: DS.borderRadiusLg,
+        border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          // Streak
+          Expanded(
+            child: Column(
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(Icons.local_fire_department, color: Colors.orange, size: 28),
+                    const SizedBox(width: DS.xs),
+                    Text(
+                      '\${user.currentStreak}',
+                      style: const TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+                Text(
+                  'Jours consécutifs',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.white.withValues(alpha: 0.7),
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+          
+          // Divider
+          Container(
+            height: 40,
+            width: 1,
+            color: Colors.white.withValues(alpha: 0.2),
+          ),
+          
+          // XP & Level
+          Expanded(
+            child: Column(
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(Icons.star, color: Colors.amber, size: 28),
+                    const SizedBox(width: DS.xs),
+                    Flexible(
+                      child: Text(
+                        '\${user.xpPoints} XP',
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
+              Text(
+                'Niveau \${user.level}',
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.white.withValues(alpha: 0.7),
+                ),
+              ),
+            ],
+          ),
+          )
+        ],
       ),
     );
   }

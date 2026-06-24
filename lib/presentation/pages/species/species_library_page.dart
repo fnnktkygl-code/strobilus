@@ -126,41 +126,114 @@ class SpeciesLibraryPage extends StatelessWidget {
                 horizontal: DS.md,
                 vertical: DS.sm,
               ),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    _FilterChip(
-                      label: l10n.pokedexAllFilter,
-                      isSelected: speciesProvider.subgenusFilter == null,
-                      onTap: () => speciesProvider.setSubgenusFilter(null),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        _FilterChip(
+                          label: l10n.pokedexAllFilter,
+                          isSelected: speciesProvider.subgenusFilter == null,
+                          onTap: () => speciesProvider.setSubgenusFilter(null),
+                        ),
+                        const SizedBox(width: DS.sm),
+                        _FilterChip(
+                          label: l10n.pokedexHardPines,
+                          isSelected: speciesProvider.subgenusFilter == 'Pinus',
+                          onTap: () => speciesProvider.setSubgenusFilter('Pinus'),
+                          iconData: Icons.shield_outlined,
+                        ),
+                        const SizedBox(width: DS.sm),
+                        _FilterChip(
+                          label: l10n.pokedexSoftPines,
+                          isSelected: speciesProvider.subgenusFilter == 'Strobus',
+                          onTap: () => speciesProvider.setSubgenusFilter('Strobus'),
+                          iconData: Icons.spa_outlined,
+                        ),
+                        if (speciesProvider.hasNonPinusSpecies) ...[
+                          const SizedBox(width: DS.sm),
+                          _FilterChip(
+                            label: l10n.pokedexOtherConifers,
+                            isSelected: speciesProvider.subgenusFilter == '_other',
+                            onTap: () =>
+                                speciesProvider.setSubgenusFilter('_other'),
+                            iconData: Icons.park_outlined,
+                          ),
+                        ],
+                      ],
                     ),
-                    const SizedBox(width: DS.sm),
-                    _FilterChip(
-                      label: l10n.pokedexHardPines,
-                      isSelected: speciesProvider.subgenusFilter == 'Pinus',
-                      onTap: () => speciesProvider.setSubgenusFilter('Pinus'),
-                      iconData: Icons.shield_outlined,
+                  ),
+                  const SizedBox(height: DS.sm),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        _FilterChip(
+                          label: 'Toutes les raretés',
+                          isSelected: speciesProvider.rarityFilter == null,
+                          onTap: () => speciesProvider.setRarityFilter(null),
+                        ),
+                        const SizedBox(width: DS.sm),
+                        _FilterChip(
+                          label: 'Commun',
+                          isSelected: speciesProvider.rarityFilter == 'common',
+                          onTap: () => speciesProvider.setRarityFilter('common'),
+                        ),
+                        const SizedBox(width: DS.sm),
+                        _FilterChip(
+                          label: 'Peu commun',
+                          isSelected: speciesProvider.rarityFilter == 'uncommon',
+                          onTap: () => speciesProvider.setRarityFilter('uncommon'),
+                        ),
+                        const SizedBox(width: DS.sm),
+                        _FilterChip(
+                          label: 'Rare',
+                          isSelected: speciesProvider.rarityFilter == 'rare',
+                          onTap: () => speciesProvider.setRarityFilter('rare'),
+                        ),
+                        const SizedBox(width: DS.sm),
+                        _FilterChip(
+                          label: 'Légendaire',
+                          isSelected: speciesProvider.rarityFilter == 'legendary',
+                          onTap: () => speciesProvider.setRarityFilter('legendary'),
+                        ),
+                      ],
                     ),
-                    const SizedBox(width: DS.sm),
-                    _FilterChip(
-                      label: l10n.pokedexSoftPines,
-                      isSelected: speciesProvider.subgenusFilter == 'Strobus',
-                      onTap: () => speciesProvider.setSubgenusFilter('Strobus'),
-                      iconData: Icons.spa_outlined,
+                  ),
+                  const SizedBox(height: DS.sm),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        _FilterChip(
+                          label: 'Tous les continents',
+                          isSelected: speciesProvider.continentFilter == null,
+                          onTap: () => speciesProvider.setContinentFilter(null),
+                        ),
+                        const SizedBox(width: DS.sm),
+                        _FilterChip(
+                          label: 'Amérique du Nord',
+                          isSelected: speciesProvider.continentFilter == 'NA',
+                          onTap: () => speciesProvider.setContinentFilter('NA'),
+                        ),
+                        const SizedBox(width: DS.sm),
+                        _FilterChip(
+                          label: 'Europe',
+                          isSelected: speciesProvider.continentFilter == 'EU',
+                          onTap: () => speciesProvider.setContinentFilter('EU'),
+                        ),
+                        const SizedBox(width: DS.sm),
+                        _FilterChip(
+                          label: 'Asie',
+                          isSelected: speciesProvider.continentFilter == 'AS',
+                          onTap: () => speciesProvider.setContinentFilter('AS'),
+                        ),
+                      ],
                     ),
-                    if (speciesProvider.hasNonPinusSpecies) ...[
-                      const SizedBox(width: DS.sm),
-                      _FilterChip(
-                        label: l10n.pokedexOtherConifers,
-                        isSelected: speciesProvider.subgenusFilter == '_other',
-                        onTap: () =>
-                            speciesProvider.setSubgenusFilter('_other'),
-                        iconData: Icons.park_outlined,
-                      ),
-                    ],
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),

@@ -560,6 +560,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get speciesInCollection => 'dans votre collection';
 
   @override
+  String get speciesFoundCTA => 'J\'en ai trouvé une !';
+
+  @override
   String get speciesNotInCollection => 'Pas encore découvert';
 
   @override
@@ -1233,4 +1236,40 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get achTaxonomistDesc =>
       'Précision absolue. 50 pommes de pin avec 100% de métadonnées remplies.';
+
+  @override
+  String get scanStep1 => 'Analyse des écailles...';
+
+  @override
+  String get scanStep2 => 'Identification de l\'espèce...';
+
+  @override
+  String get scanStep3 => 'Estimation de la taille...';
+
+  @override
+  String get scanStep4 => 'Presque terminé...';
+
+  @override
+  String get emptyCollectionTitle => 'Votre aventure commence ici';
+
+  @override
+  String get emptyCollectionSubtitle =>
+      'Partez à la découverte et ajoutez votre première pomme de pin à votre collection !';
+
+  @override
+  String get emptyCollectionCta => 'Commencer l\'aventure';
+
+  @override
+  String get emptyMapTitle => 'Explorez le monde';
+
+  @override
+  String get emptyMapSubtitle =>
+      'Vos trouvailles apparaîtront ici sur la carte. Sortez collecter !';
+
+  @override
+  String get coachMarkTitle => 'Votre première trouvaille !';
+
+  @override
+  String get coachMarkBody =>
+      'Appuyez ici pour capturer votre première pomme de pin';
 }

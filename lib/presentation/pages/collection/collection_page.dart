@@ -141,25 +141,73 @@ class _EmptyState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Transform.scale(
-            scale: 2.0,
-            child: Image.asset('assets/images/logo_squared.png', width: 96, height: 96),
-          ),
-          const SizedBox(height: DS.md),
-          Text(
-            l10n.collectionEmpty,
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
-          const SizedBox(height: DS.sm),
-          Text(
-            l10n.collectionEmptySubtitle,
-            style: Theme.of(context).textTheme.bodyMedium,
-          ),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: DS.xl),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // Animated forest illustration
+            TweenAnimationBuilder<double>(
+              tween: Tween(begin: 0.0, end: 1.0),
+              duration: const Duration(milliseconds: 800),
+              curve: Curves.easeOutBack,
+              builder: (context, value, child) {
+                return Transform.scale(
+                  scale: value,
+                  child: Opacity(opacity: value, child: child),
+                );
+              },
+              child: Container(
+                width: 140,
+                height: 140,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                      theme.colorScheme.primary.withValues(alpha: 0.15),
+                      theme.colorScheme.secondary.withValues(alpha: 0.1),
+                    ],
+                  ),
+                ),
+                child: const Center(
+                  child: Text('🌲', style: TextStyle(fontSize: 64)),
+                ),
+              ),
+            ),
+            const SizedBox(height: DS.xl),
+            Text(
+              l10n.emptyCollectionTitle,
+              style: theme.textTheme.headlineSmall?.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: DS.sm),
+            Text(
+              l10n.emptyCollectionSubtitle,
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: theme.colorScheme.onSurfaceVariant,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: DS.xl),
+            FilledButton.icon(
+              onPressed: () => context.push('/add-cone'),
+              icon: const Icon(Icons.add),
+              label: Text(l10n.emptyCollectionCta),
+              style: FilledButton.styleFrom(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: DS.xl,
+                  vertical: DS.md,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

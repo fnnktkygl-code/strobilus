@@ -324,68 +324,29 @@ class _ManualAddPageState extends State<ManualAddPage> {
                     ),
                     const SizedBox(height: DS.xl),
 
-                    // Species Autocomplete
-                    Autocomplete<SpeciesModel>(
-                      displayStringForOption: (SpeciesModel option) => option.getCommonName(Localizations.localeOf(context).languageCode),
-                      optionsBuilder: (TextEditingValue textEditingValue) {
-                        if (textEditingValue.text == '') {
-                          return const Iterable<SpeciesModel>.empty();
+                      DropdownButtonFormField<SpeciesModel>(
+                        decoration: InputDecoration(
+                          labelText: l10n.speciesTypeLabel,
+                          hintText: l10n.speciesTypeHint,
+                          border: const OutlineInputBorder(),
+                        ),
+                        isExpanded: true,
+                        value: _selectedSpecies,
+                        items: context.read<SpeciesProvider>().allSpecies.map((SpeciesModel s) {
+                        final commonName = s.getCommonName(Localizations.localeOf(context).languageCode);
+                        return DropdownMenuItem<SpeciesModel>(
+                          value: s,
+                          child: Text('$commonName (${s.scientificName})'),
+                        );
+                      }).toList(),
+                      onChanged: (SpeciesModel? selection) {
+                        if (selection != null) {
+                          setState(() {
+                            _selectedSpecies = selection;
+                            _commonNameController.text = selection.getCommonName(Localizations.localeOf(context).languageCode);
+                            _scientificNameController.text = selection.scientificName;
+                          });
                         }
-                        return context.read<SpeciesProvider>().allSpecies.where((SpeciesModel option) {
-                          return option.getCommonName(Localizations.localeOf(context).languageCode).toLowerCase().contains(textEditingValue.text.toLowerCase()) ||
-                                 option.scientificName.toLowerCase().contains(textEditingValue.text.toLowerCase());
-                        });
-                      },
-                      onSelected: (SpeciesModel selection) {
-                        setState(() {
-                          _selectedSpecies = selection;
-                          _commonNameController.text = selection.getCommonName(Localizations.localeOf(context).languageCode);
-                          _scientificNameController.text = selection.scientificName;
-                        });
-                      },
-                      fieldViewBuilder: (context, controller, focusNode, onFieldSubmitted) {
-                        return TextFormField(
-                          controller: controller,
-                          focusNode: focusNode,
-                          decoration: InputDecoration(
-                            labelText: l10n.speciesTypeLabel,
-                            hintText: l10n.speciesTypeHint,
-                            border: const OutlineInputBorder(),
-                            suffixIcon: const Icon(Icons.arrow_drop_down),
-                          ),
-                          onFieldSubmitted: (String value) {
-                            onFieldSubmitted();
-                          },
-                        );
-                      },
-                      optionsViewBuilder: (context, onSelected, options) {
-                        return Align(
-                          alignment: Alignment.topLeft,
-                          child: Material(
-                            elevation: 4.0,
-                            borderRadius: BorderRadius.circular(8),
-                            child: SizedBox(
-                              height: 200.0,
-                              width: MediaQuery.of(context).size.width - DS.lg * 2,
-                              child: ListView.builder(
-                                padding: const EdgeInsets.all(8.0),
-                                itemCount: options.length,
-                                itemBuilder: (BuildContext context, int index) {
-                                  final option = options.elementAt(index);
-                                  return GestureDetector(
-                                    onTap: () {
-                                      onSelected(option);
-                                    },
-                                    child: ListTile(
-                                      title: Text(option.getCommonName(Localizations.localeOf(context).languageCode)),
-                                      subtitle: Text(option.scientificName, style: const TextStyle(fontStyle: FontStyle.italic)),
-                                    ),
-                                  );
-                                },
-                              ),
-                            ),
-                          ),
-                        );
                       },
                     ),
                     const SizedBox(height: DS.md),
@@ -422,71 +383,100 @@ class _ManualAddPageState extends State<ManualAddPage> {
                       },
                     ),
                     const SizedBox(height: DS.lg),
-                    DropdownButtonFormField<ConeSize>(
-                      initialValue: _selectedSize,
-                      decoration: InputDecoration(
-                        labelText: l10n.sizeLabel,
-                        border: const OutlineInputBorder(),
+                    
+                    // Optional Details Accordion
+                    ExpansionTile(
+                      title: Text(
+                        'Détails optionnels',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
                       ),
-                      items: ConeSize.values.map((size) {
-                        return DropdownMenuItem(
-                          value: size,
-                          child: Text(size.label(context)),
-                        );
-                      }).toList(),
-                      onChanged: (val) {
-                        if (val != null) setState(() => _selectedSize = val);
-                      },
-                    ),
-                    const SizedBox(height: DS.md),
+                      subtitle: Text(
+                        'Taille, état, rareté, notes...',
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
+                        ),
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: DS.borderRadiusMd,
+                        side: BorderSide(color: Theme.of(context).colorScheme.outlineVariant),
+                      ),
+                      collapsedShape: RoundedRectangleBorder(
+                        borderRadius: DS.borderRadiusMd,
+                        side: BorderSide(color: Theme.of(context).colorScheme.outlineVariant),
+                      ),
+                      childrenPadding: const EdgeInsets.all(DS.md),
+                      children: [
+                        DropdownButtonFormField<ConeSize>(
+                          initialValue: _selectedSize,
+                          decoration: InputDecoration(
+                            labelText: l10n.sizeLabel,
+                            border: const OutlineInputBorder(),
+                          ),
+                          items: ConeSize.values.map((size) {
+                            return DropdownMenuItem(
+                              value: size,
+                              child: Text(size.label(context)),
+                            );
+                          }).toList(),
+                          onChanged: (val) {
+                            if (val != null) setState(() => _selectedSize = val);
+                          },
+                        ),
+                        const SizedBox(height: DS.md),
 
-                    DropdownButtonFormField<ConeCondition>(
-                      initialValue: _selectedCondition,
-                      decoration: InputDecoration(
-                        labelText: l10n.conditionLabel,
-                        border: const OutlineInputBorder(),
-                      ),
-                      items: ConeCondition.values.map((cond) {
-                        return DropdownMenuItem(
-                          value: cond,
-                          child: Text(cond.label(context)),
-                        );
-                      }).toList(),
-                      onChanged: (val) {
-                        if (val != null) {
-                          setState(() => _selectedCondition = val);
-                        }
-                      },
-                    ),
-                    const SizedBox(height: DS.md),
+                        DropdownButtonFormField<ConeCondition>(
+                          initialValue: _selectedCondition,
+                          decoration: InputDecoration(
+                            labelText: l10n.conditionLabel,
+                            border: const OutlineInputBorder(),
+                          ),
+                          items: ConeCondition.values.map((cond) {
+                            return DropdownMenuItem(
+                              value: cond,
+                              child: Text(cond.label(context)),
+                            );
+                          }).toList(),
+                          onChanged: (val) {
+                            if (val != null) {
+                              setState(() => _selectedCondition = val);
+                            }
+                          },
+                        ),
+                        const SizedBox(height: DS.md),
 
-                    DropdownButtonFormField<ConeRarity>(
-                      initialValue: _selectedRarity,
-                      decoration: InputDecoration(
-                        labelText: l10n.rarityLabel,
-                        border: const OutlineInputBorder(),
-                      ),
-                      items: ConeRarity.values.map((rarity) {
-                        return DropdownMenuItem(
-                          value: rarity,
-                          child: Text(rarity.label(context)),
-                        );
-                      }).toList(),
-                      onChanged: (val) {
-                        if (val != null) setState(() => _selectedRarity = val);
-                      },
-                    ),
-                    const SizedBox(height: DS.lg),
+                        DropdownButtonFormField<ConeRarity>(
+                          initialValue: _selectedRarity,
+                          decoration: InputDecoration(
+                            labelText: l10n.rarityLabel,
+                            border: const OutlineInputBorder(),
+                          ),
+                          items: ConeRarity.values.map((rarity) {
+                            return DropdownMenuItem(
+                              value: rarity,
+                              child: Text(rarity.label(context)),
+                            );
+                          }).toList(),
+                          onChanged: (val) {
+                            if (val != null) setState(() => _selectedRarity = val);
+                          },
+                        ),
+                        const SizedBox(height: DS.lg),
 
-                    TextFormField(
-                      controller: _personalNotesController,
-                      decoration: InputDecoration(
-                        labelText: l10n.personalNotes,
-                        alignLabelWithHint: true,
-                        border: const OutlineInputBorder(),
-                        hintText: l10n.notesHint,
-                      ),
-                      maxLines: 5,
+                        TextFormField(
+                          controller: _personalNotesController,
+                          decoration: InputDecoration(
+                            labelText: l10n.personalNotes,
+                            alignLabelWithHint: true,
+                            border: const OutlineInputBorder(),
+                            hintText: l10n.notesHint,
+                          ),
+                          maxLines: 5,
+                        ),
+                      ],
                     ),
                     const SizedBox(height: DS.xxxl),
 

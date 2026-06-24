@@ -11,6 +11,7 @@ import 'package:uuid/uuid.dart';
 import 'package:strobilus/l10n/app_localizations.dart';
 
 import '../../../core/theme/design_system.dart';
+import '../../../core/errors/exceptions.dart';
 import '../../../core/router/route_names.dart';
 import '../../../data/models/location_model.dart';
 import '../../../data/models/pine_cone_model.dart';
@@ -32,9 +33,15 @@ class QuickCapturePage extends StatefulWidget {
 
 enum CaptureState { viewfinder, processing, review }
 
-class _QuickCapturePageState extends State<QuickCapturePage> {
+class _QuickCapturePageState extends State<QuickCapturePage>
+    with TickerProviderStateMixin {
   CameraController? _cameraController;
   CaptureState _state = CaptureState.viewfinder;
+
+  // Scan animation
+  AnimationController? _scanController;
+  AnimationController? _pulseController;
+  int _scanTextIndex = 0;
 
   // Captured Data
   File? _capturedImage;
@@ -48,6 +55,14 @@ class _QuickCapturePageState extends State<QuickCapturePage> {
     super.initState();
     _initCamera();
     _initLocation();
+    _scanController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    );
+    _pulseController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1200),
+    );
   }
 
   Future<void> _initCamera() async {
@@ -158,7 +173,14 @@ class _QuickCapturePageState extends State<QuickCapturePage> {
   Future<void> _identifyWithAI() async {
     if (_capturedImage == null) return;
 
-    setState(() => _state = CaptureState.processing);
+    setState(() {
+      _state = CaptureState.processing;
+      _scanTextIndex = 0;
+    });
+    _scanController!.repeat();
+    _pulseController!.repeat(reverse: true);
+    // Cycle scan text
+    _cycleScanText();
 
     try {
       final locale = Localizations.localeOf(context).languageCode;
@@ -171,13 +193,42 @@ class _QuickCapturePageState extends State<QuickCapturePage> {
         languageCode: locale,
       );
 
+      _stopScanAnimation();
       if (mounted) {
         setState(() {
           _aiResult = aiResult;
           _state = CaptureState.review;
         });
       }
+    } on AiNetworkException catch (_) {
+      _stopScanAnimation();
+      if (mounted) {
+        setState(() {
+          _aiResult = null;
+          _state = CaptureState.review;
+        });
+        StrobilusSnackBar.error(context, 'Erreur réseau. Vérifiez votre connexion Internet.');
+      }
+    } on AiQuotaException catch (_) {
+      _stopScanAnimation();
+      if (mounted) {
+        setState(() {
+          _aiResult = null;
+          _state = CaptureState.review;
+        });
+        StrobilusSnackBar.error(context, "Limite quotidienne d'identification atteinte. Réessayez demain !");
+      }
+    } on AiInvalidImageException catch (_) {
+      _stopScanAnimation();
+      if (mounted) {
+        setState(() {
+          _aiResult = null;
+          _state = CaptureState.review;
+        });
+        StrobilusSnackBar.error(context, "L'image n'est pas claire ou n'est pas une pomme de pin.");
+      }
     } catch (e) {
+      _stopScanAnimation();
       if (mounted) {
         setState(() {
           _aiResult = null;
@@ -282,9 +333,35 @@ class _QuickCapturePageState extends State<QuickCapturePage> {
     }
   }
 
+  void _stopScanAnimation() {
+    _scanController?.stop();
+    _scanController?.reset();
+    _pulseController?.stop();
+    _pulseController?.reset();
+  }
+
+  Future<void> _cycleScanText() async {
+    for (int i = 0; i < 4; i++) {
+      await Future.delayed(const Duration(seconds: 2));
+      if (!mounted || _state != CaptureState.processing) return;
+      setState(() => _scanTextIndex = (i + 1) % 4);
+    }
+  }
+
+  String _getScanText(AppLocalizations l10n) {
+    switch (_scanTextIndex) {
+      case 0: return l10n.scanStep1;
+      case 1: return l10n.scanStep2;
+      case 2: return l10n.scanStep3;
+      default: return l10n.scanStep4;
+    }
+  }
+
   @override
   void dispose() {
     _cameraController?.dispose();
+    _scanController?.dispose();
+    _pulseController?.dispose();
     super.dispose();
   }
 
@@ -380,23 +457,88 @@ class _QuickCapturePageState extends State<QuickCapturePage> {
             ),
           ),
 
-          // Processing Overlay
+          // Processing Overlay — Animated Scan
           if (_state == CaptureState.processing)
-            Container(
-              color: Colors.black54,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const CircularProgressIndicator(color: Colors.white),
-                  const SizedBox(height: DS.lg),
-                  Text(
-                    l10n.aiIdentifying,
-                    style: theme.textTheme.titleMedium?.copyWith(
-                      color: Colors.white,
-                    ),
+            AnimatedBuilder(
+              animation: Listenable.merge([_scanController!, _pulseController!]),
+              builder: (context, child) {
+                return Container(
+                  color: Colors.black.withValues(alpha: 0.6),
+                  child: Stack(
+                    children: [
+                      // Scan line
+                      Positioned(
+                        top: MediaQuery.of(context).size.height * _scanController!.value,
+                        left: 0,
+                        right: 0,
+                        child: Container(
+                          height: 3,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                Colors.transparent,
+                                theme.colorScheme.primary.withValues(alpha: 0.8),
+                                theme.colorScheme.primary,
+                                theme.colorScheme.primary.withValues(alpha: 0.8),
+                                Colors.transparent,
+                              ],
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: theme.colorScheme.primary.withValues(alpha: 0.5),
+                                blurRadius: 16,
+                                spreadRadius: 4,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      // Center content
+                      Center(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            // Pulsing icon
+                            Transform.scale(
+                              scale: 1.0 + (_pulseController!.value * 0.2),
+                              child: Container(
+                                width: 80,
+                                height: 80,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: theme.colorScheme.primary.withValues(alpha: 0.15),
+                                  border: Border.all(
+                                    color: theme.colorScheme.primary.withValues(alpha: 0.5),
+                                    width: 2,
+                                  ),
+                                ),
+                                child: const Icon(
+                                  Icons.auto_awesome,
+                                  color: Colors.white,
+                                  size: 36,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: DS.lg),
+                            // Animated text
+                            AnimatedSwitcher(
+                              duration: DS.medium,
+                              child: Text(
+                                _getScanText(l10n),
+                                key: ValueKey(_scanTextIndex),
+                                style: theme.textTheme.titleMedium?.copyWith(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                );
+              },
             ),
 
           // Viewfinder Controls

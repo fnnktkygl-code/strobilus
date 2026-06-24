@@ -206,9 +206,24 @@ class GeminiService {
               as String;
       final json = jsonDecode(text) as Map<String, dynamic>;
       return ConeIdentificationResult.fromJson(json);
+    } on DioException catch (e) {
+      _logger.e('Gemini identification failed with DioException: $e');
+      if (e.type == DioExceptionType.connectionTimeout || 
+          e.type == DioExceptionType.receiveTimeout || 
+          (e.type == DioExceptionType.unknown && e.error is SocketException)) {
+        throw const AiNetworkException();
+      } else if (e.response?.statusCode == 429) {
+        throw const AiQuotaException();
+      } else if (e.response?.statusCode == 400) {
+        throw const AiInvalidImageException();
+      }
+      throw const AiGenericException();
+    } on SocketException catch (e) {
+      _logger.e('Gemini identification failed with SocketException: $e');
+      throw const AiNetworkException();
     } catch (e) {
-      _logger.e('Gemini identification failed: $e');
-      rethrow;
+      _logger.e('Gemini identification failed with generic error: $e');
+      throw const AiGenericException();
     }
   }
 
@@ -224,7 +239,7 @@ CRITICAL: Heavily weight native species for this floristic zone. If the cone mor
 
     final languageInstruction = languageCode == 'fr'
         ? "IMPORTANT: Return all commonName values in FRENCH (e.g. 'Pin sylvestre' not 'Scots Pine')."
-        : "IMPORTANT: Return all commonName values in ENGLISH.";
+        : 'IMPORTANT: Return all commonName values in ENGLISH.';
 
     return '''You are an expert conifer taxonomist and morphologist specializing in Pinaceae identification from cone morphology.
 $contextString

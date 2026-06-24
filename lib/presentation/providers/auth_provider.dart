@@ -273,12 +273,37 @@ class AuthProvider extends ChangeNotifier {
       _userModel!.claimableAchievementIds,
     )..addAll(newAchievementIds);
 
+    int newStreak = _userModel!.currentStreak;
+    int newLongestStreak = _userModel!.longestStreak;
+    final now = DateTime.now();
+    final lastActivity = _userModel!.lastActivityAt;
+    
+    if (lastActivity != null) {
+      final lastDate = DateTime(lastActivity.year, lastActivity.month, lastActivity.day);
+      final today = DateTime(now.year, now.month, now.day);
+      final diff = today.difference(lastDate).inDays;
+      
+      if (diff == 1) {
+        newStreak += 1;
+      } else if (diff > 1) {
+        newStreak = 1;
+      }
+    } else {
+      newStreak = 1;
+    }
+    
+    if (newStreak > newLongestStreak) {
+      newLongestStreak = newStreak;
+    }
+
     final updatedUser = _userModel!.copyWith(
       totalCones: totalCones,
       uniqueSpeciesCount: uniqueSpeciesCount,
       countriesCount: countriesCount,
       claimableAchievementIds: updatedAchievementIds,
-      lastActivityAt: DateTime.now(),
+      currentStreak: newStreak,
+      longestStreak: newLongestStreak,
+      lastActivityAt: now,
     );
 
     try {

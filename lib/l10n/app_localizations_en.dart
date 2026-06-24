@@ -553,6 +553,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get speciesInCollection => 'in your collection';
 
   @override
+  String get speciesFoundCTA => 'I found one!';
+
+  @override
   String get speciesNotInCollection => 'Not yet discovered';
 
   @override
@@ -1218,4 +1221,39 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get achTaxonomistDesc =>
       'Absolute precision. 50 cones with 100% metadata filled.';
+
+  @override
+  String get scanStep1 => 'Analyzing the scales...';
+
+  @override
+  String get scanStep2 => 'Identifying the species...';
+
+  @override
+  String get scanStep3 => 'Estimating the size...';
+
+  @override
+  String get scanStep4 => 'Almost there...';
+
+  @override
+  String get emptyCollectionTitle => 'Your adventure starts here';
+
+  @override
+  String get emptyCollectionSubtitle =>
+      'Go explore and add your first pine cone to your collection!';
+
+  @override
+  String get emptyCollectionCta => 'Start the adventure';
+
+  @override
+  String get emptyMapTitle => 'Explore the world';
+
+  @override
+  String get emptyMapSubtitle =>
+      'Your finds will appear here on the map. Go collect!';
+
+  @override
+  String get coachMarkTitle => 'Your first find!';
+
+  @override
+  String get coachMarkBody => 'Tap here to capture your first pine cone';
 }

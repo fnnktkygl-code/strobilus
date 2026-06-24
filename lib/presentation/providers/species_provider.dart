@@ -14,6 +14,8 @@ class SpeciesProvider extends ChangeNotifier {
   bool _isLoading = false;
   String? _searchQuery;
   String? _subgenusFilter; // "Strobus", "Pinus", or null (all)
+  String? _rarityFilter;
+  String? _continentFilter;
   String _sortMode = 'pokedex'; // 'pokedex', 'name', 'rarity', 'difficulty'
 
   SpeciesProvider({required this.hiveService});
@@ -22,6 +24,8 @@ class SpeciesProvider extends ChangeNotifier {
   bool get isLoading => _isLoading;
   String? get searchQuery => _searchQuery;
   String? get subgenusFilter => _subgenusFilter;
+  String? get rarityFilter => _rarityFilter;
+  String? get continentFilter => _continentFilter;
   String get sortMode => _sortMode;
 
   List<SpeciesModel> get filteredSpecies {
@@ -35,6 +39,16 @@ class SpeciesProvider extends ChangeNotifier {
       } else {
         list = list.where((s) => s.subgenus == _subgenusFilter).toList();
       }
+    }
+
+    // Rarity filter
+    if (_rarityFilter != null && _rarityFilter!.isNotEmpty) {
+      list = list.where((s) => s.baseRarity == _rarityFilter).toList();
+    }
+
+    // Continent filter
+    if (_continentFilter != null && _continentFilter!.isNotEmpty) {
+      list = list.where((s) => s.continents.contains(_continentFilter)).toList();
     }
 
     // Search query
@@ -137,8 +151,18 @@ class SpeciesProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void setSortMode(String mode) {
-    _sortMode = mode;
+  void setRarityFilter(String? rarity) {
+    _rarityFilter = rarity;
+    notifyListeners();
+  }
+
+  void setContinentFilter(String? continent) {
+    _continentFilter = continent;
+    notifyListeners();
+  }
+
+  void setSortMode(String sortMode) {
+    _sortMode = sortMode;
     notifyListeners();
   }
 

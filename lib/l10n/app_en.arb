@@ -209,6 +209,7 @@
   "speciesInterestingFacts": "Did you know?",
   "speciesDescription": "Description",
   "speciesInCollection": "in your collection",
+  "speciesFoundCTA": "I found one!",
   "speciesNotInCollection": "Not yet discovered",
   "speciesTotalCount": "{count} species",
   "@speciesTotalCount": {
@@ -453,5 +454,16 @@
   "achCrystalCone": "Crystal Cone",
   "achCrystalConeDesc": "You identified 15 'Legendary' rarity species.",
   "achTaxonomist": "The Taxonomist",
-  "achTaxonomistDesc": "Absolute precision. 50 cones with 100% metadata filled."
+  "achTaxonomistDesc": "Absolute precision. 50 cones with 100% metadata filled.",
+  "scanStep1": "Analyzing the scales...",
+  "scanStep2": "Identifying the species...",
+  "scanStep3": "Estimating the size...",
+  "scanStep4": "Almost there...",
+  "emptyCollectionTitle": "Your adventure starts here",
+  "emptyCollectionSubtitle": "Go explore and add your first pine cone to your collection!",
+  "emptyCollectionCta": "Start the adventure",
+  "emptyMapTitle": "Explore the world",
+  "emptyMapSubtitle": "Your finds will appear here on the map. Go collect!",
+  "coachMarkTitle": "Your first find!",
+  "coachMarkBody": "Tap here to capture your first pine cone"
 }

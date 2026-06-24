@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:async';
 
 import 'package:flutter/material.dart';
 
@@ -60,6 +61,10 @@ class CollectionProvider extends ChangeNotifier {
   CollectionSort _sort = CollectionSort.newestFirst;
   String? _loadedUserId;
   AuthProvider? _authProvider;
+  
+  // Stream for newly unlocked achievements
+  final _achievementUnlockController = StreamController<String>.broadcast();
+  Stream<String> get onAchievementUnlocked => _achievementUnlockController.stream;
 
   CollectionProvider({
     required this.firestoreService,
@@ -84,11 +89,19 @@ class CollectionProvider extends ChangeNotifier {
 
   int get totalCones => _cones.length;
 
-  int get uniqueSpeciesCount => _cones
-      .where((c) => c.speciesId != null)
-      .map((c) => c.speciesId)
-      .toSet()
-      .length;
+  int get uniqueSpeciesCount {
+    final set = <String>{};
+    for (final c in _cones) {
+      if (c.speciesId != null && c.speciesId!.isNotEmpty) {
+        set.add(c.speciesId!);
+      } else if (c.scientificName != null && c.scientificName!.isNotEmpty) {
+        set.add(c.scientificName!);
+      } else if (c.commonName.isNotEmpty) {
+        set.add(c.commonName);
+      }
+    }
+    return set.length;
+  }
 
   Set<String> get visitedCountryCodes =>
       _cones.map((c) => c.countryCode).where((c) => c.isNotEmpty).toSet();
@@ -275,6 +288,10 @@ class CollectionProvider extends ChangeNotifier {
       newAchievementIds: newlyUnlocked,
       firestoreService: firestoreService,
     );
+    
+    for (final achievementId in newlyUnlocked) {
+      _achievementUnlockController.add(achievementId);
+    }
   }
 
   List<PineConeModel> _applyFilterAndSort() {
