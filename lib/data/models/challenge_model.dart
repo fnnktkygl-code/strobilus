@@ -21,64 +21,105 @@ class ChallengeModel {
     required this.expirationDate,
   });
 
-  /// Generates a deterministic challenge based on the current week of the year.
-  static ChallengeModel getCurrentWeeklyChallenge() {
+  /// Generates a deterministic daily challenge based on user level and history.
+  static ChallengeModel getCurrentDailyChallenge(dynamic user) {
     final now = DateTime.now();
-    // Calculate week number (simple approximation)
+    // Calculate day of the year
     final dayOfYear = int.parse(
       now.difference(DateTime(now.year, 1, 1)).inDays.toString(),
     );
-    final weekNumber = ((dayOfYear - now.weekday + 10) / 7).floor();
 
-    // End of the current week (Sunday 23:59:59)
-    final daysUntilSunday = DateTime.sunday - now.weekday;
-    final endOfWeek = DateTime(
+    // End of the current day
+    final endOfDay = DateTime(
       now.year,
       now.month,
       now.day,
-    ).add(Duration(days: daysUntilSunday, hours: 23, minutes: 59, seconds: 59));
+      23, 59, 59,
+    );
 
-    // We cycle through 4 types of challenges based on the week number
-    final challengeType = weekNumber % 4;
+    final challengeType = dayOfYear % 4;
+    final id = 'daily_${now.year}_$dayOfYear';
 
+    // Beginners (Level 1-3) get very simple challenges
+    if (user.level <= 3) {
+      if (challengeType == 0 || challengeType == 2) {
+        return ChallengeModel(
+          id: id,
+          title: 'Découverte du jour',
+          description: "Ajoutez 1 pomme de pin à votre collection aujourd'hui.",
+          targetCount: 1,
+          xpReward: 100,
+          expirationDate: endOfDay,
+        );
+      } else {
+        return ChallengeModel(
+          id: id,
+          title: 'Pas à pas',
+          description: "Photographiez 2 pommes de pin pour bien commencer.",
+          targetCount: 2,
+          xpReward: 150,
+          expirationDate: endOfDay,
+        );
+      }
+    }
+
+    // Intermediary/Advanced (Level 4+)
+    // If they have already discovered species, we can ask them to find one again
+    // This guarantees the challenge is logical for their location!
+    if (user.customSpeciesPhotos.isNotEmpty && challengeType == 3) {
+      final speciesIds = user.customSpeciesPhotos.keys.toList();
+      // Deterministic selection based on the day of the year
+      final selectedSpeciesId = speciesIds[dayOfYear % speciesIds.length];
+      return ChallengeModel(
+        id: id,
+        title: 'Retour aux sources',
+        description: "Trouvez une nouvelle pomme de pin d'une espèce que vous avez déjà identifiée.",
+        targetCount: 1,
+        xpReward: 250,
+        requiredSpeciesId: selectedSpeciesId,
+        expirationDate: endOfDay,
+      );
+    }
+
+    // Default cycle for advanced users
     switch (challengeType) {
       case 0:
         return ChallengeModel(
-          id: 'week_\${now.year}_\$weekNumber',
-          title: 'Explorateur de la semaine',
+          id: id,
+          title: 'Explorateur Quotidien',
           description: "Trouvez 3 pommes de pin, peu importe l'espèce.",
           targetCount: 3,
           xpReward: 150,
-          expirationDate: endOfWeek,
+          expirationDate: endOfDay,
         );
       case 1:
         return ChallengeModel(
-          id: 'week_\${now.year}_\$weekNumber',
-          title: 'Spécialiste Pinus',
-          description: 'Trouvez 2 pommes de pin du genre Pinus.',
+          id: id,
+          title: 'Spécialiste Pinaceae',
+          description: "Trouvez 2 pommes de pin de la famille Pinaceae (Pins, Sapins, Cèdres...).",
           targetCount: 2,
           xpReward: 200,
-          requiredFamily: 'Pinaceae', // Or we can use regex on scientific name
-          expirationDate: endOfWeek,
+          requiredFamily: 'Pinaceae',
+          expirationDate: endOfDay,
         );
       case 2:
         return ChallengeModel(
-          id: 'week_\${now.year}_\$weekNumber',
+          id: id,
           title: 'Grand Marcheur',
-          description: 'Ajoutez 5 nouvelles trouvailles à votre collection.',
-          targetCount: 5,
+          description: "Ajoutez 4 nouvelles trouvailles à votre collection aujourd'hui.",
+          targetCount: 4,
           xpReward: 300,
-          expirationDate: endOfWeek,
+          expirationDate: endOfDay,
         );
       case 3:
       default:
         return ChallengeModel(
-          id: 'week_\${now.year}_\$weekNumber',
-          title: 'Collectionneur Rare',
-          description: "Ajoutez 1 espèce que vous n'avez jamais trouvée.",
-          targetCount: 1,
-          xpReward: 250,
-          expirationDate: endOfWeek,
+          id: id,
+          title: 'Le compte est bon',
+          description: "Identifiez 2 pommes de pin différentes aujourd'hui.",
+          targetCount: 2,
+          xpReward: 200,
+          expirationDate: endOfDay,
         );
     }
   }

@@ -285,8 +285,8 @@ class CollectionProvider extends ChangeNotifier {
       countriesCount,
     );
 
-    // Weekly Challenge logic
-    final currentChallenge = ChallengeModel.getCurrentWeeklyChallenge();
+    // Daily Challenge logic
+    final currentChallenge = ChallengeModel.getCurrentDailyChallenge(user);
     String currentChallengeId =
         user.currentWeeklyChallengeId ?? currentChallenge.id;
     int progress = user.weeklyChallengeProgress;
